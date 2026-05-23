@@ -1,0 +1,88 @@
+.hero {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+/* Badge */
+.badge {
+  margin-bottom: var(--space-6);
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  opacity: 0.4;
+  margin-bottom: var(--space-5);
+}
+
+/* Titre */
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  max-width: 720px;
+  margin-bottom: var(--space-6);
+  color: var(--color-text);
+}
+
+.title strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Sous-titre */
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-10);
+}
+
+/* Boutons */
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

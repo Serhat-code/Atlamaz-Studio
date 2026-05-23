@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon -->
+    <link rel="icon"             type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon"             type="image/x-icon"  href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon"                      href="/favicon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- SEO de base (surchargé par react-helmet-async sur chaque page) -->
+    <title>Atlamaz Studio — Création de sites web à Lyon</title>
+    <meta
+      name="description"
+      content="Studio de création web à Lyon. Sites vitrines, landing pages, boutiques en ligne, applications mobiles. Livraison rapide, prix clairs, résultats garantis."
+    />
+    <link rel="canonical" href="https://atlamazstudio.fr/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://atlamazstudio.fr/" />
+    <meta property="og:title"       content="Atlamaz Studio — Création de sites web à Lyon" />
+    <meta property="og:description" content="Studio de création web à Lyon. Sites vitrines, landing pages, boutiques en ligne, applications mobiles." />
+    <meta property="og:image"       content="https://atlamazstudio.fr/og-image.svg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale"      content="fr_FR" />
+    <meta property="og:site_name"   content="Atlamaz Studio" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Atlamaz Studio — Création de sites web à Lyon" />
+    <meta name="twitter:description" content="Studio de création web à Lyon. Sites vitrines, landing pages, boutiques en ligne, applications mobiles." />
+    <meta name="twitter:image"       content="https://atlamazstudio.fr/og-image.svg" />
+
+    <!-- Schema.org — LocalBusiness (SEO local Lyon) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Atlamaz Studio",
+      "description": "Studio de création web freelance à Lyon — sites vitrines, landing pages, boutiques en ligne, applications mobiles React Native.",
+      "url": "https://atlamazstudio.fr",
+      "email": "atlamazstudio@gmail.com",
+      "image": "https://atlamazstudio.fr/og-image.svg",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lyon",
+        "addressRegion": "Rhône",
+        "addressCountry": "FR"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Lyon" },
+        { "@type": "Country", "name": "France" }
+      ],
+      "knowsAbout": ["Création de site web", "React", "SEO", "Application mobile", "React Native"],
+      "sameAs": [
+        "https://linkedin.com/in/serhat-atlamaz"
+      ]
+    }
+    </script>
+
+    <!-- Klaro — Bandeau cookies RGPD (conforme CNIL) -->
+    <!-- La config est dans /public/config/klaro-config.js -->
+    <script src="/config/klaro-config.js"></script>
+    <script
+      defer
+      data-config="klaroConfig"
+      src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"
+    ></script>
+
+    <!-- Umami Analytics (sans cookies, sans données perso, conforme RGPD) -->
+    <!-- 1. Créer un site sur https://cloud.umami.is -->
+    <!-- 2. Remplacer YOUR_UMAMI_WEBSITE_ID par votre Website ID -->
+    <!--
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="YOUR_UMAMI_WEBSITE_ID"
+    ></script>
+    -->
+
+    <!-- Resend — Emails transactionnels (confirmation de formulaire) -->
+    <!-- Configurer dans une Vercel Edge Function ou API Route :      -->
+    <!-- POST /api/send-confirmation → Resend SDK → email de confirmation -->
+    <!-- Documentation : https://resend.com/docs                     -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

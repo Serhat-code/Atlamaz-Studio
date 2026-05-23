@@ -1,0 +1,272 @@
+.header {
+  margin-bottom: var(--space-16);
+}
+
+.subtitle {
+  margin-top: var(--space-2);
+}
+
+/* ── Rangées ─────────────────────────────────────────────── */
+.row {
+  margin-bottom: var(--space-16);
+}
+
+.rowLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  position: relative;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Card mise en avant (Populaire) */
+.cardFeatured {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.cardFeatured:hover {
+  border-color: var(--color-text);
+  box-shadow: 0 12px 48px rgba(255, 255, 255, 0.15);
+}
+
+.cardFeatured .cardName,
+.cardFeatured .cardPrice,
+.cardFeatured .cardDelivery,
+.cardFeatured .feature {
+  color: var(--color-bg);
+}
+
+.cardFeatured .featureCheck {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* En-tête card */
+.cardHeader {
+  margin-bottom: var(--space-6);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.cardName {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  line-height: var(--line-height-snug);
+}
+
+.cardPricing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.cardPrice {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.cardDelivery {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.cardFeatured .cardDelivery {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* Features */
+.features {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-snug);
+}
+
+.cardFeatured .feature {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.featureCheck {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Footer card */
+.cardFooter {
+  margin-top: auto;
+}
+
+.cardCta {
+  width: 100%;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+/* ── Header spécial rangée (Application mobile) ─────────── */
+.rowSectionHeader {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.rowSectionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+  line-height: var(--line-height-snug);
+  margin-bottom: var(--space-2);
+}
+
+.rowSectionSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+/* ── Options à la carte (sous rangée mobile) ─────────────── */
+.optionsWrapper {
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.optionsLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.optionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-8);
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.optionName {
+  color: var(--color-text-secondary);
+}
+
+.optionPrice {
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+/* ── Bandeau sur mesure ──────────────────────────────────── */
+.custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-10);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-4);
+}
+
+.customText {
+  flex: 1;
+  min-width: 0;
+}
+
+.customTitle {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.customSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .custom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-6);
+  }
+
+  .custom .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
