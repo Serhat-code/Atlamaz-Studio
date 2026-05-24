@@ -11,6 +11,8 @@ export const en = {
       { label: 'Achievements',  href: '/realisations',  isAnchor: false },
       { label: 'Process',       href: '#process',       isAnchor: true },
       { label: 'Pricing',       href: '#packs',         isAnchor: true },
+      { label: 'Blog',          href: '/blog',          isAnchor: false },
+      { label: 'FAQ',           href: '/faq',           isAnchor: false },
     ],
     cta: 'Start a project',
     ctaHref: '#contact',
@@ -397,10 +399,30 @@ export const en = {
     copy:  'ATLAMAZ STUDIO © 2026',
     email: 'atlamazstudio@gmail.com',
     links: [
-      { label: 'Legal notice', href: '/mentions-legales' },
+      { label: 'Legal notice',   href: '/mentions-legales' },
       { label: 'Privacy policy', href: '/politique-confidentialite' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/serhat-atlamaz-2a9359411/', external: true },
+      { label: 'LinkedIn',       href: 'https://www.linkedin.com/in/serhat-atlamaz-2a9359411/', external: true },
     ],
+    nosVilles: {
+      title: 'Our cities',
+      links: [
+        { label: 'Lyon',              href: '/creation-site-web-lyon' },
+        { label: 'Saint-Étienne',     href: '/creation-site-web-saint-etienne' },
+        { label: 'Grenoble',          href: '/creation-site-web-grenoble' },
+        { label: 'Annecy',            href: '/creation-site-web-annecy' },
+        { label: 'Clermont-Ferrand',  href: '/creation-site-web-clermont-ferrand' },
+      ],
+    },
+    services: {
+      title: 'Services',
+      links: [
+        { label: 'Landing page',     href: '/creation-landing-page' },
+        { label: 'Showcase website', href: '/creation-site-vitrine' },
+        { label: 'Online store',     href: '/creation-boutique-en-ligne' },
+        { label: 'Mobile app',       href: '/creation-application-mobile' },
+        { label: 'Website redesign', href: '/refonte-site-web' },
+      ],
+    },
   },
 
   // ── Page Réalisations ─────────────────────────────────────

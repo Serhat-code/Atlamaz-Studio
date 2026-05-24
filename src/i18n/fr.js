@@ -7,10 +7,12 @@ export const fr = {
   navbar: {
     logo: 'ATLAMAZ STUDIO',
     links: [
-      { label: 'Services',     href: '#packs',    isAnchor: true },
-      { label: 'Réalisations', href: '/realisations', isAnchor: false },
-      { label: 'Process',      href: '#process',  isAnchor: true },
-      { label: 'Tarifs',       href: '#packs',    isAnchor: true },
+      { label: 'Services',     href: '#packs',        isAnchor: true },
+      { label: 'Réalisations', href: '/realisations',  isAnchor: false },
+      { label: 'Process',      href: '#process',       isAnchor: true },
+      { label: 'Tarifs',       href: '#packs',         isAnchor: true },
+      { label: 'Blog',         href: '/blog',          isAnchor: false },
+      { label: 'FAQ',          href: '/faq',           isAnchor: false },
     ],
     cta: 'Démarrer un projet',
     ctaHref: '#contact',
@@ -403,6 +405,26 @@ export const fr = {
       { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
       { label: 'LinkedIn',                   href: 'https://www.linkedin.com/in/serhat-atlamaz-2a9359411/', external: true },
     ],
+    nosVilles: {
+      title: 'Nos villes',
+      links: [
+        { label: 'Lyon',              href: '/creation-site-web-lyon' },
+        { label: 'Saint-Étienne',     href: '/creation-site-web-saint-etienne' },
+        { label: 'Grenoble',          href: '/creation-site-web-grenoble' },
+        { label: 'Annecy',            href: '/creation-site-web-annecy' },
+        { label: 'Clermont-Ferrand',  href: '/creation-site-web-clermont-ferrand' },
+      ],
+    },
+    services: {
+      title: 'Services',
+      links: [
+        { label: 'Landing page',      href: '/creation-landing-page' },
+        { label: 'Site vitrine',      href: '/creation-site-vitrine' },
+        { label: 'Boutique en ligne', href: '/creation-boutique-en-ligne' },
+        { label: 'Application mobile', href: '/creation-application-mobile' },
+        { label: 'Refonte site web',  href: '/refonte-site-web' },
+      ],
+    },
   },
 
   // ── Page Réalisations ─────────────────────────────────────

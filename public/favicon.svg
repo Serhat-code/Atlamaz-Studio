@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#000000"/>
-  <text
-    x="16" y="23"
-    font-family="'Inter','Arial',sans-serif"
-    font-size="20" font-weight="600"
-    fill="#ffffff" text-anchor="middle"
-  >A</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" width="32" height="32"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><rect width="32" height="32" rx="6" fill="#000000"></rect><text x="16" y="23" font-family="'Inter','Arial',sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">A</text></svg>

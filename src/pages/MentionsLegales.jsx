@@ -26,7 +26,7 @@ export default function MentionsLegales() {
               <li><strong>Nom :</strong> Serhat Atlamaz</li>
               <li><strong>Enseigne :</strong> Atlamaz Studio</li>
               <li><strong>Statut :</strong> Micro-entreprise</li>
-              <li><strong>SIRET :</strong> [À COMPLÉTER]</li>
+              <li><strong>SIRET :</strong> 981 178 296 00019</li>
               <li><strong>Adresse :</strong> Lyon, France</li>
               <li><strong>Email :</strong> <a href="mailto:atlamazstudio@gmail.com" className={styles.link}>atlamazstudio@gmail.com</a></li>
             </ul>

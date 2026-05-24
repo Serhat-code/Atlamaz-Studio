@@ -1,0 +1,286 @@
+/* ── Breadcrumb ──────────────────────────────────────────── */
+.breadcrumb {
+  padding: var(--space-4) 0;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.breadcrumbList li:last-child {
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.breadcrumbList a {
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbList a:hover {
+  color: var(--color-text);
+}
+
+/* ── Layout article ──────────────────────────────────────── */
+.articleWrapper {
+  border-top: 0.5px solid var(--color-border);
+}
+
+.articleLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+/* ── Article principal ───────────────────────────────────── */
+.articleMain {
+  min-width: 0;
+}
+
+.articleHeader {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.articleMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.articleMeta time,
+.articleMeta span:not([class]) {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.articleTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-5);
+}
+
+.articleExtrait {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Contenu HTML ────────────────────────────────────────── */
+.articleContent {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.articleContent h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+  line-height: var(--line-height-snug);
+}
+
+.articleContent h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+.articleContent p {
+  margin-bottom: var(--space-5);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+.articleContent ul,
+.articleContent ol {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.articleContent li {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.articleContent a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-6));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sidebarCard {
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sidebarCardCta {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-border-hover);
+}
+
+.sidebarCardLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sidebarCardTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebarCardDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-snug);
+}
+
+.sidebarCardPrice {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-green);
+}
+
+.sidebarLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sidebarLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+  padding: var(--space-1) 0;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.sidebarLink:hover {
+  color: var(--color-text);
+}
+
+.sidebarLink:last-child {
+  border-bottom: none;
+}
+
+/* ── Articles similaires ─────────────────────────────────── */
+.similaires {
+  margin-top: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.similairesTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-8);
+}
+
+.similairesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.similaireCard {
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: border-color var(--transition-fast);
+}
+
+.similaireCard:hover {
+  border-color: var(--color-border-hover);
+}
+
+.similaireCardTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+}
+
+.similaireCardExtrait {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-snug);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.similaireCardTemps {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: auto;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .articleLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .similairesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .articleTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .similairesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .breadcrumbList li:last-child {
+    max-width: 180px;
+  }
+}

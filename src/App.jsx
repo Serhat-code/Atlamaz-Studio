@@ -15,6 +15,13 @@ import MentionsLegales         from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import Merci                   from './pages/Merci';
 import NotFound                from './pages/NotFound';
+import VillePage               from './pages/VillePage';
+import NosVilles               from './pages/NosVilles';
+import ServicePage             from './pages/ServicePage';
+import FAQ                     from './pages/FAQ';
+import Blog                    from './pages/Blog';
+import BlogArticle             from './pages/BlogArticle';
+import { services }            from './data/services';
 
 const translations = { fr, en };
 
@@ -47,6 +54,15 @@ export default function App() {
             <Route path="/mentions-legales"               element={<MentionsLegales />} />
             <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
             <Route path="/merci"                          element={<Merci t={t} />} />
+            {/* SEO pages */}
+            <Route path="/nos-villes"                     element={<NosVilles />} />
+            <Route path="/faq"                            element={<FAQ />} />
+            <Route path="/blog"                           element={<Blog />} />
+            <Route path="/blog/:slug"                     element={<BlogArticle />} />
+            {services.map((s) => (
+              <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
+            ))}
+            <Route path="/creation-site-web-:villeId"    element={<VillePage />} />
             {/* 404 */}
             <Route path="*"                               element={<NotFound />} />
           </Routes>

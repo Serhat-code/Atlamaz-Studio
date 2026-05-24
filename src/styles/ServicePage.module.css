@@ -1,0 +1,375 @@
+/* ── Breadcrumb ──────────────────────────────────────────── */
+.breadcrumb {
+  padding: var(--space-4) 0;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.breadcrumbList li:last-child {
+  color: var(--color-text-secondary);
+}
+
+.breadcrumbList a {
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbList a:hover {
+  color: var(--color-text);
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--space-20);
+}
+
+.heroTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-4);
+  max-width: 760px;
+}
+
+.heroTagline {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-5);
+  font-style: italic;
+}
+
+.heroDesc {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 620px;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.heroBadges {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.heroBadge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+}
+
+.heroBadgeLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.heroBadge strong {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.heroCtas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ── Intro ───────────────────────────────────────────────── */
+.introSection {
+  background-color: var(--color-bg-surface);
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.introGrid {
+  max-width: 760px;
+}
+
+.introTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-5);
+}
+
+.introText {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Inclus ──────────────────────────────────────────────── */
+.inclusSection {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.inclusList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+  max-width: 760px;
+}
+
+.inclusItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.inclusCheck {
+  color: var(--color-accent-green);
+  font-weight: var(--font-weight-semibold);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Processus ───────────────────────────────────────────── */
+.processusSection {
+  background-color: var(--color-bg-surface);
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.processusGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.processusCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.processusNumero {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-tertiary);
+  line-height: 1;
+}
+
+.processusTitre {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.processusDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Prix ────────────────────────────────────────────────── */
+.prixSection {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.prixCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-8);
+  background-color: var(--color-bg-alt);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-12);
+  flex-wrap: wrap;
+}
+
+.prixLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.prixTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+}
+
+.prixTagline {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+.prixRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.prixAmount {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.prixDelai {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+.faqSection {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+  max-width: 760px;
+}
+
+.faqItem {
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.faqQuestion {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-3);
+}
+
+.faqReponse {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Villes liées ────────────────────────────────────────── */
+.villesSection {
+  background-color: var(--color-bg-surface);
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.villesGrid {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
+}
+
+.villeCard {
+  background-color: var(--color-bg-alt);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  transition: border-color var(--transition-fast);
+}
+
+.villeCard:hover {
+  border-color: var(--color-border-hover);
+}
+
+.villeCard strong {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.villeCard span {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.villeCardMore {
+  justify-content: center;
+}
+
+.villeCardMore strong {
+  color: var(--color-text-secondary);
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cta {
+  background-color: var(--color-bg-alt);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-4);
+}
+
+.ctaTitle strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.ctaSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+}
+
+.ctaCtas {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .processusGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--font-size-3xl);
+  }
+
+  .prixCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-8);
+  }
+
+  .prixRight {
+    align-items: flex-start;
+  }
+
+  .inclusList {
+    grid-template-columns: 1fr;
+  }
+
+  .processusGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,14 +1,88 @@
 .footer {
   border-top: 0.5px solid var(--color-border);
-  padding: var(--space-6) 0;
+  padding: var(--space-12) 0 var(--space-6);
+  background-color: var(--color-bg-surface);
 }
 
 .inner {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+/* ── Grille 4 colonnes ────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-8);
+}
+
+/* ── Colonnes ────────────────────────────────────────────── */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.colTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.colDesc {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  line-height: var(--line-height-relaxed);
+  max-width: 280px;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ── Liens ───────────────────────────────────────────────── */
+.link {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  display: block;
+}
+
+.link:hover {
+  color: var(--color-text-secondary);
+}
+
+.linkAll {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+.email {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.email:hover {
+  color: var(--color-text-secondary);
+}
+
+/* ── Barre de bas ────────────────────────────────────────── */
+.bottom {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 0.5px solid var(--color-border);
   flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
 .copy {
@@ -19,39 +93,35 @@
   white-space: nowrap;
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  flex-wrap: wrap;
-}
-
-.link {
+.copyRight {
   font-size: 12px;
   color: var(--color-text-tertiary);
-  transition: color var(--transition-fast);
-  white-space: nowrap;
 }
 
-.link:hover {
-  color: var(--color-text-secondary);
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-12);
+  }
 }
 
-.email {
-  white-space: nowrap;
-}
-
-/* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .inner {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: var(--space-4);
+    gap: var(--space-2);
   }
+}
 
-  .links {
-    justify-content: center;
-    gap: var(--space-4);
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,137 @@
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--space-20);
+}
+
+.heroTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-5);
+  max-width: 700px;
+}
+
+.heroTitle strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Grille des villes ───────────────────────────────────── */
+.villesSection {
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.villesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.villeCard {
+  background-color: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 140px;
+}
+
+.villeCard:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.villeCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.villeCardNom {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.villeCardRegion {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.villeCardDept {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.villeCardCta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.villeCard:hover .villeCardCta {
+  color: var(--color-text);
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cta {
+  background-color: var(--color-bg-alt);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-4);
+}
+
+.ctaTitle strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.ctaSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .villesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--font-size-3xl);
+  }
+
+  .villesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .villesGrid {
+    grid-template-columns: 1fr;
+  }
+}
