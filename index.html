@@ -11,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000000" />
 
+    <!-- Google Fonts — preconnect pour éviter le blocage du rendu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
     <!-- SEO de base (surchargé par react-helmet-async sur chaque page) -->
     <title>Atlamaz Studio — Création de sites web à Lyon</title>
     <meta
@@ -64,22 +69,7 @@
     }
     </script>
 
-    <!-- Klaro — Bandeau cookies RGPD (conforme CNIL) -->
-    <!-- La config est dans /public/config/klaro-config.js -->
-    <script src="/config/klaro-config.js"></script>
-    <script
-      defer
-      data-config="klaroConfig"
-      src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"
-    ></script>
-
-    <!-- Umami Analytics (sans cookies, sans données perso, conforme RGPD) -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="6f36d276-5504-4d54-8365-80b3a7a22b8d"></script>
-
-    <!-- Resend — Emails transactionnels (confirmation de formulaire) -->
-    <!-- Configurer dans une Vercel Edge Function ou API Route :      -->
-    <!-- POST /api/send-confirmation → Resend SDK → email de confirmation -->
-    <!-- Documentation : https://resend.com/docs                     -->
+    <!-- Umami Analytics — chargé dynamiquement par CookieBanner.jsx après consentement -->
   </head>
   <body>
     <div id="root"></div>

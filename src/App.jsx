@@ -5,8 +5,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { fr } from './i18n/fr';
 import { en } from './i18n/en';
 
-import Navbar  from './components/Navbar';
-import Footer  from './components/Footer';
+import Navbar       from './components/Navbar';
+import Footer       from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 
 import Home                    from './pages/Home';
 import Realisations            from './pages/Realisations';
@@ -31,6 +32,7 @@ function Layout({ t, lang, onLangToggle, children }) {
       <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />
       <main>{children}</main>
       <Footer t={t} />
+      <CookieBanner />
     </>
   );
 }

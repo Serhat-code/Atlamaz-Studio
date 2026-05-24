@@ -1,0 +1,100 @@
+/* ── Bandeau cookies custom ───────────────────────────────── */
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-8);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Texte ────────────────────────────────────────────────── */
+.text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.policyLink {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+}
+
+.policyLink:hover {
+  opacity: 0.75;
+}
+
+/* ── Boutons ──────────────────────────────────────────────── */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.btnRefuse,
+.btnAccept {
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s, border-color 0.15s;
+  font-family: var(--font-family);
+}
+
+.btnRefuse {
+  background: transparent;
+  border: 0.5px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.btnRefuse:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.btnAccept {
+  background: #ffffff;
+  border: 0.5px solid #ffffff;
+  color: #000000;
+}
+
+.btnAccept:hover {
+  opacity: 0.88;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .buttons {
+    width: 100%;
+  }
+
+  .btnRefuse,
+  .btnAccept {
+    flex: 1;
+    text-align: center;
+  }
+}
