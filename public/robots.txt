@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /merci
 
-Sitemap: https://atlamazstudio.fr/sitemap.xml
+Sitemap: https://atlamaz-studio.vercel.app/sitemap.xml
