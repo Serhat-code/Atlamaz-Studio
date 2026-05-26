@@ -401,7 +401,7 @@ export const en = {
     links: [
       { label: 'Legal notice',   href: '/mentions-legales' },
       { label: 'Privacy policy', href: '/politique-confidentialite' },
-      { label: 'LinkedIn',       href: 'https://www.linkedin.com/in/serhat-atlamaz-2a9359411/', external: true },
+      { label: 'LinkedIn',       href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },
     ],
     nosVilles: {
       title: 'Our cities',
