@@ -8,6 +8,7 @@ import { en } from './i18n/en';
 import Navbar       from './components/Navbar';
 import Footer       from './components/Footer';
 import CookieBanner from './components/CookieBanner';
+import ScrollToTop  from './components/ScrollToTop';
 
 import Home                    from './pages/Home';
 import Realisations            from './pages/Realisations';
@@ -55,6 +56,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Layout t={t} lang={lang} onLangToggle={handleLangToggle}>
           <Routes>
             <Route path="/"                               element={<Home t={t} />} />

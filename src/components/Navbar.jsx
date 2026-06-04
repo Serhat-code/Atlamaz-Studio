@@ -17,12 +17,22 @@ export default function Navbar({ t, lang, onLangToggle }) {
   const isHome = location.pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+  // Ferme le menu et restaure le scroll au changement de route
+  useEffect(() => {
+    setMenuOpen(false);
+    document.body.style.overflow = '';
+  }, [location.pathname]);
 
+  // Bloque/restaure le scroll body selon l'état du menu
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    document.body.style.overflow = '';
+  };
 
   const resolveHref = (link) => {
     if (link.isAnchor) return isHome ? link.href : `/${link.href}`;
@@ -35,7 +45,7 @@ export default function Navbar({ t, lang, onLangToggle }) {
         <div className={`container ${styles.inner}`}>
 
           {/* Logo */}
-          <Link to="/" className={styles.logo} aria-label="Atlamaz Studio — accueil">
+          <Link to="/" className={styles.logo} aria-label="Atlamaz Studio — accueil" onClick={closeMenu}>
             {t.navbar.logo}
           </Link>
 
@@ -91,7 +101,7 @@ export default function Navbar({ t, lang, onLangToggle }) {
             </a>
           </div>
 
-          {/* Groupe mobile : langToggle + burger — toujours visible */}
+          {/* Groupe mobile : langToggle + burger */}
           <div className={styles.navActions}>
             <button
               className={styles.langToggleMobile}
@@ -113,50 +123,51 @@ export default function Navbar({ t, lang, onLangToggle }) {
           </div>
 
         </div>
-
-        {/* Menu mobile overlay */}
-        {menuOpen && (
-          <div className={styles.mobileMenu} aria-label="Menu mobile">
-            <nav className={styles.mobileNav}>
-              {t.navbar.links.map((link) =>
-                link.isAnchor ? (
-                  <a
-                    key={link.href + link.label}
-                    href={resolveHref(link)}
-                    className={styles.mobileNavLink}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className={`${styles.mobileNavLink} ${location.pathname === link.href ? styles.mobileNavLinkActive : ''}`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </nav>
-            <div className={styles.mobileMenuBottom}>
-              <a
-                href={isHome ? t.navbar.ctaHref : `/${t.navbar.ctaHref}`}
-                className="btn btn--primary"
-                onClick={() => setMenuOpen(false)}
-              >
-                {t.navbar.cta}
-              </a>
-              {PHONE && PHONE_DISPLAY && (
-                <a href={`tel:${PHONE}`} className={styles.mobilePhone} onClick={() => setMenuOpen(false)}>
-                  <PhoneIcon />
-                  {PHONE_DISPLAY}
-                </a>
-              )}
-            </div>
-          </div>
-        )}
       </header>
+
+      {/* Menu mobile — HORS du <header> pour éviter le stacking context de backdrop-filter */}
+      {menuOpen && (
+        <div className={styles.mobileMenu} role="dialog" aria-label="Menu mobile">
+          <nav className={styles.mobileNav}>
+            {t.navbar.links.map((link) =>
+              link.isAnchor ? (
+                <a
+                  key={link.href + link.label}
+                  href={resolveHref(link)}
+                  className={styles.mobileNavLink}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`${styles.mobileNavLink} ${location.pathname === link.href ? styles.mobileNavLinkActive : ''}`}
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
+          <div className={styles.mobileMenuBottom}>
+            <a
+              href={isHome ? t.navbar.ctaHref : `/${t.navbar.ctaHref}`}
+              className="btn btn--primary"
+              onClick={closeMenu}
+            >
+              {t.navbar.cta}
+            </a>
+            {PHONE && PHONE_DISPLAY && (
+              <a href={`tel:${PHONE}`} className={styles.mobilePhone} onClick={closeMenu}>
+                <PhoneIcon />
+                {PHONE_DISPLAY}
+              </a>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Bouton téléphone flottant — mobile uniquement */}
       {PHONE && (

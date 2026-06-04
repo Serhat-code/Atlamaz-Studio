@@ -117,7 +117,7 @@
   flex-shrink: 0;
 }
 
-/* Toggle langue mobile (collé au burger) */
+/* Toggle langue mobile */
 .langToggleMobile {
   font-size: 13px;
   font-weight: 500;
@@ -166,8 +166,11 @@
 .burgerLineBot  { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ── Menu mobile overlay ──────────────────────────────────── */
+/*
+ * Placé HORS du <header> dans le JSX pour éviter que le backdrop-filter
+ * de la navbar crée un stacking context qui piègerait position:fixed.
+ */
 .mobileMenu {
-  display: none;
   position: fixed;
   top: var(--navbar-height);
   left: 0;
@@ -177,25 +180,37 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 99;
+  display: flex;
   flex-direction: column;
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-10) var(--space-6) var(--space-8);
   overflow-y: auto;
+  animation: menuSlideIn 0.22s ease forwards;
+}
+
+@keyframes menuSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .mobileNav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
   flex: 1;
 }
 
 .mobileNavLink {
-  font-size: 22px;
+  display: block;
+  font-size: 24px;
   font-weight: var(--font-weight-light);
   color: var(--color-text-secondary);
-  padding: var(--space-3) 0;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
   transition: color var(--transition-fast);
+  text-align: left;
+}
+
+.mobileNavLink:last-child {
+  border-bottom: none;
 }
 
 .mobileNavLink:hover,
@@ -208,13 +223,21 @@
   padding-top: var(--space-8);
 }
 
+.mobileMenuBottom .btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
 .mobilePhone {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-text-tertiary);
   transition: color var(--transition-fast);
+  padding: 8px 0;
 }
 
 .mobilePhone:hover { color: var(--color-text-secondary); }
@@ -254,7 +277,6 @@
   .nav     { display: none; }
   .actions { display: none; }
 
-  .navActions  { display: flex; }
-  .mobileMenu  { display: flex; }
+  .navActions    { display: flex; }
   .floatingPhone { display: flex; }
 }
