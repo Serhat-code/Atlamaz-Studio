@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   height: var(--navbar-height);
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 /* ── Logo ─────────────────────────────────────────────────── */
@@ -29,15 +29,13 @@
   transition: opacity var(--transition-fast);
 }
 
-.logo:hover {
-  opacity: 0.7;
-}
+.logo:hover { opacity: 0.7; }
 
 /* ── Nav centrale ─────────────────────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .navLink {
@@ -49,19 +47,46 @@
 }
 
 .navLink:hover,
-.navLinkActive {
-  color: var(--color-text);
-}
+.navLinkActive { color: var(--color-text); }
 
 /* ── Actions droite ───────────────────────────────────────── */
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
   flex-shrink: 0;
 }
 
-/* ── Toggle langue ────────────────────────────────────────── */
+/* Numéro de téléphone */
+.navPhone {
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.navPhone:hover { color: var(--color-text); }
+
+/* Bouton Calendly */
+.navCalendly {
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-green);
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 0.5px solid var(--color-accent-green);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navCalendly:hover {
+  background-color: var(--color-accent-green);
+  color: #000;
+}
+
+/* Toggle langue */
 .langToggle {
   font-size: 12px;
   font-weight: var(--font-weight-medium);
@@ -106,7 +131,6 @@
   transform-origin: center;
 }
 
-/* Croix animée */
 .burgerLineTop  { transform: translateY(6.5px) rotate(45deg); }
 .burgerLineMid  { opacity: 0; transform: scaleX(0); }
 .burgerLineBot  { transform: translateY(-6.5px) rotate(-45deg); }
@@ -145,9 +169,7 @@
 }
 
 .mobileNavLink:hover,
-.mobileNavLinkActive {
-  color: var(--color-text);
-}
+.mobileNavLinkActive { color: var(--color-text); }
 
 .mobileActions {
   display: flex;
@@ -156,27 +178,45 @@
   padding-top: var(--space-8);
 }
 
+/* ── Bouton téléphone flottant (mobile) ───────────────────── */
+.floatingPhone {
+  display: none;
+  position: fixed;
+  bottom: 80px; /* au-dessus du bandeau cookie */
+  right: 20px;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent-green);
+  color: #000;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+}
+
+.floatingPhone:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(74, 222, 128, 0.55);
+}
+
 /* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .navPhone,
+  .navCalendly { display: none; }
+}
+
 @media (max-width: 900px) {
-  .nav {
-    display: none;
-  }
-
-  .ctaDesktop {
-    display: none;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  .mobileMenu {
-    display: flex;
-  }
+  .nav { display: none; }
+  .ctaDesktop { display: none; }
+  .burger { display: flex; }
+  .mobileMenu { display: flex; }
+  .floatingPhone { display: flex; }
 }
 
 @media (max-width: 480px) {
-  .langToggle {
-    display: none;
-  }
+  .langToggle { display: none; }
 }

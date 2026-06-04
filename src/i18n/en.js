@@ -10,7 +10,7 @@ export const en = {
       { label: 'Services',      href: '#packs',         isAnchor: true },
       { label: 'Achievements',  href: '/realisations',  isAnchor: false },
       { label: 'Process',       href: '#process',       isAnchor: true },
-      { label: 'Pricing',       href: '#packs',         isAnchor: true },
+      { label: 'Pricing',        href: '/tarifs',         isAnchor: false },
       { label: 'Blog',          href: '/blog',          isAnchor: false },
       { label: 'FAQ',           href: '/faq',           isAnchor: false },
     ],

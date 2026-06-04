@@ -303,3 +303,33 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Social proof hero ────────────────────────────────────── */
+.heroSocialProof { margin-bottom: var(--space-6); }
+
+/* ── Villes proches ───────────────────────────────────────── */
+.villesProches { border-top: 0.5px solid var(--color-border); }
+
+.villesPochesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.villeProcheCard {
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-bg-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.villeProcheCard:hover {
+  color: var(--color-text);
+  border-color: rgba(255,255,255,0.25);
+}

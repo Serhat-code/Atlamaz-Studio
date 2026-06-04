@@ -3,21 +3,14 @@ import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
 import { villes } from './src/data/villes.js';
 import { services } from './src/data/services.js';
+import { articles } from './src/data/articles.js';
 
 const BASE_URL = 'https://atlamaz-studio.vercel.app';
 
 const villeRoutes   = villes.map((v)   => `/creation-site-web-${v.villeId}`);
 const serviceRoutes = services.map((s) => `/${s.slug}`);
 
-const articleSlugs = [
-  'combien-coute-site-web-professionnel',
-  'seo-local-comment-apparaitre-google-maps',
-  'freelance-vs-agence-qui-choisir',
-  'application-mobile-react-native-guide',
-  'design-web-tendances-2026',
-  'vitesse-chargement-site-web-importance',
-];
-const blogRoutes = articleSlugs.map((slug) => `/blog/${slug}`);
+const blogRoutes = articles.map((a) => `/blog/${a.slug}`);
 
 export default defineConfig({
   build: {
@@ -49,6 +42,7 @@ export default defineConfig({
         ...serviceRoutes,
         '/blog',
         ...blogRoutes,
+        '/tarifs',
         '/faq',
         '/realisations',
         '/mentions-legales',
@@ -62,6 +56,7 @@ export default defineConfig({
         '/nos-villes': { changefreq: 'monthly', priority: 0.9 },
         '/realisations': { changefreq: 'weekly', priority: 0.7 },
         '/blog':       { changefreq: 'weekly',  priority: 0.8 },
+        '/tarifs':     { changefreq: 'monthly', priority: 0.9 },
         '/faq':        { changefreq: 'monthly', priority: 0.7 },
         '/mentions-legales':          { changefreq: 'yearly', priority: 0.3 },
         '/politique-confidentialite': { changefreq: 'yearly', priority: 0.3 },

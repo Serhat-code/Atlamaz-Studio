@@ -23,6 +23,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Lyon — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Lyon. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['villeurbanne', 'caluire', 'bron'],
   },
   {
     slug: 'creation-site-web-villeurbanne',
@@ -44,6 +45,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Villeurbanne — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Villeurbanne. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['lyon', 'bron', 'decines'],
   },
   {
     slug: 'creation-site-web-bron',
@@ -65,6 +67,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Bron — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Bron. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['lyon', 'villeurbanne', 'decines'],
   },
   {
     slug: 'creation-site-web-venissieux',
@@ -86,6 +89,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Vénissieux — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Vénissieux. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['lyon', 'mions', 'chassieu'],
   },
   {
     slug: 'creation-site-web-caluire',
@@ -107,6 +111,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Caluire-et-Cuire — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Caluire-et-Cuire. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['lyon', 'villeurbanne', 'bron'],
   },
   {
     slug: 'creation-site-web-decines',
@@ -128,6 +133,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Décines-Charpieu — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Décines-Charpieu. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['bron', 'villeurbanne', 'mions'],
   },
   {
     slug: 'creation-site-web-mions',
@@ -149,6 +155,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Mions — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Mions. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['venissieux', 'chassieu', 'decines'],
   },
   {
     slug: 'creation-site-web-chassieu',
@@ -170,6 +177,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Chassieu — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Chassieu. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['mions', 'bron', 'decines'],
   },
   {
     slug: 'creation-site-web-saint-etienne',
@@ -191,6 +199,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Saint-Étienne — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Saint-Étienne. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['roanne', 'firminy', 'andrezieux'],
   },
   {
     slug: 'creation-site-web-roanne',
@@ -212,6 +221,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Roanne — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Roanne. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['saint-etienne', 'firminy', 'andrezieux'],
   },
   {
     slug: 'creation-site-web-firminy',
@@ -233,6 +243,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Firminy — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Firminy. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['saint-etienne', 'andrezieux', 'roanne'],
   },
   {
     slug: 'creation-site-web-andrezieux',
@@ -254,6 +265,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Andrézieux-Bouthéon — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Andrézieux-Bouthéon. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['saint-etienne', 'firminy', 'roanne'],
   },
   {
     slug: 'creation-site-web-grenoble',
@@ -275,6 +287,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Grenoble — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Grenoble. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['echirolles', 'voiron', 'bourgoin'],
   },
   {
     slug: 'creation-site-web-echirolles',
@@ -296,6 +309,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Échirolles — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Échirolles. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['grenoble', 'voiron', 'bourgoin'],
   },
   {
     slug: 'creation-site-web-bourgoin',
@@ -317,6 +331,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Bourgoin-Jallieu — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Bourgoin-Jallieu. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['grenoble', 'echirolles', 'voiron'],
   },
   {
     slug: 'creation-site-web-voiron',
@@ -338,6 +353,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Voiron — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Voiron. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['grenoble', 'echirolles', 'bourgoin'],
   },
   {
     slug: 'creation-site-web-annecy',
@@ -359,6 +375,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Annecy — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Annecy. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['chambery', 'grenoble', 'lyon'],
   },
   {
     slug: 'creation-site-web-chambery',
@@ -380,6 +397,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Chambéry — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Chambéry. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['annecy', 'grenoble', 'lyon'],
   },
   {
     slug: 'creation-site-web-clermont-ferrand',
@@ -401,6 +419,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Clermont-Ferrand — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Clermont-Ferrand. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['lyon', 'saint-etienne', 'valence'],
   },
   {
     slug: 'creation-site-web-valence',
@@ -422,6 +441,7 @@ export const villes = [
     ],
     metaTitle: 'Création site web Valence — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Valence. Création de sites web professionnels, landing pages et applications mobiles. Devis gratuit sous 24h.',
+    villesProches: ['grenoble', 'lyon', 'clermont-ferrand'],
   },
 ];
 

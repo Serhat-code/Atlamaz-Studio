@@ -16,6 +16,7 @@ import MentionsLegales         from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import Merci                   from './pages/Merci';
 import NotFound                from './pages/NotFound';
+import Tarifs                 from './pages/Tarifs';
 import VillePage               from './pages/VillePage';
 import NosVilles               from './pages/NosVilles';
 import ServicePage             from './pages/ServicePage';
@@ -63,6 +64,7 @@ export default function App() {
             <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
             <Route path="/merci"                          element={<Merci t={t} />} />
             {/* SEO pages */}
+            <Route path="/tarifs"                         element={<Tarifs t={t} />} />
             <Route path="/nos-villes"                     element={<NosVilles />} />
             <Route path="/faq"                            element={<FAQ />} />
             <Route path="/blog"                           element={<Blog />} />

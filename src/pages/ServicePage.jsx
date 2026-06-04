@@ -1,8 +1,11 @@
 import { Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { getServiceBySlug } from '../data/services';
+import { getServiceBySlug, services } from '../data/services';
 import { getVilleById } from '../data/villes';
+import SocialProof from '../components/SocialProof';
 import styles from '../styles/ServicePage.module.css';
+
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
@@ -95,9 +98,16 @@ export default function ServicePage({ serviceSlug }) {
               <strong>{service.delai}</strong>
             </span>
           </div>
+          <div className={styles.heroSocialProof}>
+            <SocialProof variant="inline" />
+          </div>
           <div className={styles.heroCtas}>
             <a href="/#contact" className="btn btn--primary">Démarrer ce projet</a>
-            <a href="/#packs" className="btn btn--secondary">Voir tous les services</a>
+            {CALENDLY_URL && (
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+                Réserver 30 min offertes
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -209,6 +219,28 @@ export default function ServicePage({ serviceSlug }) {
         </section>
       )}
 
+      {/* Nos autres services */}
+      {(() => {
+        const autres = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+        return (
+          <section className={`section ${styles.autresServices}`}>
+            <div className="container">
+              <span className="section-label">Aller plus loin</span>
+              <h2 className="section-title">Nos autres <strong>services</strong></h2>
+              <div className={styles.autresGrid}>
+                {autres.map((s) => (
+                  <Link key={s.slug} to={`/${s.slug}`} className={styles.autreCard}>
+                    <h3 className={styles.autreNom}>{s.nom}</h3>
+                    <p className={styles.autreTagline}>{s.tagline}</p>
+                    <span className={styles.autrePrix}>{s.prix}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* CTA final */}
       <section className={`section ${styles.cta}`}>
         <div className="container">
@@ -221,7 +253,11 @@ export default function ServicePage({ serviceSlug }) {
             </p>
             <div className={styles.ctaCtas}>
               <a href="/#contact" className="btn btn--primary">Démarrer mon projet</a>
-              <a href="mailto:atlamazstudio@gmail.com" className="btn btn--secondary">atlamazstudio@gmail.com</a>
+              {CALENDLY_URL && (
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+                  Réserver 30 min offertes
+                </a>
+              )}
             </div>
           </div>
         </div>

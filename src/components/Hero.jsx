@@ -1,4 +1,7 @@
+import SocialProof from './SocialProof';
 import styles from '../styles/Hero.module.css';
+
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
 
 export default function Hero({ t }) {
   const { hero } = t;
@@ -29,14 +32,30 @@ export default function Hero({ t }) {
           {hero.subtitle}
         </p>
 
+        {/* Social proof */}
+        <div className={`animate-fade-up delay-3 ${styles.socialProofWrap}`}>
+          <SocialProof />
+        </div>
+
         {/* Boutons CTA */}
         <div className={`animate-fade-up delay-4 ${styles.ctas}`}>
           <a href={hero.ctaPrimaryHref} className="btn btn--primary">
             {hero.ctaPrimary}
           </a>
-          <a href={hero.ctaSecondaryHref} className="btn btn--secondary">
-            {hero.ctaSecondary}
-          </a>
+          {CALENDLY_URL ? (
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--secondary"
+            >
+              Réserver 30 min offertes
+            </a>
+          ) : (
+            <a href={hero.ctaSecondaryHref} className="btn btn--secondary">
+              {hero.ctaSecondary}
+            </a>
+          )}
         </div>
       </div>
     </section>

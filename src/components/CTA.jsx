@@ -1,5 +1,7 @@
 import styles from '../styles/CTA.module.css';
 
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
+
 export default function CTA({ t }) {
   const { cta } = t;
 
@@ -15,9 +17,16 @@ export default function CTA({ t }) {
           <a href={cta.ctaPrimaryHref} className="btn btn--primary">
             {cta.ctaPrimary}
           </a>
-          <a href={`mailto:${cta.ctaSecondary}`} className="btn btn--secondary">
-            {cta.ctaSecondary}
-          </a>
+          {CALENDLY_URL && (
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--secondary"
+            >
+              Réserver 30 min offertes
+            </a>
+          )}
         </div>
       </div>
     </section>

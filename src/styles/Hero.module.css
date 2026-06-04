@@ -53,6 +53,12 @@
   margin-bottom: var(--space-10);
 }
 
+/* Social proof */
+.socialProofWrap {
+  margin-bottom: var(--space-8);
+  margin-top: calc(var(--space-6) * -1);
+}
+
 /* Boutons */
 .ctas {
   display: flex;

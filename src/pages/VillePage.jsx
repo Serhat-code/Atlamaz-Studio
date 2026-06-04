@@ -2,7 +2,10 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getVilleById } from '../data/villes';
 import { services } from '../data/services';
+import SocialProof from '../components/SocialProof';
 import styles from '../styles/VillePage.module.css';
+
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
@@ -93,9 +96,16 @@ export default function VillePage() {
             Création de site web à <strong>{ville.nom}</strong>
           </h1>
           <p className={styles.heroSubtitle}>{ville.description}</p>
+          <div className={styles.heroSocialProof}>
+            <SocialProof />
+          </div>
           <div className={styles.heroCtas}>
             <a href="/#contact" className="btn btn--primary">Devis gratuit sous 24h</a>
-            <Link to="/nos-villes" className="btn btn--secondary">Toutes nos villes</Link>
+            {CALENDLY_URL && (
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+                Réserver 30 min offertes
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -184,6 +194,23 @@ export default function VillePage() {
         </div>
       </section>
 
+      {/* Villes proches */}
+      {ville.villesProches && ville.villesProches.length > 0 && (
+        <section className={`section ${styles.villesProches}`}>
+          <div className="container">
+            <span className="section-label">Proximité</span>
+            <h2 className="section-title">Nous intervenons aussi <strong>à proximité</strong></h2>
+            <div className={styles.villesPochesGrid}>
+              {ville.villesProches.map((id) => (
+                <Link key={id} to={`/creation-site-web-${id}`} className={styles.villeProcheCard}>
+                  Création site web {id.replace(/-/g, ' ')} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className={`section ${styles.cta}`}>
         <div className="container">
@@ -196,7 +223,11 @@ export default function VillePage() {
             </p>
             <div className={styles.ctaCtas}>
               <a href="/#contact" className="btn btn--primary">Démarrer mon projet</a>
-              <a href="mailto:atlamazstudio@gmail.com" className="btn btn--secondary">atlamazstudio@gmail.com</a>
+              {CALENDLY_URL && (
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+                  Réserver 30 min offertes
+                </a>
+              )}
             </div>
           </div>
         </div>
