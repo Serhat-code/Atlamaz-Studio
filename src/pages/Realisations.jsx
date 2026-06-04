@@ -4,6 +4,9 @@ import { realisations, REALISATION_TYPES } from '../data/realisations';
 import RealisationCard from '../components/RealisationCard';
 import styles from '../styles/Realisations.module.css';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
+
 export default function Realisations({ t }) {
   const { realisations: rt } = t;
   const [activeFilter, setActiveFilter] = useState('tous');
@@ -17,13 +20,13 @@ export default function Realisations({ t }) {
       <Helmet>
         <title>{rt.meta.title}</title>
         <meta name="description"      content={rt.meta.description} />
-        <link rel="canonical"         href="https://atlamazstudio.fr/realisations" />
+        <link rel="canonical"         href={`${BASE_URL}/realisations`} />
         <meta property="og:title"     content={rt.meta.title} />
         <meta property="og:description" content={rt.meta.description} />
-        <meta property="og:url"       content="https://atlamazstudio.fr/realisations" />
-        <meta property="og:image"     content="https://atlamazstudio.fr/og-image.svg" />
+        <meta property="og:url"       content={`${BASE_URL}/realisations`} />
+        <meta property="og:image"     content={OG_IMAGE} />
         <meta name="twitter:card"     content="summary_large_image" />
-        <meta name="twitter:image"    content="https://atlamazstudio.fr/og-image.svg" />
+        <meta name="twitter:image"    content={OG_IMAGE} />
       </Helmet>
 
       {/* Hero */}

@@ -13,11 +13,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: var(--navbar-height);
   gap: var(--space-6);
 }
 
-/* Logo */
+/* ── Logo ─────────────────────────────────────────────────── */
 .logo {
   font-size: 13px;
   font-weight: var(--font-weight-medium);
@@ -33,7 +33,7 @@
   opacity: 0.7;
 }
 
-/* Nav centrale */
+/* ── Nav centrale ─────────────────────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
@@ -48,11 +48,12 @@
   white-space: nowrap;
 }
 
-.navLink:hover {
+.navLink:hover,
+.navLinkActive {
   color: var(--color-text);
 }
 
-/* Actions droite */
+/* ── Actions droite ───────────────────────────────────────── */
 .actions {
   display: flex;
   align-items: center;
@@ -60,7 +61,7 @@
   flex-shrink: 0;
 }
 
-/* Toggle langue */
+/* ── Toggle langue ────────────────────────────────────────── */
 .langToggle {
   font-size: 12px;
   font-weight: var(--font-weight-medium);
@@ -72,6 +73,7 @@
   background: transparent;
   cursor: pointer;
   transition: color var(--transition-fast), border-color var(--transition-fast);
+  font-family: var(--font-family);
 }
 
 .langToggle:hover {
@@ -79,14 +81,97 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* ── Burger ───────────────────────────────────────────────── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.burgerLine {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+
+/* Croix animée */
+.burgerLineTop  { transform: translateY(6.5px) rotate(45deg); }
+.burgerLineMid  { opacity: 0; transform: scaleX(0); }
+.burgerLineBot  { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Menu mobile overlay ──────────────────────────────────── */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 99;
+  flex-direction: column;
+  padding: var(--space-8) var(--space-6);
+  overflow-y: auto;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.mobileNavLink {
+  font-size: 22px;
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-secondary);
+  padding: var(--space-3) 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  transition: color var(--transition-fast);
+}
+
+.mobileNavLink:hover,
+.mobileNavLinkActive {
+  color: var(--color-text);
+}
+
+.mobileActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+}
+
 /* ── Responsive ────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav {
     display: none;
   }
 
-  .inner {
-    justify-content: space-between;
+  .ctaDesktop {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
   }
 }
 

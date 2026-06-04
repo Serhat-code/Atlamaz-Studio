@@ -3,7 +3,10 @@
     "allow": [
       "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\serhat\\\\Documents\\\\AtlamazStudio\\\\public\\\\config\")",
       "Bash(node --input-type=module)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(Test-Path \"c:\\\\Users\\\\serhat\\\\Documents\\\\AtlamazStudio\\\\public\\\\og-image.png\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
     ]
   }
 }

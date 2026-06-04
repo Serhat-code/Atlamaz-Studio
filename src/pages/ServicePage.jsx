@@ -4,8 +4,8 @@ import { getServiceBySlug } from '../data/services';
 import { getVilleById } from '../data/villes';
 import styles from '../styles/ServicePage.module.css';
 
-const BASE_URL = 'https://atlamazstudio.fr';
-const OG_IMAGE = 'https://atlamazstudio.fr/og-image.svg';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function ServicePage({ serviceSlug }) {
   const service = getServiceBySlug(serviceSlug);

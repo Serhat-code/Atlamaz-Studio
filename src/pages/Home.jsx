@@ -6,8 +6,8 @@ import Process from '../components/Process';
 import Contact from '../components/Contact';
 import CTA     from '../components/CTA';
 
-const OG_IMAGE = 'https://atlamazstudio.fr/og-image.svg';
-const BASE_URL  = 'https://atlamazstudio.fr';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function Home({ t }) {
   return (

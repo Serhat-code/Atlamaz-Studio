@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { faqs, FAQ_CATEGORIES } from '../data/faq';
 import styles from '../styles/FAQ.module.css';
 
-const BASE_URL = 'https://atlamazstudio.fr';
-const OG_IMAGE = 'https://atlamazstudio.fr/og-image.svg';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 function AccordionItem({ faq, isOpen, onToggle }) {
   return (

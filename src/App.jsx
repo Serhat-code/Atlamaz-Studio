@@ -38,11 +38,17 @@ function Layout({ t, lang, onLangToggle, children }) {
 }
 
 export default function App() {
-  const [lang, setLang] = useState('fr');
+  const [lang, setLang] = useState(
+    () => localStorage.getItem('lang') || 'fr'
+  );
   const t = translations[lang];
 
   const handleLangToggle = () => {
-    setLang((prev) => (prev === 'fr' ? 'en' : 'fr'));
+    setLang((prev) => {
+      const next = prev === 'fr' ? 'en' : 'fr';
+      localStorage.setItem('lang', next);
+      return next;
+    });
   };
 
   return (

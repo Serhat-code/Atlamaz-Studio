@@ -4,8 +4,8 @@ import { getArticleBySlug, getArticlesSimilaires } from '../data/articles';
 import { getServiceBySlug } from '../data/services';
 import styles from '../styles/BlogArticle.module.css';
 
-const BASE_URL = 'https://atlamazstudio.fr';
-const OG_IMAGE = 'https://atlamazstudio.fr/og-image.svg';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 function formatDate(dateStr) {
   const date = new Date(dateStr);

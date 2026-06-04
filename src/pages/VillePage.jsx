@@ -4,8 +4,8 @@ import { getVilleById } from '../data/villes';
 import { services } from '../data/services';
 import styles from '../styles/VillePage.module.css';
 
-const BASE_URL = 'https://atlamazstudio.fr';
-const OG_IMAGE = 'https://atlamazstudio.fr/og-image.svg';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function VillePage() {
   const { villeId } = useParams();
@@ -27,7 +27,6 @@ export default function VillePage() {
       addressRegion: ville.region,
       addressCountry: 'FR',
     },
-    telephone: '+33600000000',
     email: 'atlamazstudio@gmail.com',
     priceRange: '€€',
     areaServed: ville.nom,
@@ -159,7 +158,7 @@ export default function VillePage() {
           <h2 className="section-title">Nos avantages à <strong>{ville.nom}</strong></h2>
           <div className={styles.argumentsGrid}>
             {ville.arguments.map((arg, i) => (
-              <div key={i} className={styles.argumentCard}>
+              <div key={arg.titre} className={styles.argumentCard}>
                 <span className={styles.argumentNumber}>0{i + 1}</span>
                 <h3 className={styles.argumentTitle}>{arg.titre}</h3>
                 <p className={styles.argumentText}>{arg.texte}</p>
@@ -175,8 +174,8 @@ export default function VillePage() {
           <span className="section-label">Questions fréquentes</span>
           <h2 className="section-title">FAQ — Création site web à <strong>{ville.nom}</strong></h2>
           <div className={styles.faqList}>
-            {ville.faq.map((item, i) => (
-              <div key={i} className={styles.faqItem}>
+            {ville.faq.map((item) => (
+              <div key={item.question} className={styles.faqItem}>
                 <h3 className={styles.faqQuestion}>{item.question}</h3>
                 <p className={styles.faqReponse}>{item.reponse}</p>
               </div>
