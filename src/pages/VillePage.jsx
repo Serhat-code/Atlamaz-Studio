@@ -5,6 +5,7 @@ import { getVilleById } from '../data/villes';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
+import Reveal from '../components/Reveal';
 import styles from '../styles/VillePage.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -94,22 +95,18 @@ export default function VillePage() {
       {/* Hero */}
       <section className={`section ${styles.hero}`}>
         <div className="container">
-          <span className="section-label">{ville.region} · {ville.departement}</span>
-          <h1 className={styles.heroTitle}>
-            Création de site web à <strong>{ville.nom}</strong>
-          </h1>
-          <p className={styles.heroSubtitle}>{ville.description}</p>
-          <div className={styles.heroSocialProof}>
-            <SocialProof />
-          </div>
-          <div className={styles.heroCtas}>
-            <a href="/#contact" className="btn btn--primary">Devis gratuit sous 24h</a>
+          <Reveal as="span" className="section-label">{ville.region} · {ville.departement}</Reveal>
+          <Reveal delay={1}><h1 className={styles.heroTitle}>Création de site web à <strong>{ville.nom}</strong></h1></Reveal>
+          <Reveal delay={2}><p className={styles.heroSubtitle}>{ville.description}</p></Reveal>
+          <Reveal delay={3} className={styles.heroSocialProof}><SocialProof /></Reveal>
+          <Reveal delay={4} className={styles.heroCtas}>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Devis gratuit sous 24h</button>
             {CALENDLY_URL && (
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
                 Réserver 30 min offertes
               </a>
             )}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -150,8 +147,9 @@ export default function VillePage() {
           <h2 className="section-title">Nos services à <strong>{ville.nom}</strong></h2>
           <p className="section-subtitle">Des solutions web clé en main adaptées aux entreprises de {ville.nom} et de la région {ville.region}.</p>
           <div className={styles.servicesGrid}>
-            {services.slice(0, 6).map((service) => (
-              <Link key={service.slug} to={`/${service.slug}`} className={styles.serviceCard}>
+            {services.slice(0, 6).map((service, i) => (
+              <Reveal key={service.slug} delay={Math.min(i + 1, 5)}>
+              <Link to={`/${service.slug}`} className={styles.serviceCard}>
                 <div className={styles.serviceCardHeader}>
                   <h3 className={styles.serviceCardTitle}>{service.nom}</h3>
                   <span className={styles.serviceCardPrice}>{service.prix}</span>
@@ -159,6 +157,7 @@ export default function VillePage() {
                 <p className={styles.serviceCardDesc}>{service.tagline}</p>
                 <span className={styles.serviceCardDelai}>Livraison : {service.delai}</span>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -171,11 +170,13 @@ export default function VillePage() {
           <h2 className="section-title">Nos avantages à <strong>{ville.nom}</strong></h2>
           <div className={styles.argumentsGrid}>
             {ville.arguments.map((arg, i) => (
-              <div key={arg.titre} className={styles.argumentCard}>
+              <Reveal key={arg.titre} delay={Math.min(i + 1, 5)}>
+              <div className={styles.argumentCard}>
                 <span className={styles.argumentNumber}>0{i + 1}</span>
                 <h3 className={styles.argumentTitle}>{arg.titre}</h3>
                 <p className={styles.argumentText}>{arg.texte}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -187,11 +188,13 @@ export default function VillePage() {
           <span className="section-label">Questions fréquentes</span>
           <h2 className="section-title">FAQ — Création site web à <strong>{ville.nom}</strong></h2>
           <div className={styles.faqList}>
-            {ville.faq.map((item) => (
-              <div key={item.question} className={styles.faqItem}>
+            {ville.faq.map((item, i) => (
+              <Reveal key={item.question} delay={Math.min(i + 1, 5)}>
+              <div className={styles.faqItem}>
                 <h3 className={styles.faqQuestion}>{item.question}</h3>
                 <p className={styles.faqReponse}>{item.reponse}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

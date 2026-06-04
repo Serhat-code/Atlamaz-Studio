@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ContactModal from './ContactModal';
+import Reveal from './Reveal';
 import styles from '../styles/CTA.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -11,12 +12,16 @@ export default function CTA({ t }) {
   return (
     <section className={`section ${styles.wrapper}`} id="cta">
       <div className={`container ${styles.inner}`}>
-        <h2 className={styles.title}>
-          {cta.titleLight}{' '}
-          <strong>{cta.titleStrong}</strong>
-        </h2>
-        <p className={styles.subtitle}>{cta.subtitle}</p>
-        <div className={styles.ctas}>
+        <Reveal>
+          <h2 className={styles.title}>
+            {cta.titleLight}{' '}
+            <strong>{cta.titleStrong}</strong>
+          </h2>
+        </Reveal>
+        <Reveal delay={1}>
+          <p className={styles.subtitle}>{cta.subtitle}</p>
+        </Reveal>
+        <Reveal delay={2} className={styles.ctas}>
           <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
             {cta.ctaPrimary}
           </button>
@@ -30,7 +35,7 @@ export default function CTA({ t }) {
               Réserver 30 min offertes
             </a>
           )}
-        </div>
+        </Reveal>
       </div>
 
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

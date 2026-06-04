@@ -5,6 +5,7 @@ import { getServiceBySlug, services } from '../data/services';
 import { getVilleById } from '../data/villes';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
+import Reveal from '../components/Reveal';
 import styles from '../styles/ServicePage.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -87,10 +88,10 @@ export default function ServicePage({ serviceSlug }) {
       {/* Hero */}
       <section className={`section ${styles.hero}`}>
         <div className="container">
-          <span className="section-label">Service</span>
-          <h1 className={styles.heroTitle}>{service.nom}</h1>
-          <p className={styles.heroTagline}>{service.tagline}</p>
-          <p className={styles.heroDesc}>{service.description}</p>
+          <Reveal as="span" className="section-label">Service</Reveal>
+          <Reveal delay={1}><h1 className={styles.heroTitle}>{service.nom}</h1></Reveal>
+          <Reveal delay={2}><p className={styles.heroTagline}>{service.tagline}</p></Reveal>
+          <Reveal delay={2}><p className={styles.heroDesc}>{service.description}</p></Reveal>
           <div className={styles.heroBadges}>
             <span className={styles.heroBadge}>
               <span className={styles.heroBadgeLabel}>Prix</span>
@@ -136,10 +137,12 @@ export default function ServicePage({ serviceSlug }) {
           <h2 className="section-title">Tout ce qui est <strong>inclus</strong></h2>
           <div className={styles.inclusList}>
             {service.inclus.map((item, i) => (
-              <div key={i} className={styles.inclusItem}>
+              <Reveal key={i} delay={Math.min(i + 1, 5)}>
+              <div className={styles.inclusItem}>
                 <span className={styles.inclusCheck} aria-hidden="true">✓</span>
                 <span>{item}</span>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -151,12 +154,14 @@ export default function ServicePage({ serviceSlug }) {
           <span className="section-label">Process</span>
           <h2 className="section-title">Comment ça <strong>fonctionne ?</strong></h2>
           <div className={styles.processusGrid}>
-            {service.processus.map((step) => (
-              <div key={step.numero} className={styles.processusCard}>
+            {service.processus.map((step, i) => (
+              <Reveal key={step.numero} delay={Math.min(i + 1, 5)}>
+              <div className={styles.processusCard}>
                 <span className={styles.processusNumero}>{step.numero}</span>
                 <h3 className={styles.processusTitre}>{step.titre}</h3>
                 <p className={styles.processusDesc}>{step.description}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -186,10 +191,12 @@ export default function ServicePage({ serviceSlug }) {
           <h2 className="section-title">FAQ — <strong>{service.nom}</strong></h2>
           <div className={styles.faqList}>
             {service.faq.map((item, i) => (
-              <div key={i} className={styles.faqItem}>
+              <Reveal key={i} delay={Math.min(i + 1, 5)}>
+              <div className={styles.faqItem}>
                 <h3 className={styles.faqQuestion}>{item.question}</h3>
                 <p className={styles.faqReponse}>{item.reponse}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

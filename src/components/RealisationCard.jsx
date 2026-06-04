@@ -1,39 +1,64 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import styles from '../styles/RealisationCard.module.css';
 
-export default function RealisationCard({ projet, ctaLabel }) {
-  return (
-    <article className={styles.card}>
-      {/* Image / aperçu */}
-      <div className={styles.imageWrapper}>
-        {projet.image ? (
-          <img
-            src={projet.image}
-            alt={`Aperçu du projet ${projet.nom}`}
-            className={styles.image}
-            loading="lazy"
-            width="600"
-            height="338"
-          />
-        ) : (
-          <div className={styles.imagePlaceholder} aria-hidden="true">
-            <span className={styles.placeholderText}>{projet.nom}</span>
-          </div>
-        )}
-        {/* Badge type */}
-        <span className={`badge badge--tag ${styles.typeBadge}`}>{projet.type}</span>
-      </div>
+export default function RealisationCard({ realisation }) {
+  const [flipped, setFlipped] = useState(false);
 
-      {/* Contenu */}
-      <div className={styles.content}>
-        <div className={styles.meta}>
-          <h3 className={styles.nom}>{projet.nom}</h3>
-          <p className={styles.secteur}>{projet.secteur}</p>
+  return (
+    <div
+      className={styles.cardWrapper}
+      onClick={() => setFlipped((f) => !f)}
+      aria-label={`Voir les détails de ${realisation.nom}`}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setFlipped((f) => !f); }}
+    >
+      <div className={`${styles.card} ${flipped ? styles.flipped : ''}`}>
+
+        {/* Recto */}
+        <div className={styles.front} style={{ background: realisation.couleur }}>
+          <div className={styles.bgNumber}>
+            {String(realisation.id).padStart(2, '0')}
+          </div>
+          <div className={styles.frontContent}>
+            <span className={styles.secteur}>{realisation.secteur}</span>
+            <h3 className={styles.nom}>{realisation.nom}</h3>
+            <span className={styles.type}>{realisation.type}</span>
+          </div>
+          <div className={styles.flipHint}>Cliquer pour voir →</div>
         </div>
-        <Link to={`/realisations/${projet.slug}`} className={`btn btn--secondary ${styles.cta}`}>
-          {ctaLabel}
-        </Link>
+
+        {/* Verso */}
+        <div className={styles.back} style={{ background: realisation.couleur }}>
+          <div className={styles.backContent}>
+            <div className={styles.backHeader}>
+              <span className={styles.secteur}>{realisation.secteur}</span>
+              <h3 className={styles.nom}>{realisation.nom}</h3>
+            </div>
+            <p className={styles.description}>{realisation.description}</p>
+            <div className={styles.backMeta}>
+              <span>{realisation.delai}</span>
+              <span>{realisation.techno}</span>
+              <span>{realisation.annee}</span>
+            </div>
+            {realisation.lien && realisation.lien !== '#' && (
+              <a
+                href={realisation.lien}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.lien}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Voir le site →
+              </a>
+            )}
+            {(!realisation.lien || realisation.lien === '#') && (
+              <span className={styles.lienDisabled}>Site en cours →</span>
+            )}
+          </div>
+        </div>
+
       </div>
-    </article>
+    </div>
   );
 }

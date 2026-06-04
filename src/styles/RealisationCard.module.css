@@ -1,90 +1,160 @@
+.cardWrapper {
+  perspective: 800px;
+  cursor: pointer;
+  height: 280px;
+}
+
 .card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-bg-surface);
-  border: 0.5px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-hover);
-}
-
-/* Image */
-.imageWrapper {
   position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background-color: var(--color-bg-alt);
-}
-
-.image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
 }
 
-.card:hover .image {
-  transform: scale(1.03);
+.card.flipped {
+  transform: rotateY(180deg);
 }
 
-.imagePlaceholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-}
-
-.placeholderText {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-light);
-  color: rgba(255, 255, 255, 0.08);
-  letter-spacing: 0.05em;
-}
-
-.typeBadge {
+.front,
+.back {
   position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-}
-
-/* Contenu */
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-5) var(--space-6);
-}
-
-.meta {
-  min-width: 0;
-}
-
-.nom {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-  margin-bottom: var(--space-1);
-  white-space: nowrap;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* ── Recto ────────────────────────────────────────────────── */
+.bgNumber {
+  position: absolute;
+  bottom: -10px;
+  right: -5px;
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.cardWrapper:hover .bgNumber {
+  transform: translateY(-8px);
+  color: rgba(255, 255, 255, 0.07);
+}
+
+.frontContent {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
 }
 
 .secteur {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
 }
 
-.cta {
-  flex-shrink: 0;
-  border-radius: var(--radius-md);
-  padding: 8px 16px;
+.nom {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.type {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.flipHint {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.3s;
+}
+
+.cardWrapper:hover .flipHint {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Verso ────────────────────────────────────────────────── */
+.backContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+}
+
+.backHeader {
+  margin-bottom: 12px;
+}
+
+.description {
   font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.backMeta {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 12px;
+  flex-wrap: wrap;
+}
+
+.backMeta span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lien {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  border: 0.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: center;
+}
+
+.lien:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lienDisabled {
+  display: inline-block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.25);
+  padding: 8px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
 }

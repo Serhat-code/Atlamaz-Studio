@@ -1,4 +1,5 @@
 import PackCard from './PackCard';
+import Reveal from './Reveal';
 import styles from '../styles/Packs.module.css';
 
 export default function Packs({ t }) {
@@ -9,68 +10,77 @@ export default function Packs({ t }) {
       <div className="container">
         {/* Section header */}
         <div className={styles.header}>
-          <span className="section-label">{packs.label}</span>
-          <h2 className="section-title">
-            {packs.title} <strong>{packs.titleStrong}</strong>
-          </h2>
-          <p className={`section-subtitle ${styles.subtitle}`}>{packs.subtitle}</p>
+          <Reveal as="span" className="section-label">{packs.label}</Reveal>
+          <Reveal delay={1}>
+            <h2 className="section-title">
+              {packs.title} <strong>{packs.titleStrong}</strong>
+            </h2>
+          </Reveal>
+          <Reveal delay={2}>
+            <p className={`section-subtitle ${styles.subtitle}`}>{packs.subtitle}</p>
+          </Reveal>
         </div>
 
         {/* Rangées de packs */}
         {packs.rows.map((row) => (
           <div key={row.label} className={styles.row}>
 
-            {/* Label de rangée */}
-            <p className={styles.rowLabel}>{row.label}</p>
+            <Reveal>
+              <p className={styles.rowLabel}>{row.label}</p>
+            </Reveal>
 
-            {/* Header spécial (rangée Application mobile) */}
             {row.sectionTitle && (
-              <div className={styles.rowSectionHeader}>
-                <h3 className={styles.rowSectionTitle}>{row.sectionTitle}</h3>
-                <p className={styles.rowSectionSubtitle}>{row.sectionSubtitle}</p>
-              </div>
+              <Reveal>
+                <div className={styles.rowSectionHeader}>
+                  <h3 className={styles.rowSectionTitle}>{row.sectionTitle}</h3>
+                  <p className={styles.rowSectionSubtitle}>{row.sectionSubtitle}</p>
+                </div>
+              </Reveal>
             )}
 
-            {/* Grille de cards */}
             <div className={styles.grid}>
-              {row.cards.map((card) => (
-                <PackCard
-                  key={card.id}
-                  card={card}
-                  ctaLabel={packs.ctaCard}
-                  ctaLabelPopular={packs.ctaCardPopular}
-                  ctaContact={packs.ctaContact}
-                />
+              {row.cards.map((card, i) => (
+                <Reveal key={card.id} delay={Math.min(i + 1, 5)}>
+                  <PackCard
+                    card={card}
+                    ctaLabel={packs.ctaCard}
+                    ctaLabelPopular={packs.ctaCardPopular}
+                    ctaContact={packs.ctaContact}
+                  />
+                </Reveal>
               ))}
             </div>
 
-            {/* Options à la carte (rangée mobile uniquement) */}
             {row.options && row.options.length > 0 && (
-              <div className={styles.optionsWrapper}>
-                <p className={styles.optionsLabel}>{row.optionsLabel}</p>
-                <ul className={styles.optionsList}>
-                  {row.options.map((opt) => (
-                    <li key={opt.label} className={styles.optionItem}>
-                      <span className={styles.optionName}>{opt.label}</span>
-                      <span className={styles.optionPrice}>{opt.price}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Reveal>
+                <div className={styles.optionsWrapper}>
+                  <p className={styles.optionsLabel}>{row.optionsLabel}</p>
+                  <ul className={styles.optionsList}>
+                    {row.options.map((opt) => (
+                      <li key={opt.label} className={styles.optionItem}>
+                        <span className={styles.optionName}>{opt.label}</span>
+                        <span className={styles.optionPrice}>{opt.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
             )}
           </div>
         ))}
 
         {/* Bandeau sur mesure */}
-        <div className={styles.custom}>
-          <div className={styles.customText}>
-            <h3 className={styles.customTitle}>{packs.custom.title}</h3>
-            <p className={styles.customSubtitle}>{packs.custom.subtitle}</p>
+        <Reveal>
+          <div className={styles.custom}>
+            <div className={styles.customText}>
+              <h3 className={styles.customTitle}>{packs.custom.title}</h3>
+              <p className={styles.customSubtitle}>{packs.custom.subtitle}</p>
+            </div>
+            <a href="#contact" className="btn btn--primary">
+              {packs.custom.cta}
+            </a>
           </div>
-          <a href="#contact" className="btn btn--primary">
-            {packs.custom.cta}
-          </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

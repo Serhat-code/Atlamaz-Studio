@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FORMSPREE_ENDPOINT } from '../config/formspree';
+import Reveal from './Reveal';
 import styles from '../styles/Contact.module.css';
 
 export default function Contact({ t }) {
@@ -65,7 +66,7 @@ export default function Contact({ t }) {
       <div className="container">
         <div className={styles.layout}>
           {/* Header */}
-          <div className={styles.header}>
+          <Reveal><div className={styles.header}>
             <span className="section-label">{contact.label}</span>
             <h2 className="section-title">
               {contact.title} <strong>{contact.titleStrong}</strong>
@@ -87,10 +88,10 @@ export default function Contact({ t }) {
                 <span>Données protégées (RGPD)</span>
               </li>
             </ul>
-          </div>
+          </div></Reveal>
 
           {/* Formulaire */}
-          <form onSubmit={handleSubmit} className={styles.form} noValidate>
+          <Reveal delay={1}><form onSubmit={handleSubmit} className={styles.form} noValidate>
             {/* Ligne 1 : Prénom / Nom */}
             <div className={styles.row2}>
               <div className={styles.field}>
@@ -203,7 +204,7 @@ export default function Contact({ t }) {
             >
               {status === 'submitting' ? contact.submitting : contact.submit}
             </button>
-          </form>
+          </form></Reveal>
         </div>
       </div>
     </section>
