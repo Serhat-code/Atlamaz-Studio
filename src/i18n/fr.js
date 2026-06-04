@@ -63,6 +63,7 @@ export const fr = {
             badgeType: null,
             featured: false,
             stripeKey: 'landing',
+            serviceSlug: 'creation-landing-page',
             features: [
               'Design sur mesure',
               'Responsive mobile',
@@ -82,6 +83,7 @@ export const fr = {
             badgeType: 'popular',
             featured: true,
             stripeKey: 'vitrine',
+            serviceSlug: 'creation-site-vitrine',
             features: [
               "Jusqu'à 5 pages",
               'Design sur mesure',
@@ -102,6 +104,7 @@ export const fr = {
             badgeType: null,
             featured: false,
             stripeKey: 'boutique',
+            serviceSlug: 'creation-boutique-en-ligne',
             features: [
               "Jusqu'à 20 produits",
               'Paiement Stripe intégré',
@@ -125,6 +128,7 @@ export const fr = {
             badgeType: 'tag',
             featured: false,
             stripeKey: 'refonte',
+            serviceSlug: 'refonte-site-web',
             features: [
               "Audit de l'existant offert",
               'Nouveau design complet',
@@ -142,6 +146,7 @@ export const fr = {
             badgeType: 'tag',
             featured: false,
             stripeKey: 'restaurant',
+            serviceSlug: 'creation-site-restaurant',
             features: [
               'Menu en ligne PDF ou dynamique',
               'Système de réservation',
@@ -180,6 +185,7 @@ export const fr = {
           {
             id: 'mobile-starter',
             name: 'Mobile Starter',
+            serviceSlug: 'creation-application-mobile',
             price: '1 200€',
             delivery: 'Livraison 14 jours',
             badge: 'Android',
@@ -199,6 +205,7 @@ export const fr = {
           {
             id: 'mobile-business',
             name: 'Mobile Business',
+            serviceSlug: 'creation-application-mobile',
             price: '4 500€',
             delivery: 'Livraison 30 jours',
             badge: 'Populaire',
@@ -251,9 +258,10 @@ export const fr = {
           {
             id: 'maintenance',
             name: 'Pack Maintenance',
+            serviceSlug: 'maintenance-site-web',
             price: '49€/mois',
             delivery: 'Sans engagement',
-            badge: 'Revenu récurrent',
+            badge: 'Sans engagement',
             badgeType: 'tag',
             featured: false,
             stripeKey: 'maintenance',

@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
 import styles from '../styles/PackCard.module.css';
 
 export default function PackCard({ card, ctaLabel, ctaLabelPopular, ctaContact }) {
-  const isPopular = card.featured;
-  // Packs sans prix fixe (urgence, mobile premium) → label spécifique
+  const isPopular    = card.featured;
   const isContactOnly = !card.stripeKey;
 
   const cta = isContactOnly
@@ -11,8 +11,8 @@ export default function PackCard({ card, ctaLabel, ctaLabelPopular, ctaContact }
       ? ctaLabelPopular
       : ctaLabel;
 
-  return (
-    <article className={`${styles.card} ${isPopular ? styles.cardFeatured : ''}`}>
+  const cardContent = (
+    <>
       {/* En-tête */}
       <div className={styles.cardHeader}>
         <div className={styles.cardTop}>
@@ -39,15 +39,28 @@ export default function PackCard({ card, ctaLabel, ctaLabelPopular, ctaContact }
         ))}
       </ul>
 
-      {/* CTA → toujours vers le formulaire de contact */}
+      {/* CTA */}
       <div className={styles.cardFooter}>
-        <a
-          href="#contact"
-          className={`btn ${isPopular ? 'btn--inverse' : 'btn--secondary'} ${styles.cardCta}`}
-        >
+        <span className={`btn ${isPopular ? 'btn--inverse' : 'btn--secondary'} ${styles.cardCta}`}>
           {cta}
-        </a>
+        </span>
       </div>
+    </>
+  );
+
+  const cardClass = `${styles.card} ${isPopular ? styles.cardFeatured : ''}`;
+
+  if (card.serviceSlug) {
+    return (
+      <Link to={`/${card.serviceSlug}`} className={cardClass} aria-label={`Voir ${card.name}`}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <article className={cardClass}>
+      {cardContent}
     </article>
   );
 }

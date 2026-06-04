@@ -1,9 +1,12 @@
+import { useState } from 'react';
+import ContactModal from './ContactModal';
 import styles from '../styles/CTA.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
 
 export default function CTA({ t }) {
   const { cta } = t;
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className={`section ${styles.wrapper}`} id="cta">
@@ -14,9 +17,9 @@ export default function CTA({ t }) {
         </h2>
         <p className={styles.subtitle}>{cta.subtitle}</p>
         <div className={styles.ctas}>
-          <a href={cta.ctaPrimaryHref} className="btn btn--primary">
+          <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
             {cta.ctaPrimary}
-          </a>
+          </button>
           {CALENDLY_URL && (
             <a
               href={CALENDLY_URL}
@@ -29,6 +32,8 @@ export default function CTA({ t }) {
           )}
         </div>
       </div>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

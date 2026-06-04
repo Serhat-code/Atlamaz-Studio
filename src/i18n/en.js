@@ -57,6 +57,7 @@ export const en = {
           {
             id: 'landing',
             name: 'Landing Page',
+            serviceSlug: 'creation-landing-page',
             price: '490€',
             delivery: 'Delivery in 5 days',
             badge: null,
@@ -76,6 +77,7 @@ export const en = {
           {
             id: 'vitrine',
             name: 'Showcase Website',
+            serviceSlug: 'creation-site-vitrine',
             price: '990€',
             delivery: 'Delivery in 10 days',
             badge: 'Popular',
@@ -96,6 +98,7 @@ export const en = {
           {
             id: 'boutique',
             name: 'Online Store',
+            serviceSlug: 'creation-boutique-en-ligne',
             price: '1 990€',
             delivery: 'Delivery in 21 days',
             badge: null,
@@ -119,6 +122,7 @@ export const en = {
           {
             id: 'refonte',
             name: 'Redesign Package',
+            serviceSlug: 'refonte-site-web',
             price: '790€',
             delivery: 'Delivery in 10 days',
             badge: 'Highly requested',
@@ -136,6 +140,7 @@ export const en = {
           {
             id: 'restaurant',
             name: 'Restaurant Package',
+            serviceSlug: 'creation-site-restaurant',
             price: '790€',
             delivery: 'Delivery in 7 days',
             badge: 'Local & hospitality',
@@ -179,6 +184,7 @@ export const en = {
           {
             id: 'mobile-starter',
             name: 'Mobile Starter',
+            serviceSlug: 'creation-application-mobile',
             price: '1 200€',
             delivery: 'Delivery in 14 days',
             badge: 'Android',
@@ -198,6 +204,7 @@ export const en = {
           {
             id: 'mobile-business',
             name: 'Mobile Business',
+            serviceSlug: 'creation-application-mobile',
             price: '4 500€',
             delivery: 'Delivery in 30 days',
             badge: 'Popular',
@@ -249,9 +256,10 @@ export const en = {
           {
             id: 'maintenance',
             name: 'Maintenance Package',
+            serviceSlug: 'maintenance-site-web',
             price: '49€/month',
             delivery: 'No commitment',
-            badge: 'Recurring revenue',
+            badge: 'No commitment',
             badgeType: 'tag',
             featured: false,
             stripeKey: 'maintenance',

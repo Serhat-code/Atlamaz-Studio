@@ -31,7 +31,7 @@
 
 .logo:hover { opacity: 0.7; }
 
-/* ── Nav centrale ─────────────────────────────────────────── */
+/* ── Nav centrale (desktop) ───────────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@
 .navLink:hover,
 .navLinkActive { color: var(--color-text); }
 
-/* ── Actions droite ───────────────────────────────────────── */
+/* ── Actions droite (desktop) ─────────────────────────────── */
 .actions {
   display: flex;
   align-items: center;
@@ -57,8 +57,11 @@
   flex-shrink: 0;
 }
 
-/* Numéro de téléphone */
+/* Numéro de téléphone desktop */
 .navPhone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
@@ -69,7 +72,7 @@
 
 .navPhone:hover { color: var(--color-text); }
 
-/* Bouton Calendly */
+/* Bouton Calendly desktop */
 .navCalendly {
   font-size: 12px;
   font-weight: var(--font-weight-medium);
@@ -86,7 +89,7 @@
   color: #000;
 }
 
-/* Toggle langue */
+/* Toggle langue desktop */
 .langToggle {
   font-size: 12px;
   font-weight: var(--font-weight-medium);
@@ -106,9 +109,36 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* ── Groupe mobile : langToggle + burger ──────────────────── */
+.navActions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Toggle langue mobile (collé au burger) */
+.langToggleMobile {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 4px 10px;
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.langToggleMobile:hover {
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* ── Burger ───────────────────────────────────────────────── */
 .burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -171,36 +201,47 @@
 .mobileNavLink:hover,
 .mobileNavLinkActive { color: var(--color-text); }
 
-.mobileActions {
+.mobileMenuBottom {
   display: flex;
-  align-items: center;
-  gap: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-3);
   padding-top: var(--space-8);
 }
+
+.mobilePhone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-fast);
+}
+
+.mobilePhone:hover { color: var(--color-text-secondary); }
 
 /* ── Bouton téléphone flottant (mobile) ───────────────────── */
 .floatingPhone {
   display: none;
   position: fixed;
-  bottom: 80px; /* au-dessus du bandeau cookie */
+  bottom: 80px;
   right: 20px;
   z-index: 200;
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: var(--color-accent-green);
-  color: #000;
-  font-size: 22px;
+  background: var(--color-bg-surface);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-secondary);
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
   text-decoration: none;
 }
 
 .floatingPhone:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(74, 222, 128, 0.55);
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */
@@ -210,13 +251,10 @@
 }
 
 @media (max-width: 900px) {
-  .nav { display: none; }
-  .ctaDesktop { display: none; }
-  .burger { display: flex; }
-  .mobileMenu { display: flex; }
-  .floatingPhone { display: flex; }
-}
+  .nav     { display: none; }
+  .actions { display: none; }
 
-@media (max-width: 480px) {
-  .langToggle { display: none; }
+  .navActions  { display: flex; }
+  .mobileMenu  { display: flex; }
+  .floatingPhone { display: flex; }
 }

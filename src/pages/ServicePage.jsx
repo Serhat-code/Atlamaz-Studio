@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getServiceBySlug, services } from '../data/services';
 import { getVilleById } from '../data/villes';
 import SocialProof from '../components/SocialProof';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/ServicePage.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -12,6 +14,7 @@ const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function ServicePage({ serviceSlug }) {
   const service = getServiceBySlug(serviceSlug);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!service) return <Navigate to="/" replace />;
 
@@ -102,7 +105,9 @@ export default function ServicePage({ serviceSlug }) {
             <SocialProof variant="inline" />
           </div>
           <div className={styles.heroCtas}>
-            <a href="/#contact" className="btn btn--primary">Démarrer ce projet</a>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
+              Démarrer ce projet
+            </button>
             {CALENDLY_URL && (
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
                 Réserver 30 min offertes
@@ -252,7 +257,9 @@ export default function ServicePage({ serviceSlug }) {
               Devis gratuit sous 24h. Premier échange offert. {service.delai} de délai.
             </p>
             <div className={styles.ctaCtas}>
-              <a href="/#contact" className="btn btn--primary">Démarrer mon projet</a>
+              <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
+                Démarrer mon projet
+              </button>
               {CALENDLY_URL && (
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
                   Réserver 30 min offertes
@@ -262,6 +269,8 @@ export default function ServicePage({ serviceSlug }) {
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getVilleById } from '../data/villes';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/VillePage.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -13,6 +15,7 @@ const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 export default function VillePage() {
   const { villeId } = useParams();
   const ville = getVilleById(villeId);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!ville) return <Navigate to="/nos-villes" replace />;
 
@@ -222,7 +225,9 @@ export default function VillePage() {
               Devis gratuit sous 24h. Premier échange offert. Livraison en 5 à 14 jours.
             </p>
             <div className={styles.ctaCtas}>
-              <a href="/#contact" className="btn btn--primary">Démarrer mon projet</a>
+              <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
+                Démarrer mon projet
+              </button>
               {CALENDLY_URL && (
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
                   Réserver 30 min offertes
@@ -232,6 +237,8 @@ export default function VillePage() {
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
