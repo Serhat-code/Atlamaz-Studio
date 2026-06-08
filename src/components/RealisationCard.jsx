@@ -4,6 +4,14 @@ import styles from '../styles/RealisationCard.module.css';
 export default function RealisationCard({ realisation }) {
   const [flipped, setFlipped] = useState(false);
 
+  const frontStyle = realisation.image
+    ? {
+        backgroundImage: `url(${realisation.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+      }
+    : { background: realisation.couleur };
+
   return (
     <div
       className={styles.cardWrapper}
@@ -16,7 +24,8 @@ export default function RealisationCard({ realisation }) {
       <div className={`${styles.card} ${flipped ? styles.flipped : ''}`}>
 
         {/* Recto */}
-        <div className={styles.front} style={{ background: realisation.couleur }}>
+        <div className={styles.front} style={frontStyle}>
+          {realisation.image && <div className={styles.imgOverlay} />}
           <div className={styles.bgNumber}>
             {String(realisation.id).padStart(2, '0')}
           </div>
