@@ -5,7 +5,7 @@ import { villes } from './src/data/villes.js';
 import { services } from './src/data/services.js';
 import { articles } from './src/data/articles.js';
 
-const BASE_URL = 'https://atlamaz-studio.vercel.app';
+const BASE_URL = 'https://atlamaz-studio.fr';
 
 const villeRoutes   = villes.map((v)   => `/creation-site-web-${v.villeId}`);
 const serviceRoutes = services.map((s) => `/${s.slug}`);
