@@ -1,29 +1,35 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ContactModal from './ContactModal';
 import styles from '../styles/Navbar.module.css';
 
 const PHONE         = import.meta.env.VITE_PHONE;
 const PHONE_DISPLAY = import.meta.env.VITE_PHONE_DISPLAY;
-const CALENDLY_URL  = import.meta.env.VITE_CALENDLY_URL;
 
 const PhoneIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.0 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
   </svg>
 );
 
 export default function Navbar({ t, lang, onLangToggle }) {
   const location = useLocation();
-  const isHome = location.pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
 
-  // Ferme le menu et restaure le scroll au changement de route
-  useEffect(() => {
+  if (location.pathname !== prevPathname) {
+    setPrevPathname(location.pathname);
     setMenuOpen(false);
-    document.body.style.overflow = '';
-  }, [location.pathname]);
+  }
 
-  // Bloque/restaure le scroll body selon l'état du menu
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -34,56 +40,36 @@ export default function Navbar({ t, lang, onLangToggle }) {
     document.body.style.overflow = '';
   };
 
-  const resolveHref = (link) => {
-    if (link.isAnchor) return isHome ? link.href : `/${link.href}`;
-    return link.href;
-  };
-
   return (
     <>
-      <header className={styles.navbar}>
+      <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.inner}`}>
 
           {/* Logo */}
-          <Link to="/" className={styles.logo} aria-label="Atlamaz Studio — accueil" onClick={closeMenu}>
+          <Link to="/" className={styles.logo} onClick={closeMenu} aria-label="Atlamaz Studio — accueil">
             {t.navbar.logo}
+            <span className={styles.logoStudio}> Studio</span>
           </Link>
 
-          {/* Nav centrale — desktop */}
+          {/* Nav centrale desktop */}
           <nav className={styles.nav} aria-label="Navigation principale">
-            {t.navbar.links.map((link) =>
-              link.isAnchor ? (
-                <a key={link.href + link.label} href={resolveHref(link)} className={styles.navLink}>
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`${styles.navLink} ${location.pathname === link.href ? styles.navLinkActive : ''}`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {t.navbar.links.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`${styles.navLink} ${location.pathname === link.href ? styles.navLinkActive : ''}`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Actions droite — desktop */}
+          {/* Actions desktop */}
           <div className={styles.actions}>
             {PHONE && PHONE_DISPLAY && (
               <a href={`tel:${PHONE}`} className={styles.navPhone} aria-label="Appeler Atlamaz Studio">
                 <PhoneIcon />
                 {PHONE_DISPLAY}
-              </a>
-            )}
-            {CALENDLY_URL && (
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.navCalendly}
-              >
-                Appel gratuit
               </a>
             )}
             <button
@@ -93,21 +79,18 @@ export default function Navbar({ t, lang, onLangToggle }) {
             >
               {lang === 'fr' ? 'EN' : 'FR'}
             </button>
-            <a
-              href={isHome ? t.navbar.ctaHref : `/${t.navbar.ctaHref}`}
-              className={`btn btn--primary ${styles.ctaDesktop}`}
+            <button
+              onClick={() => setModalOpen(true)}
+              className={`btn btn--emerald ${styles.ctaDesktop}`}
             >
               {t.navbar.cta}
-            </a>
+            </button>
           </div>
 
-          {/* Groupe mobile : langToggle + burger */}
+          {/* Groupe mobile */}
           <div className={styles.navActions}>
-            <button
-              className={styles.langToggleMobile}
-              onClick={onLangToggle}
-              aria-label={`Passer en ${lang === 'fr' ? 'anglais' : 'français'}`}
-            >
+            <button className={styles.langToggleMobile} onClick={onLangToggle}
+              aria-label={`Passer en ${lang === 'fr' ? 'anglais' : 'français'}`}>
               {lang === 'fr' ? 'EN' : 'FR'}
             </button>
             <button
@@ -125,40 +108,26 @@ export default function Navbar({ t, lang, onLangToggle }) {
         </div>
       </header>
 
-      {/* Menu mobile — HORS du <header> pour éviter le stacking context de backdrop-filter */}
+      {/* Menu mobile — hors du <header> pour éviter le stacking context backdrop-filter */}
       {menuOpen && (
         <div className={styles.mobileMenu} role="dialog" aria-label="Menu mobile">
           <nav className={styles.mobileNav}>
-            {t.navbar.links.map((link) =>
-              link.isAnchor ? (
-                <a
-                  key={link.href + link.label}
-                  href={resolveHref(link)}
-                  className={styles.mobileNavLink}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`${styles.mobileNavLink} ${location.pathname === link.href ? styles.mobileNavLinkActive : ''}`}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {t.navbar.links.map((link) => (
+              <Link key={link.href} to={link.href}
+                className={`${styles.mobileNavLink} ${location.pathname === link.href ? styles.mobileNavLinkActive : ''}`}
+                onClick={closeMenu}>
+                {link.label}
+              </Link>
+            ))}
           </nav>
           <div className={styles.mobileMenuBottom}>
-            <a
-              href={isHome ? t.navbar.ctaHref : `/${t.navbar.ctaHref}`}
-              className="btn btn--primary"
-              onClick={closeMenu}
+            <button
+              onClick={() => { closeMenu(); setModalOpen(true); }}
+              className="btn btn--emerald"
+              style={{ textAlign: 'center', justifyContent: 'center', width: '100%' }}
             >
               {t.navbar.cta}
-            </a>
+            </button>
             {PHONE && PHONE_DISPLAY && (
               <a href={`tel:${PHONE}`} className={styles.mobilePhone} onClick={closeMenu}>
                 <PhoneIcon />
@@ -169,16 +138,13 @@ export default function Navbar({ t, lang, onLangToggle }) {
         </div>
       )}
 
-      {/* Bouton téléphone flottant — mobile uniquement */}
       {PHONE && (
-        <a
-          href={`tel:${PHONE}`}
-          className={styles.floatingPhone}
-          aria-label="Appeler Atlamaz Studio"
-        >
+        <a href={`tel:${PHONE}`} className={styles.floatingPhone} aria-label="Appeler Atlamaz Studio">
           <PhoneIcon />
         </a>
       )}
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

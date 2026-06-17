@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faqs, FAQ_CATEGORIES } from '../data/faq';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/FAQ.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -33,6 +34,7 @@ function AccordionItem({ faq, isOpen, onToggle }) {
 export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState('tous');
   const [openId, setOpenId] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -127,7 +129,7 @@ export default function FAQ() {
               Contactez-nous directement. Nous répondons sous 24h à toutes les demandes.
             </p>
             <div className={styles.ctaCtas}>
-              <a href="/#contact" className="btn btn--primary">Poser une question</a>
+              <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Poser une question</button>
               <a href="mailto:atlamazstudio@gmail.com" className="btn btn--secondary">
                 atlamazstudio@gmail.com
               </a>
@@ -135,6 +137,8 @@ export default function FAQ() {
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -1,73 +1,56 @@
-import { useState } from 'react';
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/RealisationCard.module.css';
 
-export default function RealisationCard({ realisation }) {
-  const [flipped, setFlipped] = useState(false);
+export default function RealisationCard({ realisation: r, featured = false }) {
+  const cardRef = useRef(null);
 
-  const frontStyle = realisation.image
-    ? {
-        backgroundImage: `url(${realisation.image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-      }
-    : { background: realisation.couleur };
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    cardRef.current.style.setProperty('--mx', `${x}%`);
+    cardRef.current.style.setProperty('--my', `${y}%`);
+  };
 
   return (
-    <div
-      className={styles.cardWrapper}
-      onClick={() => setFlipped((f) => !f)}
-      aria-label={`Voir les détails de ${realisation.nom}`}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setFlipped((f) => !f); }}
+    <Link
+      to={`/realisations/${r.slug}`}
+      ref={cardRef}
+      className={`${styles.card} ${featured ? styles.featured : ''}`}
+      style={!r.image ? { background: r.couleur } : undefined}
+      onMouseMove={handleMouseMove}
+      aria-label={`Voir le projet ${r.nom}`}
     >
-      <div className={`${styles.card} ${flipped ? styles.flipped : ''}`}>
+      {r.image && (
+        <img
+          src={r.image}
+          alt={`Aperçu du site ${r.nom}`}
+          className={styles.bg}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+      <div className={styles.overlay} />
+      <div className={styles.halo} />
 
-        {/* Recto */}
-        <div className={styles.front} style={frontStyle}>
-          {realisation.image && <div className={styles.imgOverlay} />}
-          <div className={styles.bgNumber}>
-            {String(realisation.id).padStart(2, '0')}
-          </div>
-          <div className={styles.frontContent}>
-            <span className={styles.secteur}>{realisation.secteur}</span>
-            <h3 className={styles.nom}>{realisation.nom}</h3>
-            <span className={styles.type}>{realisation.type}</span>
-          </div>
-          <div className={styles.flipHint}>Cliquer pour voir →</div>
+      <div className={styles.content}>
+        <div className={styles.top}>
+          <span className={styles.cat}>{r.secteur}</span>
+          <span className={styles.year}>{r.annee}</span>
         </div>
-
-        {/* Verso */}
-        <div className={styles.back} style={{ background: realisation.couleur }}>
-          <div className={styles.backContent}>
-            <div className={styles.backHeader}>
-              <span className={styles.secteur}>{realisation.secteur}</span>
-              <h3 className={styles.nom}>{realisation.nom}</h3>
-            </div>
-            <p className={styles.description}>{realisation.description}</p>
-            <div className={styles.backMeta}>
-              <span>{realisation.delai}</span>
-              <span>{realisation.techno}</span>
-              <span>{realisation.annee}</span>
-            </div>
-            {realisation.lien && realisation.lien !== '#' && (
-              <a
-                href={realisation.lien}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.lien}
-                onClick={(e) => e.stopPropagation()}
-              >
-                Voir le site →
-              </a>
-            )}
-            {(!realisation.lien || realisation.lien === '#') && (
-              <span className={styles.lienDisabled}>Site en cours →</span>
-            )}
+        <div className={styles.bottom}>
+          <h3 className={styles.nom}>{r.nom}</h3>
+          <p className={styles.type}>{r.type}</p>
+          <div className={styles.stack}>
+            {r.technologies?.slice(0, 3).map((t) => (
+              <span key={t} className={styles.tag}>{t}</span>
+            ))}
           </div>
         </div>
-
       </div>
-    </div>
+
+      <span className={styles.arrow} aria-hidden="true">↗</span>
+    </Link>
   );
 }

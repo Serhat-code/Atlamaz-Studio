@@ -1,0 +1,65 @@
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-12);
+}
+
+.heroTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: var(--space-3) 0;
+  max-width: 680px;
+}
+
+.heroSubtitle {
+  font-family: var(--font-family);
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 540px;
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+.ctaSection {
+  border-top: 0.5px solid var(--border);
+  padding: var(--space-20) 0;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: var(--space-3);
+}
+
+.ctaSubtitle {
+  font-family: var(--font-family);
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: var(--space-8);
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .ctaButtons {
+    flex-direction: column;
+  }
+  .ctaButtons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

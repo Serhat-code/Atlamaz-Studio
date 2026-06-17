@@ -3,10 +3,16 @@
   top: 0;
   z-index: 100;
   height: var(--navbar-height);
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(8, 10, 8, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.scrolled {
+  background-color: rgba(8, 10, 8, 0.94);
+  border-bottom-color: var(--border);
 }
 
 .inner {
@@ -14,42 +20,47 @@
   align-items: center;
   justify-content: space-between;
   height: var(--navbar-height);
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 /* ── Logo ─────────────────────────────────────────────────── */
 .logo {
-  font-size: 13px;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text);
+  font-family: var(--font-family-display);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text);
   white-space: nowrap;
   flex-shrink: 0;
-  transition: opacity var(--transition-fast);
+  transition: opacity 0.15s ease;
 }
-
 .logo:hover { opacity: 0.7; }
 
-/* ── Nav centrale (desktop) ───────────────────────────────── */
+.logoStudio {
+  font-weight: 300;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Nav centrale desktop ─────────────────────────────────── */
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 .navLink {
+  font-family: var(--font-family);
   font-size: 13px;
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
+  font-weight: 400;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
   white-space: nowrap;
 }
-
 .navLink:hover,
-.navLinkActive { color: var(--color-text); }
+.navLinkActive { color: var(--text); }
 
-/* ── Actions droite (desktop) ─────────────────────────────── */
+/* ── Actions droite desktop ───────────────────────────────── */
 .actions {
   display: flex;
   align-items: center;
@@ -57,59 +68,41 @@
   flex-shrink: 0;
 }
 
-/* Numéro de téléphone desktop */
 .navPhone {
   display: flex;
   align-items: center;
   gap: 5px;
+  font-family: var(--font-family);
   font-size: 12px;
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
-  transition: opacity var(--transition-fast);
+  transition: opacity 0.15s ease;
 }
+.navPhone:hover { opacity: 0.7; }
 
-.navPhone:hover { opacity: 0.75; }
-
-/* Bouton Calendly desktop */
-.navCalendly {
-  font-size: 12px;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-accent-green);
-  white-space: nowrap;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  border: 0.5px solid var(--color-accent-green);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.navCalendly:hover {
-  background-color: var(--color-accent-green);
-  color: #000;
-}
-
-/* Toggle langue desktop */
 .langToggle {
-  font-size: 12px;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: 0.05em;
-  color: var(--color-text-tertiary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
   padding: 4px 8px;
   border-radius: var(--radius-sm);
-  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border: 0.5px solid var(--border);
   background: transparent;
   cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
-  font-family: var(--font-family);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
-
 .langToggle:hover {
-  color: var(--color-text-secondary);
-  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  border-color: var(--border-hover);
 }
 
-/* ── Groupe mobile : langToggle + burger ──────────────────── */
+.ctaDesktop { font-size: 12px; padding: 7px 16px; }
+
+/* ── Groupe mobile ────────────────────────────────────────── */
 .navActions {
   display: none;
   align-items: center;
@@ -117,24 +110,19 @@
   flex-shrink: 0;
 }
 
-/* Toggle langue mobile */
 .langToggleMobile {
-  font-size: 13px;
+  font-family: var(--font-family);
+  font-size: 12px;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--text-dim);
   padding: 4px 10px;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-sm);
   background: transparent;
   cursor: pointer;
-  font-family: var(--font-family);
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
-
-.langToggleMobile:hover {
-  color: var(--color-text);
-  border-color: rgba(255, 255, 255, 0.4);
-}
+.langToggleMobile:hover { color: var(--text); border-color: var(--border-hover); }
 
 /* ── Burger ───────────────────────────────────────────────── */
 .burger {
@@ -155,30 +143,26 @@
   display: block;
   width: 100%;
   height: 1.5px;
-  background: var(--color-text);
+  background: var(--text);
   border-radius: 2px;
   transition: transform 0.22s ease, opacity 0.22s ease;
   transform-origin: center;
 }
 
-.burgerLineTop  { transform: translateY(6.5px) rotate(45deg); }
-.burgerLineMid  { opacity: 0; transform: scaleX(0); }
-.burgerLineBot  { transform: translateY(-6.5px) rotate(-45deg); }
+.burgerLineTop { transform: translateY(6.5px) rotate(45deg); }
+.burgerLineMid { opacity: 0; transform: scaleX(0); }
+.burgerLineBot { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ── Menu mobile overlay ──────────────────────────────────── */
-/*
- * Placé HORS du <header> dans le JSX pour éviter que le backdrop-filter
- * de la navbar crée un stacking context qui piègerait position:fixed.
- */
 .mobileMenu {
   position: fixed;
   top: var(--navbar-height);
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(8, 10, 8, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 99;
   display: flex;
   flex-direction: column;
@@ -192,29 +176,22 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.mobileNav {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+.mobileNav { display: flex; flex-direction: column; flex: 1; }
 
 .mobileNavLink {
   display: block;
-  font-size: 24px;
-  font-weight: var(--font-weight-light);
-  color: var(--color-text-secondary);
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-dim);
   padding: 16px 0;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
-  transition: color var(--transition-fast);
+  border-bottom: 0.5px solid var(--border);
+  transition: color 0.15s ease;
   text-align: left;
 }
-
-.mobileNavLink:last-child {
-  border-bottom: none;
-}
-
+.mobileNavLink:last-child { border-bottom: none; }
 .mobileNavLink:hover,
-.mobileNavLinkActive { color: var(--color-text); }
+.mobileNavLinkActive { color: var(--text); }
 
 .mobileMenuBottom {
   display: flex;
@@ -223,26 +200,20 @@
   padding-top: var(--space-8);
 }
 
-.mobileMenuBottom .btn {
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
-
 .mobilePhone {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 15px;
-  color: var(--color-text-tertiary);
-  transition: color var(--transition-fast);
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
   padding: 8px 0;
 }
+.mobilePhone:hover { color: var(--text); }
 
-.mobilePhone:hover { color: var(--color-text-secondary); }
-
-/* ── Bouton téléphone flottant (mobile) ───────────────────── */
+/* ── Bouton téléphone flottant ────────────────────────────── */
 .floatingPhone {
   display: none;
   position: fixed;
@@ -252,31 +223,23 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: var(--color-bg-surface);
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  background: var(--surface);
+  border: 0.5px solid var(--border-hover);
   color: #ffffff;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.15s ease;
   text-decoration: none;
 }
+.floatingPhone:hover { opacity: 0.75; }
 
-.floatingPhone:hover {
-  opacity: 0.75;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* ── Responsive ────────────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .navPhone,
-  .navCalendly { display: none; }
-}
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1100px) { .navPhone { display: none; } }
 
 @media (max-width: 900px) {
   .nav     { display: none; }
   .actions { display: none; }
-
   .navActions    { display: flex; }
   .floatingPhone { display: flex; }
 }

@@ -1,10 +1,10 @@
-﻿import { Helmet } from 'react-helmet-async';
-import Hero    from '../components/Hero';
-import Stats   from '../components/Stats';
-import Packs   from '../components/Packs';
-import Process from '../components/Process';
-import Contact from '../components/Contact';
-import CTA     from '../components/CTA';
+import { Helmet } from 'react-helmet-async';
+import Hero            from '../components/Hero';
+import Stats           from '../components/Stats';
+import HomeRealisations from '../components/HomeRealisations';
+import HomeServices    from '../components/HomeServices';
+import HomeStudio      from '../components/HomeStudio';
+import CTA             from '../components/CTA';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
@@ -24,12 +24,12 @@ export default function Home({ t }) {
         <meta name="twitter:image"      content={OG_IMAGE} />
       </Helmet>
 
-      <Hero    t={t} />
-      <Stats   t={t} />
-      <Packs   t={t} />
-      <Process t={t} />
-      <Contact t={t} />
-      <CTA     t={t} />
+      <Hero             t={t} />
+      <Stats            t={t} />
+      <HomeRealisations />
+      <HomeServices />
+      <HomeStudio       t={t} />
+      <CTA              t={t} />
     </>
   );
 }

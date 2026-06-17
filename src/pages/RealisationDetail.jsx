@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { realisations } from '../data/realisations';
+import Reveal from '../components/Reveal';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/RealisationDetail.module.css';
 
 export default function RealisationDetail({ t }) {
   const { slug } = useParams();
   const { realisationDetail: rd } = t;
   const projet = realisations.find((p) => p.slug === slug);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!projet) return <Navigate to="/realisations" replace />;
+
+  const nextProjet = realisations[(realisations.indexOf(projet) + 1) % realisations.length];
 
   return (
     <>
@@ -17,8 +23,8 @@ export default function RealisationDetail({ t }) {
         <meta name="description" content={projet.description} />
       </Helmet>
 
+      {/* ── Breadcrumb ─────────────────────────────────────── */}
       <div className="container">
-        {/* Breadcrumb */}
         <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
           <Link to="/" className={styles.breadcrumbLink}>{rd.breadcrumb.home}</Link>
           <span className={styles.breadcrumbSep} aria-hidden="true">›</span>
@@ -26,29 +32,48 @@ export default function RealisationDetail({ t }) {
           <span className={styles.breadcrumbSep} aria-hidden="true">›</span>
           <span className={styles.breadcrumbCurrent}>{projet.nom}</span>
         </nav>
+      </div>
 
-        {/* Hero */}
-        <header className={styles.hero}>
-          <div className={styles.heroLeft}>
-            <span className={`badge badge--tag ${styles.typeBadge}`}>{projet.type}</span>
+      {/* ── Hero ───────────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className="container">
+          <Reveal>
+            <span className="section-label">{projet.secteur}</span>
+          </Reveal>
+          <Reveal delay={1}>
             <h1 className={styles.heroTitle}>{projet.nom}</h1>
-            <p className={styles.heroSecteur}>{projet.secteur}</p>
-          </div>
-          <div className={styles.heroRight}>
-            {projet.lien && projet.lien !== '#' && (
+          </Reveal>
+          <Reveal delay={2}>
+            <p className={styles.heroType}>{projet.type}</p>
+          </Reveal>
+
+          <Reveal delay={3} className={styles.heroMeta}>
+            {projet.technologies?.map((tech) => (
+              <span key={tech} className={styles.tag}>{tech}</span>
+            ))}
+            <span className={styles.metaSep} aria-hidden="true" />
+            <span className={styles.metaItem}>{projet.annee}</span>
+            <span className={styles.metaItem}>·</span>
+            <span className={styles.metaItem}>{projet.delaiLivraison}</span>
+          </Reveal>
+
+          {projet.lien && projet.lien !== '#' && (
+            <Reveal delay={4}>
               <a
                 href={projet.lien}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn--secondary"
+                className="btn btn--emerald"
               >
                 {rd.visitBtn} ↗
               </a>
-            )}
-          </div>
-        </header>
+            </Reveal>
+          )}
+        </div>
+      </section>
 
-        {/* Grande image */}
+      {/* ── Image principale ───────────────────────────────── */}
+      <div className="container">
         <div className={styles.imageWrapper}>
           {projet.image ? (
             <img
@@ -59,76 +84,96 @@ export default function RealisationDetail({ t }) {
               height="619"
             />
           ) : (
-            <div className={styles.imagePlaceholder} aria-hidden="true">
+            <div className={styles.imagePlaceholder} style={{ background: projet.couleur }} aria-hidden="true">
               <span className={styles.placeholderText}>{projet.nom}</span>
             </div>
           )}
         </div>
+      </div>
 
-        {/* Contenu */}
-        <div className={styles.content}>
-          {/* Colonne principale */}
-          <div className={styles.main}>
-            {/* Contexte */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>{rd.sections.context}</h2>
-              <p className={styles.description}>{projet.description}</p>
-            </section>
-
-            {/* Technologies */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>{rd.sections.technologies}</h2>
-              <div className={styles.techList}>
-                {projet.technologies.map((tech) => (
-                  <span key={tech} className="badge badge--tag">{tech}</span>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          {/* Sidebar résultats */}
-          <aside className={styles.sidebar}>
-            <h2 className={styles.sectionTitle}>{rd.sections.results}</h2>
-            <div className={styles.results}>
-              <div className={styles.resultItem}>
-                <span className={styles.resultValue}>{projet.pageSpeed}/100</span>
-                <span className={styles.resultLabel}>{rd.resultsLabels.pageSpeed}</span>
-              </div>
-              <div className={styles.resultItem}>
-                <span className={styles.resultValue}>{projet.delaiLivraison}</span>
-                <span className={styles.resultLabel}>{rd.resultsLabels.delivery}</span>
-              </div>
-              <div className={styles.resultItem}>
-                <span className={styles.resultValue}>{projet.revisions}</span>
-                <span className={styles.resultLabel}>{rd.resultsLabels.revisions}</span>
-              </div>
+      {/* ── Stats inline ───────────────────────────────────── */}
+      <div className="container">
+        <div className={styles.statsRow}>
+          {projet.stats?.map((s) => (
+            <div key={s.label} className={styles.statItem}>
+              <span className={styles.statValue}>{s.value}</span>
+              <span className={styles.statLabel}>{s.label}</span>
             </div>
-            {projet.resultat && (
-              <blockquote className={styles.resultatQuote}>
-                "{projet.resultat}"
-              </blockquote>
-            )}
-          </aside>
-        </div>
-
-        {/* CTA similaire */}
-        <div className={styles.ctaSection}>
-          <div className={styles.ctaText}>
-            <h3 className={styles.ctaTitle}>{rd.sections.cta}</h3>
-            <p className={styles.ctaSubtitle}>{rd.ctaText}</p>
-          </div>
-          <Link to="/#contact" className="btn btn--primary">
-            {rd.ctaButton}
-          </Link>
-        </div>
-
-        {/* Retour */}
-        <div className={styles.backWrapper}>
-          <Link to="/realisations" className={styles.backLink}>
-            {rd.backBtn}
-          </Link>
+          ))}
         </div>
       </div>
+
+      {/* ── Blocs narratifs ────────────────────────────────── */}
+      <div className="container">
+        <div className={styles.narrative}>
+
+          {projet.defi && (
+            <Reveal className={styles.block}>
+              <div className={styles.blockLabel}>01 — {rd.sections?.defi || 'Le défi'}</div>
+              <p className={styles.blockText}>{projet.defi}</p>
+            </Reveal>
+          )}
+
+          {projet.approche && (
+            <Reveal className={styles.block}>
+              <div className={styles.blockLabel}>02 — {rd.sections?.approche || 'Notre approche'}</div>
+              <p className={styles.blockText}>{projet.approche}</p>
+            </Reveal>
+          )}
+
+          {projet.resultatNarratif && (
+            <Reveal className={styles.block}>
+              <div className={styles.blockLabel}>03 — {rd.sections?.resultat || 'Le résultat'}</div>
+              <p className={styles.blockText}>{projet.resultatNarratif}</p>
+            </Reveal>
+          )}
+
+        </div>
+      </div>
+
+      {/* ── Projet suivant ─────────────────────────────────── */}
+      {nextProjet && nextProjet.slug !== projet.slug && (
+        <section className={styles.nextSection}>
+          <div className="container">
+            <Reveal>
+              <span className="section-label">{rd.nextLabel || 'Projet suivant'}</span>
+            </Reveal>
+            <Reveal delay={1}>
+              <Link to={`/realisations/${nextProjet.slug}`} className={styles.nextCard}>
+                <div
+                  className={styles.nextBg}
+                  style={nextProjet.image
+                    ? { backgroundImage: `url(${nextProjet.image})` }
+                    : { background: nextProjet.couleur }}
+                />
+                <div className={styles.nextOverlay} />
+                <div className={styles.nextContent}>
+                  <span className={styles.nextType}>{nextProjet.type}</span>
+                  <h2 className={styles.nextTitle}>{nextProjet.nom}</h2>
+                  <span className={styles.nextArrow} aria-hidden="true">↗</span>
+                </div>
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* ── CTA bas de page ────────────────────────────────── */}
+      <section className={styles.ctaSection}>
+        <div className="container">
+          <Reveal>
+            <h3 className={styles.ctaTitle}>{rd.sections?.cta || 'Envie d\'un projet similaire ?'}</h3>
+            <p className={styles.ctaSubtitle}>{rd.ctaText}</p>
+          </Reveal>
+          <Reveal delay={1}>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
+              {rd.ctaButton}
+            </button>
+          </Reveal>
+        </div>
+      </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -1,0 +1,107 @@
+.section {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+  border-top: 0.5px solid var(--border);
+}
+
+.header {
+  margin-bottom: var(--space-10);
+}
+
+/* ── Liste ────────────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 0.5px solid var(--border);
+}
+
+/* ── Ligne de service ─────────────────────────────────────── */
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+  border-bottom: 0.5px solid var(--border);
+  text-decoration: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.item:hover .arrow {
+  transform: rotate(45deg) translate(2px, -2px);
+  color: var(--emerald);
+}
+
+.item:hover .itemTitle { color: var(--emerald); }
+
+/* ── Numéro ───────────────────────────────────────────────── */
+.num {
+  font-family: var(--font-family-display);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+/* ── Corps ────────────────────────────────────────────────── */
+.itemBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemTitle {
+  font-family: var(--font-family-display);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.15;
+  transition: color 0.2s ease;
+}
+
+.itemDesc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  font-family: var(--font-family);
+}
+
+/* ── Droite ───────────────────────────────────────────────── */
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-shrink: 0;
+}
+
+.price {
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.arrow {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.25s var(--ease-out-expo), color 0.25s ease;
+  display: inline-block;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  margin-top: var(--space-10);
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .item { gap: var(--space-4); }
+  .itemTitle { font-size: 17px; }
+  .price { display: none; }
+}

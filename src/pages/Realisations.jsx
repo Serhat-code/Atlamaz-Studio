@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { realisations } from '../data/realisations';
+import { realisations, REALISATION_CATS } from '../data/realisations';
 import RealisationCard from '../components/RealisationCard';
 import Reveal from '../components/Reveal';
 import styles from '../styles/Realisations.module.css';
@@ -9,6 +10,11 @@ const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function Realisations({ t }) {
   const { realisations: rt } = t;
+  const [activeFilter, setActiveFilter] = useState('tous');
+
+  const filtered = activeFilter === 'tous'
+    ? realisations
+    : realisations.filter((r) => r.cat === activeFilter);
 
   return (
     <>
@@ -33,16 +39,38 @@ export default function Realisations({ t }) {
         </div>
       </section>
 
-      {/* Grille flip 3D */}
-      <section className={styles.gridSection}>
+      {/* Filtres */}
+      <div className={styles.filtersSection}>
         <div className="container">
-          <div className={styles.grid}>
-            {realisations.map((r, i) => (
-              <Reveal key={r.id} delay={Math.min(i + 1, 5)}>
-                <RealisationCard realisation={r} />
-              </Reveal>
+          <div className={styles.filters} role="group" aria-label="Filtrer par catégorie">
+            {REALISATION_CATS.map((cat) => (
+              <button
+                key={cat.id}
+                className={`${styles.filterBtn} ${activeFilter === cat.id ? styles.filterBtnActive : ''}`}
+                onClick={() => setActiveFilter(cat.id)}
+                aria-pressed={activeFilter === cat.id}
+              >
+                {cat.label}
+              </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Grille */}
+      <section className={styles.gridSection}>
+        <div className="container">
+          {filtered.length === 0 ? (
+            <p className={styles.empty}>Aucun projet dans cette catégorie pour l&apos;instant.</p>
+          ) : (
+            <div className={styles.grid}>
+              {filtered.map((r, i) => (
+                <Reveal key={r.id} delay={Math.min(i + 1, 4)}>
+                  <RealisationCard realisation={r} featured={i === 0 && activeFilter === 'tous'} />
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

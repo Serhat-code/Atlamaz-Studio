@@ -1,0 +1,120 @@
+.section {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+  border-top: 0.5px solid var(--border);
+  background: var(--surface);
+}
+
+/* ── Grille 2 colonnes ────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  margin-top: var(--space-10);
+  align-items: start;
+}
+
+/* ── Colonne gauche — citation ────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.quote {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text);
+  position: relative;
+}
+
+.quoteChar {
+  color: var(--emerald);
+  font-size: 40px;
+  line-height: 0;
+  vertical-align: -0.35em;
+}
+
+.quoteChar:first-child { margin-right: 4px; }
+.quoteChar:last-child  { margin-left: 4px; }
+
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 2px;
+}
+
+.authorName {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.authorRole {
+  font-family: var(--font-family);
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ── Colonne droite — valeurs ─────────────────────────────── */
+.values {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 0.5px solid var(--border);
+}
+
+.valueItem {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.valueNum {
+  font-family: var(--font-family-display);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--emerald);
+  letter-spacing: 0.06em;
+  padding-top: 3px;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.valueBody {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.valueTitle {
+  font-family: var(--font-family-display);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.valueDesc {
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  .quote { font-size: 22px; }
+}

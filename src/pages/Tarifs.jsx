@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/Tarifs.module.css';
 
 const BASE_URL     = import.meta.env.VITE_BASE_URL;
@@ -55,6 +57,8 @@ const faqSchema = {
 };
 
 export default function Tarifs() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -158,13 +162,15 @@ export default function Tarifs() {
                   Réserver 30 min offertes
                 </a>
               )}
-              <a href="/#contact" className="btn btn--secondary">
+              <button className="btn btn--secondary" onClick={() => setModalOpen(true)}>
                 Envoyer un message
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

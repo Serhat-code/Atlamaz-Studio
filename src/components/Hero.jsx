@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import SocialProof from './SocialProof';
+import { Link } from 'react-router-dom';
 import ContactModal from './ContactModal';
 import Reveal from './Reveal';
 import styles from '../styles/Hero.module.css';
-
-const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
 
 export default function Hero({ t }) {
   const { hero } = t;
@@ -28,6 +26,9 @@ export default function Hero({ t }) {
         <Reveal delay={2}>
           <h1 className={styles.title}>
             {hero.titleLight}{' '}
+            {hero.titleEm && (
+              <em className={styles.titleEm}>{hero.titleEm}</em>
+            )}{' '}
             <strong>{hero.titleStrong}</strong>
           </h1>
         </Reveal>
@@ -36,25 +37,21 @@ export default function Hero({ t }) {
           <p className={styles.subtitle}>{hero.subtitle}</p>
         </Reveal>
 
-        <Reveal delay={3} className={styles.socialProofWrap}>
-          <SocialProof />
-        </Reveal>
-
         <Reveal delay={4} className={styles.ctas}>
           <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
-            Démarrer un projet
+            {hero.ctaPrimary}
           </button>
-          {CALENDLY_URL && (
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--secondary"
-            >
-              Réserver 30 min offertes
-            </a>
-          )}
+          <Link to={hero.ctaSecondaryHref || '/realisations'} className="btn btn--secondary">
+            {hero.ctaSecondary}
+          </Link>
         </Reveal>
+
+      </div>
+
+      {/* Indicateur de scroll */}
+      <div className={styles.scrollIndicator} aria-hidden="true">
+        <span className={styles.scrollLine} />
+        <span className={styles.scrollLabel}>Scroll</span>
       </div>
 
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

@@ -16,13 +16,10 @@ function loadUmami() {
 }
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => !localStorage.getItem(CONSENT_KEY));
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (!consent) {
-      setVisible(true);
-    } else if (consent === 'accepted') {
+    if (localStorage.getItem(CONSENT_KEY) === 'accepted') {
       loadUmami();
     }
   }, []);

@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getArticleBySlug, getArticlesSimilaires } from '../data/articles';
 import { getServiceBySlug } from '../data/services';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/BlogArticle.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -15,6 +17,7 @@ function formatDate(dateStr) {
 export default function BlogArticle() {
   const { slug } = useParams();
   const article = getArticleBySlug(slug);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!article) return <Navigate to="/blog" replace />;
 
@@ -121,7 +124,7 @@ export default function BlogArticle() {
               <div className={`${styles.sidebarCard} ${styles.sidebarCardCta}`}>
                 <h3 className={styles.sidebarCardTitle}>Un projet web ?</h3>
                 <p className={styles.sidebarCardDesc}>Devis gratuit sous 24h. Premier échange offert.</p>
-                <a href="/#contact" className="btn btn--primary btn--sm">Démarrer un projet</a>
+                <button className="btn btn--primary btn--sm" onClick={() => setModalOpen(true)}>Démarrer un projet</button>
               </div>
 
               {/* Liens utiles */}
@@ -154,6 +157,8 @@ export default function BlogArticle() {
           )}
         </div>
       </div>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

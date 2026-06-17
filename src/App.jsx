@@ -13,6 +13,7 @@ import ScrollToTop  from './components/ScrollToTop';
 import Home                    from './pages/Home';
 import Realisations            from './pages/Realisations';
 import RealisationDetail       from './pages/RealisationDetail';
+import Studio                  from './pages/Studio';
 import MentionsLegales         from './pages/MentionsLegales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import Merci                   from './pages/Merci';
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/"                               element={<Home t={t} />} />
             <Route path="/realisations"                   element={<Realisations t={t} />} />
             <Route path="/realisations/:slug"             element={<RealisationDetail t={t} />} />
+            <Route path="/studio"                         element={<Studio t={t} />} />
             <Route path="/mentions-legales"               element={<MentionsLegales />} />
             <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
             <Route path="/merci"                          element={<Merci t={t} />} />

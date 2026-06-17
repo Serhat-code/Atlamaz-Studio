@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { villes } from '../data/villes';
+import ContactModal from '../components/ContactModal';
 import styles from '../styles/NosVilles.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function NosVilles() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -69,10 +73,12 @@ export default function NosVilles() {
             <p className={styles.ctaSubtitle}>
               Nous travaillons avec des clients dans toute la France. Contactez-nous pour discuter de votre projet.
             </p>
-            <a href="/#contact" className="btn btn--primary">Demander un devis gratuit</a>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Demander un devis gratuit</button>
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

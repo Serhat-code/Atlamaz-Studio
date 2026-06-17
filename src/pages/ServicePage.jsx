@@ -178,7 +178,7 @@ export default function ServicePage({ serviceSlug }) {
             <div className={styles.prixRight}>
               <span className={styles.prixAmount}>{service.prix}</span>
               <span className={styles.prixDelai}>Livraison : {service.delai}</span>
-              <a href="/#contact" className="btn btn--primary">Démarrer ce projet</a>
+              <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Démarrer ce projet</button>
             </div>
           </div>
         </div>
