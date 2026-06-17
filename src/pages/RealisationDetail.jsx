@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { realisations } from '../data/realisations';
+import { buildSrcSet } from '../utils/images';
 import Reveal from '../components/Reveal';
 import ContactModal from '../components/ContactModal';
 import styles from '../styles/RealisationDetail.module.css';
@@ -78,6 +79,8 @@ export default function RealisationDetail({ t }) {
           {projet.image ? (
             <img
               src={projet.image}
+              srcSet={buildSrcSet(projet.image)}
+              sizes="(max-width: 1100px) 100vw, 1100px"
               alt={`Aperçu du site ${projet.nom}`}
               className={styles.image}
               width="1100"

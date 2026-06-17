@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -9,23 +9,26 @@ import Navbar       from './components/Navbar';
 import Footer       from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import ScrollToTop  from './components/ScrollToTop';
+import { services } from './data/services';
 
-import Home                    from './pages/Home';
-import Realisations            from './pages/Realisations';
-import RealisationDetail       from './pages/RealisationDetail';
-import Studio                  from './pages/Studio';
-import MentionsLegales         from './pages/MentionsLegales';
-import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
-import Merci                   from './pages/Merci';
-import NotFound                from './pages/NotFound';
-import Tarifs                 from './pages/Tarifs';
-import VillePage               from './pages/VillePage';
-import NosVilles               from './pages/NosVilles';
-import ServicePage             from './pages/ServicePage';
-import FAQ                     from './pages/FAQ';
-import Blog                    from './pages/Blog';
-import BlogArticle             from './pages/BlogArticle';
-import { services }            from './data/services';
+// Home reste en import statique : c'est la page d'entrée la plus fréquente,
+// inutile de la faire transiter par un chunk séparé + un aller-retour réseau.
+import Home from './pages/Home';
+
+const Realisations             = lazy(() => import('./pages/Realisations'));
+const RealisationDetail        = lazy(() => import('./pages/RealisationDetail'));
+const Studio                   = lazy(() => import('./pages/Studio'));
+const MentionsLegales          = lazy(() => import('./pages/MentionsLegales'));
+const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'));
+const Merci                    = lazy(() => import('./pages/Merci'));
+const NotFound                 = lazy(() => import('./pages/NotFound'));
+const Tarifs                   = lazy(() => import('./pages/Tarifs'));
+const VillePage                = lazy(() => import('./pages/VillePage'));
+const NosVilles                = lazy(() => import('./pages/NosVilles'));
+const ServicePage              = lazy(() => import('./pages/ServicePage'));
+const FAQ                      = lazy(() => import('./pages/FAQ'));
+const Blog                     = lazy(() => import('./pages/Blog'));
+const BlogArticle              = lazy(() => import('./pages/BlogArticle'));
 
 const translations = { fr, en };
 
@@ -59,27 +62,29 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Layout t={t} lang={lang} onLangToggle={handleLangToggle}>
-          <Routes>
-            <Route path="/"                               element={<Home t={t} />} />
-            <Route path="/realisations"                   element={<Realisations t={t} />} />
-            <Route path="/realisations/:slug"             element={<RealisationDetail t={t} />} />
-            <Route path="/studio"                         element={<Studio t={t} />} />
-            <Route path="/mentions-legales"               element={<MentionsLegales />} />
-            <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
-            <Route path="/merci"                          element={<Merci t={t} />} />
-            {/* SEO pages */}
-            <Route path="/tarifs"                         element={<Tarifs t={t} />} />
-            <Route path="/nos-villes"                     element={<NosVilles />} />
-            <Route path="/faq"                            element={<FAQ />} />
-            <Route path="/blog"                           element={<Blog />} />
-            <Route path="/blog/:slug"                     element={<BlogArticle />} />
-            {services.map((s) => (
-              <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
-            ))}
-            <Route path="/creation-site-web-:villeId"    element={<VillePage />} />
-            {/* 404 */}
-            <Route path="*"                               element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/"                               element={<Home t={t} />} />
+              <Route path="/realisations"                   element={<Realisations t={t} />} />
+              <Route path="/realisations/:slug"             element={<RealisationDetail t={t} />} />
+              <Route path="/studio"                         element={<Studio t={t} />} />
+              <Route path="/mentions-legales"               element={<MentionsLegales />} />
+              <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
+              <Route path="/merci"                          element={<Merci t={t} />} />
+              {/* SEO pages */}
+              <Route path="/tarifs"                         element={<Tarifs t={t} />} />
+              <Route path="/nos-villes"                     element={<NosVilles />} />
+              <Route path="/faq"                            element={<FAQ />} />
+              <Route path="/blog"                           element={<Blog />} />
+              <Route path="/blog/:slug"                     element={<BlogArticle />} />
+              {services.map((s) => (
+                <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
+              ))}
+              <Route path="/creation-site-web-:villeId"    element={<VillePage />} />
+              {/* 404 */}
+              <Route path="*"                               element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </HelmetProvider>

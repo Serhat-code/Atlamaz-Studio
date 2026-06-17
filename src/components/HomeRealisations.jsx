@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { realisations } from '../data/realisations';
+import { buildSrcSet } from '../utils/images';
 import Reveal from './Reveal';
 import styles from '../styles/HomeRealisations.module.css';
 
@@ -27,6 +28,8 @@ function ProjectCard({ r, featured = false }) {
       {r.image && (
         <img
           src={r.image}
+          srcSet={buildSrcSet(r.image)}
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt={`Aperçu du site ${r.nom}`}
           className={styles.bg}
           loading="lazy"

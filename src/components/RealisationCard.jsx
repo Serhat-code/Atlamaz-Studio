@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { buildSrcSet } from '../utils/images';
 import styles from '../styles/RealisationCard.module.css';
 
 export default function RealisationCard({ realisation: r, featured = false }) {
@@ -25,6 +26,8 @@ export default function RealisationCard({ realisation: r, featured = false }) {
       {r.image && (
         <img
           src={r.image}
+          srcSet={buildSrcSet(r.image)}
+          sizes="(max-width: 640px) 100vw, 50vw"
           alt={`Aperçu du site ${r.nom}`}
           className={styles.bg}
           loading="lazy"
