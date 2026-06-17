@@ -1,0 +1,31 @@
+# Atlamaz Studio
+
+> Studio de création de sites web basé à Lyon (France). Sites vitrines, landing pages, boutiques en ligne et applications mobiles, livrés rapidement avec un code sur mesure.
+
+Atlamaz Studio est dirigé par Serhat Atlamaz, développeur web freelance basé en Auvergne-Rhône-Alpes. Pas d'agence, pas d'intermédiaire : un seul interlocuteur du brief à la mise en ligne. Tarifs fixes et publics, livraison rapide (2 à 21 jours selon le projet).
+
+## Pages principales
+
+- [Accueil](https://atlamaz-studio.fr/): Présentation du studio, des services et des réalisations.
+- [Réalisations](https://atlamaz-studio.fr/realisations): Portfolio des projets livrés (ASTRA, GIVRE).
+- [Tarifs](https://atlamaz-studio.fr/tarifs): Grille tarifaire publique et détaillée pour tous les services.
+- [Studio](https://atlamaz-studio.fr/studio): Présentation du fondateur et de l'approche du studio.
+- [FAQ](https://atlamaz-studio.fr/faq): Questions fréquentes sur les prestations et le déroulement des projets.
+- [Blog](https://atlamaz-studio.fr/blog): Articles sur la création de sites web et le référencement local.
+- [Nos villes d'intervention](https://atlamaz-studio.fr/nos-villes): Zones d'intervention en Auvergne-Rhône-Alpes.
+
+## Services
+
+- [Création Landing Page](https://atlamaz-studio.fr/creation-landing-page): Une page, un objectif, des résultats — à partir de 490€.
+- [Création Site Vitrine](https://atlamaz-studio.fr/creation-site-vitrine): Site vitrine professionnel sur mesure — à partir de 990€.
+- [Création Boutique en Ligne](https://atlamaz-studio.fr/creation-boutique-en-ligne): Boutique e-commerce clé en main — à partir de 1990€.
+- [Création Application Mobile](https://atlamaz-studio.fr/creation-application-mobile): Application mobile React Native.
+- [Refonte Site Web](https://atlamaz-studio.fr/refonte-site-web): Modernisation d'un site existant.
+- [Maintenance Site Web](https://atlamaz-studio.fr/maintenance-site-web): Suivi, mises à jour et sécurisation d'un site existant.
+- [Création Site Restaurant](https://atlamaz-studio.fr/creation-site-restaurant): Site web sur mesure pour restaurants et établissements de restauration.
+
+## Optional
+
+- [Mentions légales](https://atlamaz-studio.fr/mentions-legales): Informations légales sur l'éditeur du site.
+- [Politique de confidentialité](https://atlamaz-studio.fr/politique-confidentialite): Traitement des données personnelles et cookies.
+- [Sitemap](https://atlamaz-studio.fr/sitemap.xml): Plan complet du site pour l'indexation.
