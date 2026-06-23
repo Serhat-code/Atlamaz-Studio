@@ -36,7 +36,7 @@ export default function NosVilles() {
             Nos villes <strong>d'intervention</strong>
           </h1>
           <p className={styles.heroSubtitle}>
-            Atlamaz Studio crée des sites web professionnels pour les entreprises de toute la région Auvergne-Rhône-Alpes. Référencement local, design sur mesure, livraison rapide.
+            Chaque ville ci-dessous a son propre balisage SEO local — schema.org LocalBusiness, fiche Google Business Profile, contenu géolocalisé — pas un site générique republié sous un autre nom.
           </p>
         </div>
       </section>

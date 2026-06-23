@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { getVilleById } from '../data/villes';
+import { getVilleBySlug } from '../data/villes';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
@@ -14,8 +14,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function VillePage() {
-  const { villeId } = useParams();
-  const ville = getVilleById(villeId);
+  const { slug } = useParams();
+  const ville = getVilleBySlug(slug);
   const [modalOpen, setModalOpen] = useState(false);
 
   if (!ville) return <Navigate to="/nos-villes" replace />;
@@ -115,13 +115,13 @@ export default function VillePage() {
         <div className="container">
           <div className={styles.introGrid}>
             <div>
-              <h2 className={styles.introTitle}>Votre partenaire digital à {ville.nom}</h2>
+              <h2 className={styles.introTitle}>Développeur web à {ville.nom}</h2>
               <p className={styles.introText}>{ville.intro}</p>
             </div>
             <div className={styles.introStats}>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>+80</span>
-                <span className={styles.statLabel}>Score PageSpeed garanti</span>
+                <span className={styles.statValue}>90+</span>
+                <span className={styles.statLabel}>Score Lighthouse cible</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>5–14j</span>
@@ -129,7 +129,7 @@ export default function VillePage() {
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>3</span>
-                <span className={styles.statLabel}>Révisions incluses</span>
+                <span className={styles.statLabel}>Itérations incluses</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>24h</span>

@@ -24,7 +24,7 @@
 .quote {
   font-family: var(--font-family-display);
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 500;
   font-style: italic;
   line-height: 1.4;
   color: var(--text);
@@ -81,8 +81,8 @@
 .valueNum {
   font-family: var(--font-family-display);
   font-size: 12px;
-  font-weight: 300;
-  color: var(--emerald);
+  font-weight: 700;
+  color: var(--accent-soft);
   letter-spacing: 0.06em;
   padding-top: 3px;
   flex-shrink: 0;

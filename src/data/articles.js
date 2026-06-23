@@ -171,10 +171,10 @@ export const articles = [
 <p>Les images non optimisées sont la cause numéro un de lenteur. Une image de 5 Mo sur un smartphone 4G peut bloquer toute la page. Les solutions : compression des images, format WebP, chargement différé (lazy loading). Les scripts JavaScript trop lourds ralentissent également le chargement. Les polices Google Fonts mal configurées ajoutent des requêtes réseau inutiles. Un hébergement de mauvaise qualité ajoute de la latence.</p>
 
 <h2>Comment mesurer la vitesse de votre site ?</h2>
-<p>Google PageSpeed Insights (gratuit) analyse votre site et donne un score de 0 à 100 avec des recommandations précises. GTmetrix offre une analyse plus détaillée avec une visualisation du chargement en cascade. Lighthouse (intégré dans Chrome DevTools) est l'outil de référence pour les développeurs. Visez un score PageSpeed supérieur à 80 sur mobile, ce qui garantit une expérience utilisateur satisfaisante pour la majorité des visiteurs.</p>
+<p>Google PageSpeed Insights (gratuit) analyse votre site et donne un score de 0 à 100 avec des recommandations précises. GTmetrix offre une analyse plus détaillée avec une visualisation du chargement en cascade. Lighthouse (intégré dans Chrome DevTools) est l'outil de référence pour les développeurs. Visez un score Lighthouse supérieur à 90 sur mobile, qui correspond à une expérience de chargement satisfaisante pour la majorité des visiteurs.</p>
 
 <h2>Ce que nous faisons pour la performance</h2>
-<p>Chez Atlamaz Studio, nous garantissons un score PageSpeed supérieur à 80 sur tous nos sites. Nous utilisons des techniques modernes : images WebP avec lazy loading, code JavaScript minimal et optimisé, mise en cache agressive, hébergement sur des serveurs rapides en Europe et utilisation des dernières technologies web (Vite, React). La performance n'est pas une option, c'est une promesse que nous tenons sur chaque projet.</p>`,
+<p>Chez Atlamaz Studio, chaque site est audité au Lighthouse avant livraison, avec un score cible supérieur à 90 sur mobile — pas seulement sur desktop en fibre. Les leviers techniques utilisés sont concrets : images AVIF/WebP avec chargement différé, code JavaScript scindé par route pour ne charger que le nécessaire, mise en cache HTTP correctement configurée, et une stack Vite + React qui produit un bundle plus léger qu'un CMS générique équivalent.</p>`,
     serviceLie: 'creation-site-vitrine',
     villeLiee: 'grenoble',
     metaTitle: 'Vitesse de chargement site web et SEO en 2026 — Atlamaz Studio',

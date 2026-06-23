@@ -22,7 +22,7 @@ export default function HomeServices() {
           <Reveal as="span" className="section-label">Services</Reveal>
           <Reveal delay={1}>
             <h2 className="section-title">
-              Ce qu'on fait <strong>vraiment bien.</strong>
+              Un périmètre clair, <strong>un prix fixe.</strong>
             </h2>
           </Reveal>
         </div>

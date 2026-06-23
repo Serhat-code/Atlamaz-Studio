@@ -5,8 +5,8 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  background: #0a0a0a;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: #0B0B0F;
+  border-top: 0.5px solid rgba(242, 242, 240, 0.08);
 }
 
 .inner {
@@ -22,7 +22,7 @@
 /* ── Texte ────────────────────────────────────────────────── */
 .text {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(242, 242, 240, 0.6);
   line-height: 1.6;
 }
 
@@ -48,35 +48,37 @@
 .btnRefuse,
 .btnAccept {
   padding: 10px 24px;
-  border-radius: 30px;
+  border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s, border-color 0.15s;
+  transition: opacity 0.15s, border-color 0.15s, transform var(--transition-base) var(--ease-out-expo);
   font-family: var(--font-family);
 }
 
 .btnRefuse {
   background: transparent;
-  border: 0.5px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(242, 242, 240, 0.25);
   color: #ffffff;
 }
 
 .btnRefuse:hover {
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(242, 242, 240, 0.55);
+  transform: translateY(-2px);
 }
 
 .btnAccept {
-  background: #ffffff;
-  border: 0.5px solid #ffffff;
-  color: #000000;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #ffffff;
 }
 
 .btnAccept:hover {
-  opacity: 0.88;
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

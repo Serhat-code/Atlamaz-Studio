@@ -4,7 +4,39 @@ import { Helmet } from 'react-helmet-async';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
+import { useSpotlight } from '../hooks/useSpotlight';
 import styles from '../styles/Tarifs.module.css';
+
+function PackCard({ service }) {
+  const { ref, onMouseMove } = useSpotlight();
+
+  return (
+    <div ref={ref} onMouseMove={onMouseMove} className={`card-spotlight ${styles.packCard}`}>
+      <div className={styles.packTop}>
+        <h2 className={styles.packName}>{service.nom}</h2>
+        <p className={styles.packTagline}>{service.tagline}</p>
+      </div>
+      <div className={styles.packPrice}>
+        <span className={styles.packAmount}>{service.prix}</span>
+        <span className={styles.packDelai}>Livraison : {service.delai}</span>
+      </div>
+      <ul className={styles.packInclus}>
+        {service.inclus.slice(0, 5).map((item, i) => (
+          <li key={i} className={styles.packInclusItem}>
+            <span className={styles.packCheck} aria-hidden="true">✓</span>
+            {item}
+          </li>
+        ))}
+        {service.inclus.length > 5 && (
+          <li className={styles.packMore}>+{service.inclus.length - 5} inclus</li>
+        )}
+      </ul>
+      <Link to={`/${service.slug}`} className={`btn btn--secondary ${styles.packCta}`}>
+        Voir le détail →
+      </Link>
+    </div>
+  );
+}
 
 const BASE_URL     = import.meta.env.VITE_BASE_URL;
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -95,30 +127,7 @@ export default function Tarifs() {
         <div className="container">
           <div className={styles.packsGrid}>
             {services.map((service) => (
-              <div key={service.slug} className={styles.packCard}>
-                <div className={styles.packTop}>
-                  <h2 className={styles.packName}>{service.nom}</h2>
-                  <p className={styles.packTagline}>{service.tagline}</p>
-                </div>
-                <div className={styles.packPrice}>
-                  <span className={styles.packAmount}>{service.prix}</span>
-                  <span className={styles.packDelai}>Livraison : {service.delai}</span>
-                </div>
-                <ul className={styles.packInclus}>
-                  {service.inclus.slice(0, 5).map((item, i) => (
-                    <li key={i} className={styles.packInclusItem}>
-                      <span className={styles.packCheck} aria-hidden="true">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                  {service.inclus.length > 5 && (
-                    <li className={styles.packMore}>+{service.inclus.length - 5} inclus</li>
-                  )}
-                </ul>
-                <Link to={`/${service.slug}`} className={`btn btn--secondary ${styles.packCta}`}>
-                  Voir le détail →
-                </Link>
-              </div>
+              <PackCard key={service.slug} service={service} />
             ))}
           </div>
         </div>
@@ -145,11 +154,11 @@ export default function Tarifs() {
         <div className="container">
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>
-              Vous hésitez encore ?{' '}
+              Une contrainte technique à valider avant de vous décider ?{' '}
               <strong>Parlons-en.</strong>
             </h2>
             <p className={styles.ctaSubtitle}>
-              30 minutes offertes pour discuter de votre projet. Sans engagement, sans commercial.
+              30 minutes offertes pour discuter de votre projet avec le développeur qui le construira. Sans commercial, sans engagement.
             </p>
             <div className={styles.ctaCtas}>
               {CALENDLY_URL && (

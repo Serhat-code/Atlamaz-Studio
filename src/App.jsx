@@ -80,7 +80,9 @@ export default function App() {
               {services.map((s) => (
                 <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
               ))}
-              <Route path="/creation-site-web-:villeId"    element={<VillePage />} />
+              {/* React Router exige que :param soit le segment entier — on capture le slug
+                  complet ("creation-site-web-lyon") et on résout la ville par slug. */}
+              <Route path="/:slug"                          element={<VillePage />} />
               {/* 404 */}
               <Route path="*"                               element={<NotFound />} />
             </Routes>

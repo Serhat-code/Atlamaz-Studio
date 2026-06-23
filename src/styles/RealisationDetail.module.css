@@ -37,7 +37,7 @@
 .heroTitle {
   font-family: var(--font-family-display);
   font-size: clamp(42px, 7vw, 90px);
-  font-weight: 300;
+  font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.03em;
   color: var(--text);
@@ -66,7 +66,7 @@
   font-family: var(--font-family);
   font-size: 11px;
   color: var(--text-dim);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(242, 242, 240, 0.05);
   border: 0.5px solid var(--border);
   padding: 3px 9px;
   border-radius: var(--radius-sm);
@@ -113,8 +113,8 @@
 .placeholderText {
   font-family: var(--font-family-display);
   font-size: 72px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.07);
+  font-weight: 800;
+  color: rgba(242, 242, 240, 0.07);
   letter-spacing: 0.06em;
 }
 
@@ -142,7 +142,8 @@
 .statValue {
   font-family: var(--font-family-display);
   font-size: clamp(26px, 3vw, 38px);
-  font-weight: 300;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1;
 }
@@ -177,16 +178,17 @@
 .blockLabel {
   font-family: var(--font-family);
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--emerald);
+  color: var(--accent-soft);
   padding-top: 4px;
 }
 
 .blockText {
   font-family: var(--font-family);
   font-size: clamp(15px, 1.6vw, 17px);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.75;
   max-width: 620px;
@@ -210,7 +212,7 @@
   transition: border-color 0.3s ease, transform 0.3s var(--ease-out-expo);
 }
 .nextCard:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(242, 242, 240, 0.18);
   transform: translateY(-3px);
 }
 
@@ -226,7 +228,7 @@
 .nextOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(8,10,8,0.1) 0%, rgba(8,10,8,0.75) 100%);
+  background: linear-gradient(to bottom, rgba(11, 11, 15,0.1) 0%, rgba(11, 11, 15,0.75) 100%);
 }
 
 .nextContent {
@@ -242,16 +244,18 @@
 .nextType {
   font-family: var(--font-family);
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--emerald);
+  color: var(--accent-soft);
   margin-bottom: var(--space-2);
 }
 
 .nextTitle {
   font-family: var(--font-family-display);
   font-size: clamp(28px, 4vw, 48px);
-  font-weight: 300;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1.1;
 }
@@ -278,7 +282,8 @@
 .ctaTitle {
   font-family: var(--font-family-display);
   font-size: clamp(24px, 3.5vw, 40px);
-  font-weight: 300;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text);
   margin-bottom: var(--space-3);
 }

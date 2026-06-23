@@ -7,9 +7,9 @@
 .heroTitle {
   font-family: var(--font-family-display);
   font-size: clamp(32px, 5vw, 58px);
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
   color: var(--text);
   margin: var(--space-3) 0;
 }
@@ -17,7 +17,7 @@
 .heroSubtitle {
   font-family: var(--font-family);
   font-size: clamp(15px, 1.6vw, 18px);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-dim);
   line-height: 1.65;
   max-width: 480px;
@@ -51,13 +51,13 @@
 
 .filterBtn:hover {
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(242, 242, 240, 0.18);
 }
 
 .filterBtnActive {
   color: var(--text);
-  background-color: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(242, 242, 240, 0.06);
+  border-color: rgba(242, 242, 240, 0.2);
 }
 
 /* ── Grille projets ───────────────────────────────────────── */

@@ -66,16 +66,16 @@ export default function HomeRealisations() {
       <div className="container">
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <Reveal as="span" className="section-label">Réalisations</Reveal>
+            <Reveal as="span" className="section-label">Études de cas</Reveal>
             <Reveal delay={1}>
               <h2 className="section-title">
-                Quelques projets <strong>dont on est fiers.</strong>
+                Des projets documentés, <strong>pas juste des captures d'écran.</strong>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={2} className={styles.headerRight}>
             <Link to="/realisations" className={`btn btn--emerald ${styles.allLink}`}>
-              Tous les projets →
+              Toutes les études de cas →
             </Link>
           </Reveal>
         </div>

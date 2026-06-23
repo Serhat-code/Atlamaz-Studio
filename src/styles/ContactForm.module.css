@@ -43,7 +43,7 @@
 .input:focus {
   outline: none;
   border-color: var(--emerald);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 0 3px rgba(79, 91, 255, 0.12);
 }
 
 .select {

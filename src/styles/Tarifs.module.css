@@ -36,13 +36,6 @@
   gap: var(--space-4);
   padding: var(--space-6);
   background: var(--color-bg-surface);
-  border: 0.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  transition: border-color var(--transition-fast);
-}
-
-.packCard:hover {
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .packTop { flex: 1; }

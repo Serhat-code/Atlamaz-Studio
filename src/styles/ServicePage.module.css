@@ -190,8 +190,6 @@
   align-items: center;
   gap: var(--space-8);
   background-color: var(--color-bg-alt);
-  border: 0.5px solid var(--color-border);
-  border-radius: var(--radius-xl);
   padding: var(--space-10) var(--space-12);
   flex-wrap: wrap;
 }
@@ -277,17 +275,18 @@
 
 .villeCard {
   background-color: var(--color-bg-alt);
-  border: 0.5px solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-4) var(--space-6);
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-base) var(--ease-out-expo);
 }
 
 .villeCard:hover {
-  border-color: var(--color-border-hover);
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 .villeCard strong {
@@ -397,12 +396,15 @@
   gap: var(--space-2);
   padding: var(--space-5);
   background: var(--color-bg-surface);
-  border: 0.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transition: border-color var(--transition-fast);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast), transform var(--transition-base) var(--ease-out-expo);
 }
 
-.autreCard:hover { border-color: rgba(255,255,255,0.2); }
+.autreCard:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
 
 .autreNom {
   font-size: var(--font-size-md);

@@ -22,7 +22,7 @@ export const realisations = [
     resultatNarratif: "Une expérience de 2 minutes qui donne le sentiment d'explorer l'univers depuis son canapé. La totalité des testeurs a navigué au-delà de la page d'accueil.",
     stats: [
       { value: '100', label: 'Astres modélisés' },
-      { value: '98', label: 'PageSpeed' },
+      { value: '98', label: 'Lighthouse' },
       { value: '2j', label: 'Livraison' },
     ],
     resultat: "Livré en 2 jours. Expérience 3D temps réel sans compromis sur la performance.",
@@ -49,7 +49,7 @@ export const realisations = [
     approche: "Parti pris radical : tout blanc, tout froid. Typographie premium, animations de gel, effets WebGL qui évoquent la brume et la cristallisation. Chaque micro-interaction renforce l'imaginaire de la marque.",
     resultatNarratif: "Un site qui se visite comme une galerie. Le brief demandait 'luxe' — le résultat inspire 'silence, rareté, désir'.",
     stats: [
-      { value: '96', label: 'PageSpeed' },
+      { value: '96', label: 'Lighthouse' },
       { value: '4j', label: 'Livraison' },
       { value: '0', label: 'Template utilisé' },
     ],

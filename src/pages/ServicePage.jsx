@@ -6,6 +6,7 @@ import { getVilleById } from '../data/villes';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
 import Reveal from '../components/Reveal';
+import { useSpotlight } from '../hooks/useSpotlight';
 import styles from '../styles/ServicePage.module.css';
 
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL;
@@ -16,6 +17,7 @@ const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 export default function ServicePage({ serviceSlug }) {
   const service = getServiceBySlug(serviceSlug);
   const [modalOpen, setModalOpen] = useState(false);
+  const { ref: prixRef, onMouseMove: prixOnMouseMove } = useSpotlight();
 
   if (!service) return <Navigate to="/" replace />;
 
@@ -170,7 +172,7 @@ export default function ServicePage({ serviceSlug }) {
       {/* Prix */}
       <section className={`section ${styles.prixSection}`}>
         <div className="container">
-          <div className={styles.prixCard}>
+          <div ref={prixRef} onMouseMove={prixOnMouseMove} className={`card-spotlight ${styles.prixCard}`}>
             <div className={styles.prixLeft}>
               <h2 className={styles.prixTitle}>{service.nom}</h2>
               <p className={styles.prixTagline}>{service.tagline}</p>
