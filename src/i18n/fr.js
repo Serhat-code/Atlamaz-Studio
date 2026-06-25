@@ -20,9 +20,9 @@ export const fr = {
     badge:        'Disponible pour de nouveaux projets',
     eyebrow:      'Studio web · Lyon, France',
     titleLight:   'Des sites web pensés pour',
-    titleEm:      'la performance,',
-    titleStrong:  'pas pour le décor.',
-    subtitle:     'React, architecture optimisée, Core Web Vitals au vert — chaque site est codé sur mesure, sans framework no-code ni surcouche inutile.',
+    titleEm:      'la croissance',
+    titleStrong:  'de votre activité.',
+    subtitle:     'Des sites web rapides, visibles sur Google et conçus pour transformer les visiteurs en clients.',
     ctaPrimary:   'Réserver un appel',
     ctaSecondary: 'Voir les réalisations',
     ctaSecondaryHref: '/realisations',
@@ -30,7 +30,7 @@ export const fr = {
 
   // ── Stats ────────────────────────────────────────────────
   stats: [
-    { value: '15+',  label: 'Projets livrés en production' },
+    { value: '< 1 sem', label: 'Délai moyen de livraison' },
     { value: '95+',  label: 'Score Lighthouse moyen' },
     { value: '100%', label: 'Code sur mesure, zéro template' },
     { value: 'Lyon', label: 'Auvergne-Rhône-Alpes' },
@@ -130,14 +130,14 @@ export const fr = {
       description: "Atlamaz Studio, c'est Serhat Atlamaz, développeur web React/React Native basé à Lyon. Architecture sur mesure, performance mesurée, un seul interlocuteur technique.",
     },
     pageEyebrow: 'Studio web · Lyon, France',
-    pageTitle: 'Un développeur. Pas un chef de projet.',
+    pageTitle: 'Vous échangez directement avec la personne qui développe votre projet.',
     pageSubtitle: "Pas d'intermédiaire entre votre besoin et le code qui le résout. Vous échangez directement avec la personne qui architecture, développe et déploie votre site.",
     quote: 'Un site lent ou mal structuré coûte des clients avant même d\'avoir été lu. Je conçois des architectures qui tiennent dans le temps, pas des maquettes qui font illusion en démo.',
     author: 'Serhat Atlamaz',
     role: 'Fondateur — développeur web React / React Native',
     values: [
       { number: '01', title: 'Livraison cadrée', description: 'Brief technique, architecture validée, développement, déploiement — un cycle complet en moins de 3 semaines, sans jalon flou.' },
-      { number: '02', title: 'Code sans dépendance superflue', description: 'Aucun builder, aucun template propriétaire. React, CSS Modules, une stack que vous pouvez faire reprendre par n\'importe quel développeur.' },
+      { number: '02', title: 'Un site facile à maintenir et à faire évoluer.', description: 'Aucun builder, aucun template propriétaire. React, CSS Modules, une stack que vous pouvez faire reprendre par n\'importe quel développeur.' },
       { number: '03', title: 'Performance mesurée, pas promise', description: 'Score Lighthouse, Core Web Vitals, temps de chargement réel — chaque livraison est auditée avant remise des accès.' },
     ],
     ctaTitle: 'Discutons de votre projet.',
