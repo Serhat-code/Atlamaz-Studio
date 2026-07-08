@@ -39,7 +39,7 @@ export const realisations = [
     "Plateforme SaaS de prospection commerciale automatisée permettant de trouver des prospects partout en France, générer des e-mails personnalisés, créer des scripts d'appels et centraliser le suivi commercial depuis une seule interface.",
   lien: "https://scrapman-nine.vercel.app/",
   couleur: "#0f172a",
-  image: '/images/realisations/logo.png',
+  image: '/images/realisations/scrapman.jpg',
   technologies: [
     "React",
     "Supabase",
