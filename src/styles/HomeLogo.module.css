@@ -1,0 +1,20 @@
+.logo {
+  position: fixed;
+  top: 22px;
+  left: clamp(20px, 4vw, 48px);
+  z-index: 220;
+  font-family: var(--font-family-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+.logo:hover { opacity: 0.7; }
+
+.logoStudio {
+  font-weight: 500;
+  color: var(--text-dim);
+  font-style: italic;
+}

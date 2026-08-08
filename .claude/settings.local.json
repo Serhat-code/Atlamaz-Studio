@@ -6,7 +6,8 @@
       "Bash(npx vite *)",
       "Bash(Test-Path \"c:\\\\Users\\\\serhat\\\\Documents\\\\AtlamazStudio\\\\public\\\\og-image.png\")",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(npm i *)"
     ]
   }
 }

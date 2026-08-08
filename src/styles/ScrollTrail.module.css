@@ -1,0 +1,18 @@
+.trail {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.path {
+  fill: none;
+  stroke: url(#atlamazTrailGradient);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+@media (max-width: 720px) {
+  .trail { left: 6px; }
+}

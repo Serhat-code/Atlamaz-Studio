@@ -51,13 +51,13 @@
 
 .filterBtn:hover {
   color: var(--text);
-  border-color: rgba(242, 242, 240, 0.18);
+  border-color: rgba(11, 11, 15, 0.18);
 }
 
 .filterBtnActive {
   color: var(--text);
-  background-color: rgba(242, 242, 240, 0.06);
-  border-color: rgba(242, 242, 240, 0.2);
+  background-color: rgba(11, 11, 15, 0.06);
+  border-color: rgba(11, 11, 15, 0.2);
 }
 
 /* ── Grille projets ───────────────────────────────────────── */

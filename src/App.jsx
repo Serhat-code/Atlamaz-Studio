@@ -1,5 +1,5 @@
 import { useState, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { fr } from './i18n/fr';
@@ -33,9 +33,13 @@ const BlogArticle              = lazy(() => import('./pages/BlogArticle'));
 const translations = { fr, en };
 
 function Layout({ t, lang, onLangToggle, children }) {
+  // La home a sa propre chrome (logo fixe + pill-nav bas, cf. maquette) —
+  // pas de Navbar sticky en haut sur cette page précise.
+  const isHome = useLocation().pathname === '/';
+
   return (
     <>
-      <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />
+      {!isHome && <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />}
       <main>{children}</main>
       <Footer t={t} />
       <CookieBanner />

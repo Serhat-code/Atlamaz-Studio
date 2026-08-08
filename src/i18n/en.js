@@ -17,31 +17,71 @@ export const en = {
 
   // ── Hero ─────────────────────────────────────────────────
   hero: {
-    badge:        'Available for new projects',
-    eyebrow:      'Web studio · Lyon, France',
-    titleLight:   'Websites engineered for',
-    titleEm:      'performance,',
-    titleStrong:  'not for decoration.',
-    subtitle:     'React, optimized architecture, Core Web Vitals in the green — every site is hand-coded, no no-code builder, no bloat.',
-    ctaPrimary:   'Book a call',
+    eyebrow:      'Web studio — custom sites & applications',
+    titleStrong:  'A visitor judges your site in three seconds.',
+    titleLight:   'We make sure that judgement is the right one.',
+    subtitle:     "A bad website doesn't just lose visitors. It makes people doubt how serious you are. Atlamaz Studio builds sites and applications that inspire trust from the very first second.",
+    ctaPrimary:   "Let's talk about your project",
     ctaSecondary: 'See our work',
     ctaSecondaryHref: '/realisations',
   },
 
-  // ── Stats ────────────────────────────────────────────────
-  stats: [
-    { value: '15+',  label: 'Projects shipped to production' },
-    { value: '95+',  label: 'Average Lighthouse score' },
-    { value: '100%', label: 'Hand-coded, zero templates' },
-    { value: 'Lyon', label: 'Auvergne-Rhône-Alpes' },
-  ],
+  // ── Quick nav (floating pill, home only) ──────────────────
+  homeNav: {
+    services:     'Services',
+    realisations: 'Work',
+    faq:          'FAQ',
+  },
 
-  // ── CTA ──────────────────────────────────────────────────
-  cta: {
-    titleLight:      'Your project deserves',
-    titleStrong:     'a solid technical foundation.',
-    subtitle:        'Reply within 48h. First call is free.',
-    ctaPrimary:      'Start a project',
+  // ── What a bad website costs ──────────────────────────────
+  painPoints: {
+    eyebrow: 'What a bad website costs you',
+    title:   'Every overlooked detail has a price.',
+    items: [
+      { title: 'The first 3 seconds', text: "Before they even read your offer, a visitor already has an opinion of you. A dated or DIY-looking site plants doubt before the first word." },
+      { title: 'The customers who leave', text: "A visitor who doesn't understand your offer in a few seconds won't dig deeper — they'll go find a competitor who took care of their site." },
+      { title: "Your company's image", text: "A slow, confusing or dated site suggests the rest of your business is too. That's not always true. But it's what people remember." },
+    ],
+  },
+
+  // ── How we work ────────────────────────────────────────────
+  process: {
+    eyebrow: 'How we work',
+    title:   'Three steps. One goal: your credibility online.',
+    steps: [
+      { num: '01', title: 'Identity & Design', text: 'We set a visual direction that looks like you, built to inspire trust from the first glance.' },
+      { num: '02', title: 'Development', text: 'Showcase sites, e-commerce, web and mobile apps. Clean, fast code, built to last.' },
+      { num: '03', title: 'Growth', text: 'SEO, performance, evolutions: your site keeps working for you after launch.' },
+    ],
+    tags: ['Showcase sites', 'E-commerce', 'Web apps', 'Mobile apps', 'Custom SaaS'],
+  },
+
+  // ── Mask transition ─────────────────────────────────────────
+  maskTransition: {
+    before:       'What you picture.',
+    beforeStrong: 'What your visitors will see.',
+    eyebrow:      'Portfolio',
+    title:        'Theory, in practice.',
+  },
+
+  // ── FAQ (home preview) ──────────────────────────────────────
+  homeFaq: {
+    eyebrow: 'FAQ',
+    title:   "Everything we get asked before getting started.",
+    items: [
+      { question: 'How much does a professional website cost?', answer: "€490 for a landing page (5 days), €990 for a showcase site up to 5 pages (10 days), from €1,990 for an online store and €1,200 for a mobile app. Every quote is calculated on the real scope of the project — contact us for pricing within 24h." },
+      { question: 'What are your delivery times?', answer: "5 days for a landing page, 7 days for a restaurant site, 10 days for a showcase site or redesign, 14 days for a Mobile Starter app, 21 days for an online store, 30 days for a Mobile Business app." },
+      { question: 'Do you work with clients across France?', answer: "Yes. The whole project runs remotely — video call, email, phone. Most clients are in the Auvergne-Rhône-Alpes region, with regular projects in Paris, Bordeaux, Nantes or Marseille." },
+      { question: 'How does payment work?', answer: "50% deposit to start, 50% on delivery. Bank transfer or card via a Stripe payment link. Above €2,000, a three-installment plan can be arranged depending on the project." },
+    ],
+    allLink: 'See all questions',
+  },
+
+  // ── Final CTA ────────────────────────────────────────────────
+  finalCta: {
+    title:    'Is your website working for you, or against you?',
+    subtitle: 'Let\'s talk. No jargon, no commitment.',
+    ctaLabel: "Let's talk about your project",
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -49,6 +89,8 @@ export const en = {
     copy:  'ATLAMAZ STUDIO © 2026',
     email: 'atlamazstudio@gmail.com',
     links: [
+      { label: 'Studio',         href: '/studio' },
+      { label: 'Pricing',        href: '/tarifs' },
       { label: 'Legal notice',   href: '/mentions-legales' },
       { label: 'Privacy policy', href: '/politique-confidentialite' },
       { label: 'LinkedIn',       href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },

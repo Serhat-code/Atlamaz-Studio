@@ -17,31 +17,71 @@ export const fr = {
 
   // ── Hero ─────────────────────────────────────────────────
   hero: {
-    badge:        'Disponible pour de nouveaux projets',
-    eyebrow:      'Studio web · Lyon, France',
-    titleLight:   'Des sites web pensés pour',
-    titleEm:      'la croissance',
-    titleStrong:  'de votre activité.',
-    subtitle:     'Des sites web rapides, visibles sur Google et conçus pour transformer les visiteurs en clients.',
-    ctaPrimary:   'Réserver un appel',
-    ctaSecondary: 'Voir les réalisations',
+    eyebrow:      'Studio web — sites & applications sur mesure',
+    titleStrong:  'Un visiteur juge votre site en trois secondes.',
+    titleLight:   'Nous faisons en sorte que ce jugement soit le bon.',
+    subtitle:     "Un mauvais site ne perd pas que des visiteurs. Il fait douter de votre sérieux. Atlamaz Studio conçoit des sites et applications qui inspirent confiance dès la première seconde.",
+    ctaPrimary:   'Discutons de votre projet',
+    ctaSecondary: 'Voir nos réalisations',
     ctaSecondaryHref: '/realisations',
   },
 
-  // ── Stats ────────────────────────────────────────────────
-  stats: [
-    { value: '< 1 sem', label: 'Délai moyen de livraison' },
-    { value: '95+',  label: 'Score Lighthouse moyen' },
-    { value: '100%', label: 'Code sur mesure, zéro template' },
-    { value: 'Lyon', label: 'Auvergne-Rhône-Alpes' },
-  ],
+  // ── Nav rapide (pill flottante, home uniquement) ──────────
+  homeNav: {
+    services:     'Services',
+    realisations: 'Réalisations',
+    faq:          'FAQ',
+  },
 
-  // ── CTA ──────────────────────────────────────────────────
-  cta: {
-    titleLight:   'Votre projet mérite',
-    titleStrong:  'une architecture technique solide.',
-    subtitle:     'Réponse sous 48h. Premier échange offert.',
-    ctaPrimary:   'Démarrer un projet',
+  // ── Ce que coûte un site raté ─────────────────────────────
+  painPoints: {
+    eyebrow: 'Ce que coûte un site raté',
+    title:   'Chaque détail négligé a un prix.',
+    items: [
+      { title: 'Les 3 premières secondes', text: "Avant même de lire votre offre, un visiteur a déjà un avis sur vous. Un site daté ou bricolé sème le doute avant le premier mot." },
+      { title: 'Les clients qui partent', text: "Un visiteur qui ne comprend pas votre offre en quelques secondes ne cherche pas plus loin — il va voir un concurrent qui, lui, a soigné son site." },
+      { title: "L'image de votre entreprise", text: "Un site lent, confus ou vieillissant laisse penser que le reste de votre activité l'est aussi. Ce n'est pas toujours vrai. Mais c'est ce qu'on retient." },
+    ],
+  },
+
+  // ── Comment on travaille ───────────────────────────────────
+  process: {
+    eyebrow: 'Comment on travaille',
+    title:   'Trois étapes. Un seul objectif : votre crédibilité en ligne.',
+    steps: [
+      { num: '01', title: 'Identité & Design', text: 'On pose une direction visuelle qui vous ressemble, pensée pour donner confiance dès le premier regard.' },
+      { num: '02', title: 'Développement', text: 'Sites vitrines, e-commerce, applications web et mobiles. Du code propre, rapide, pensé pour durer.' },
+      { num: '03', title: 'Croissance', text: 'Référencement, performance, évolutions : votre site continue de travailler pour vous après la mise en ligne.' },
+    ],
+    tags: ['Sites vitrines', 'E-commerce', 'Applications web', 'Applications mobiles', 'SaaS sur mesure'],
+  },
+
+  // ── Transition à masque ────────────────────────────────────
+  maskTransition: {
+    before:       'Ce que vous imaginez.',
+    beforeStrong: 'Ce que vos visiteurs verront.',
+    eyebrow:      'Réalisations',
+    title:        'La théorie, en pratique.',
+  },
+
+  // ── FAQ (aperçu home) ──────────────────────────────────────
+  homeFaq: {
+    eyebrow: 'Questions fréquentes',
+    title:   "Tout ce qu'on nous demande avant de se lancer.",
+    items: [
+      { question: 'Combien coûte un site web professionnel ?', answer: "490€ pour une landing page (5 jours), 990€ pour un site vitrine jusqu'à 5 pages (10 jours), à partir de 1 990€ pour une boutique en ligne et de 1 200€ pour une application mobile. Chaque devis est calculé sur le périmètre réel du projet — contactez-nous pour un chiffrage sous 24h." },
+      { question: 'Quels sont vos délais de livraison ?', answer: "5 jours pour une landing page, 7 jours pour un site restaurant, 10 jours pour un site vitrine ou une refonte, 14 jours pour une application Mobile Starter, 21 jours pour une boutique en ligne, 30 jours pour une application Mobile Business." },
+      { question: 'Travaillez-vous partout en France ?', answer: "Oui. L'ensemble du projet se traite à distance — visioconférence, email, téléphone. La majorité des clients sont en Auvergne-Rhône-Alpes, avec des projets réguliers à Paris, Bordeaux, Nantes ou Marseille." },
+      { question: 'Comment se passe le paiement ?', answer: "50% d'acompte au démarrage, 50% à la livraison. Virement bancaire ou carte via lien de paiement Stripe. Au-delà de 2 000€, un paiement en trois fois peut être étudié selon le projet." },
+    ],
+    allLink: 'Voir toutes les questions',
+  },
+
+  // ── CTA final ──────────────────────────────────────────────
+  finalCta: {
+    title:    'Votre site travaille-t-il pour vous, ou contre vous ?',
+    subtitle: 'Parlons-en. Sans jargon, sans engagement.',
+    ctaLabel: 'Discutons de votre projet',
   },
 
   // ── Footer ───────────────────────────────────────────────
@@ -49,6 +89,8 @@ export const fr = {
     copy:  'ATLAMAZ STUDIO © 2026',
     email: 'atlamazstudio@gmail.com',
     links: [
+      { label: 'Studio',                     href: '/studio' },
+      { label: 'Tarifs',                     href: '/tarifs' },
       { label: 'Mentions légales',           href: '/mentions-legales' },
       { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
       { label: 'LinkedIn',                   href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },

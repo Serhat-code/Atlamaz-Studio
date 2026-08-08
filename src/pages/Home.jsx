@@ -1,15 +1,23 @@
+import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import Hero            from '../components/Hero';
-import Stats           from '../components/Stats';
-import HomeRealisations from '../components/HomeRealisations';
-import HomeServices    from '../components/HomeServices';
-import HomeStudio      from '../components/HomeStudio';
-import CTA             from '../components/CTA';
+import Hero             from '../components/Hero';
+import HomeLogo          from '../components/HomeLogo';
+import PainPoints        from '../components/PainPoints';
+import Process           from '../components/Process';
+import MaskTransition    from '../components/MaskTransition';
+import HomeRealisations  from '../components/HomeRealisations';
+import HomeFAQ           from '../components/HomeFAQ';
+import FinalCTA          from '../components/FinalCTA';
+import HomeBottomNav     from '../components/HomeBottomNav';
+import ScrollTrail       from '../components/ScrollTrail';
+import styles from '../styles/Home.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function Home({ t }) {
+  const wrapperRef = useRef(null);
+
   return (
     <>
       <Helmet>
@@ -24,12 +32,20 @@ export default function Home({ t }) {
         <meta name="twitter:image"      content={OG_IMAGE} />
       </Helmet>
 
-      <Hero             t={t} />
-      <Stats            t={t} />
-      <HomeRealisations />
-      <HomeServices />
-      <HomeStudio       t={t} />
-      <CTA              t={t} />
+      <HomeLogo t={t} />
+
+      <div ref={wrapperRef} className={styles.wrapper}>
+        <ScrollTrail containerRef={wrapperRef} />
+        <Hero            t={t} />
+        <PainPoints      t={t} />
+        <Process         t={t} />
+        <MaskTransition  t={t} />
+        <HomeRealisations />
+        <HomeFAQ         t={t} />
+        <FinalCTA        t={t} />
+      </div>
+
+      <HomeBottomNav t={t} />
     </>
   );
 }

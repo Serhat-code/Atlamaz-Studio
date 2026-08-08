@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.9rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 22px auto 38px;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+}

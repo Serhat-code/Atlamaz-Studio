@@ -5,8 +5,11 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  background: #0B0B0F;
-  border-top: 0.5px solid rgba(242, 242, 240, 0.08);
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .inner {
@@ -22,12 +25,12 @@
 /* ── Texte ────────────────────────────────────────────────── */
 .text {
   font-size: 13px;
-  color: rgba(242, 242, 240, 0.6);
+  color: var(--text-dim);
   line-height: 1.6;
 }
 
 .policyLink {
-  color: #ffffff;
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: opacity 0.15s;
@@ -61,12 +64,12 @@
 
 .btnRefuse {
   background: transparent;
-  border: 1px solid rgba(242, 242, 240, 0.25);
-  color: #ffffff;
+  border: 1px solid rgba(11, 11, 15, 0.2);
+  color: var(--text);
 }
 
 .btnRefuse:hover {
-  border-color: rgba(242, 242, 240, 0.55);
+  border-color: rgba(11, 11, 15, 0.4);
   transform: translateY(-2px);
 }
 

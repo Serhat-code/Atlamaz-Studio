@@ -1,0 +1,58 @@
+.section {
+  position: relative;
+  height: 260vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.before,
+.circle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.before {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.before p {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.5rem, 4.4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.strong {
+  font-weight: 800;
+  display: block;
+}
+
+.circle {
+  background: var(--bg);
+  clip-path: circle(1% at 50% 50%);
+  will-change: clip-path;
+}
+
+.circleTitle {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.8rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .before p { font-size: 1.5rem; }
+}
