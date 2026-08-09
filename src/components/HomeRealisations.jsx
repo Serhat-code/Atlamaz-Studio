@@ -36,22 +36,22 @@ function ProjectCard({ r }) {
   );
 }
 
-export default function HomeRealisations() {
+export default function HomeRealisations({ t }) {
+  const { homeRealisations } = t;
+
   return (
     <section className={styles.section} id="realisations">
       <div className="container">
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <Reveal as="span" className="section-label">Études de cas</Reveal>
+            <Reveal as="span" className="section-label">{homeRealisations.eyebrow}</Reveal>
             <Reveal delay={1}>
-              <h2 className="section-title">
-                Des projets documentés, <strong>pas juste des captures d'écran.</strong>
-              </h2>
+              <h2 className="section-title">{homeRealisations.title}</h2>
             </Reveal>
           </div>
           <Reveal delay={2} className={styles.headerRight}>
             <Link to="/realisations" className={`btn btn--emerald ${styles.allLink}`}>
-              Toutes les études de cas →
+              {homeRealisations.allLink} →
             </Link>
           </Reveal>
         </div>

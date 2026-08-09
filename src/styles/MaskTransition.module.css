@@ -27,6 +27,9 @@
 }
 
 .before p {
+  /* Sans ça, la règle globale `p { color: var(--text-dim) }` l'emporte sur la
+     couleur héritée de .before : texte quasi noir sur fond noir, phrase invisible. */
+  color: inherit;
   font-family: var(--font-family-display);
   font-size: clamp(1.5rem, 4.4vw, 3rem);
   font-weight: 300;

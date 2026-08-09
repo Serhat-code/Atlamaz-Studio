@@ -32,7 +32,7 @@ export default function Home({ t }) {
         <meta name="twitter:image"      content={OG_IMAGE} />
       </Helmet>
 
-      <HomeLogo t={t} />
+      <HomeLogo />
 
       <div ref={wrapperRef} className={styles.wrapper}>
         <ScrollTrail containerRef={wrapperRef} />
@@ -40,7 +40,7 @@ export default function Home({ t }) {
         <PainPoints      t={t} />
         <Process         t={t} />
         <MaskTransition  t={t} />
-        <HomeRealisations />
+        <HomeRealisations t={t} />
         <HomeFAQ         t={t} />
         <FinalCTA        t={t} />
       </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ContactModal from './ContactModal';
+import BrandMark from './BrandMark';
 import styles from '../styles/Navbar.module.css';
 
 const PHONE         = import.meta.env.VITE_PHONE;
@@ -45,10 +46,9 @@ export default function Navbar({ t, lang, onLangToggle }) {
       <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.inner}`}>
 
-          {/* Logo */}
+          {/* Logo — marque seule, sans wordmark */}
           <Link to="/" className={styles.logo} onClick={closeMenu} aria-label="Atlamaz Studio — accueil">
-            {t.navbar.logo}
-            <span className={styles.logoStudio}> Studio</span>
+            <BrandMark />
           </Link>
 
           {/* Nav centrale desktop */}

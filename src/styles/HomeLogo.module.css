@@ -1,20 +1,24 @@
+/* Conteneur nu : tout le verre est porté par la marque elle-même
+   (BrandMark). Superposer une seconde couche de verre ici donnerait
+   un rendu trouble et le liseré doublé. */
 .logo {
   position: fixed;
   top: 22px;
   left: clamp(20px, 4vw, 48px);
   z-index: 220;
-  font-family: var(--font-family-display);
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  white-space: nowrap;
-  transition: opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+  --mark-size: 44px;
+  transition: transform 0.3s ease;
 }
-.logo:hover { opacity: 0.7; }
 
-.logoStudio {
-  font-weight: 500;
-  color: var(--text-dim);
-  font-style: italic;
+.logo:hover { transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .logo { top: 16px; --mark-size: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo { transition: none; }
+  .logo:hover { transform: none; }
 }

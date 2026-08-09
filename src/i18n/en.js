@@ -5,14 +5,12 @@
 export const en = {
   // ── Navbar ──────────────────────────────────────────────
   navbar: {
-    logo: 'Atlamaz',
     links: [
       { label: 'Work',     href: '/realisations' },
-      { label: 'Services', href: '/tarifs' },
+      { label: 'FAQ',      href: '/faq' },
       { label: 'Studio',   href: '/studio' },
     ],
     cta: 'Contact',
-    langSwitch: 'FR',
   },
 
   // ── Hero ─────────────────────────────────────────────────
@@ -69,12 +67,19 @@ export const en = {
     eyebrow: 'FAQ',
     title:   "Everything we get asked before getting started.",
     items: [
-      { question: 'How much does a professional website cost?', answer: "€490 for a landing page (5 days), €990 for a showcase site up to 5 pages (10 days), from €1,990 for an online store and €1,200 for a mobile app. Every quote is calculated on the real scope of the project — contact us for pricing within 24h." },
-      { question: 'What are your delivery times?', answer: "5 days for a landing page, 7 days for a restaurant site, 10 days for a showcase site or redesign, 14 days for a Mobile Starter app, 21 days for an online store, 30 days for a Mobile Business app." },
-      { question: 'Do you work with clients across France?', answer: "Yes. The whole project runs remotely — video call, email, phone. Most clients are in the Auvergne-Rhône-Alpes region, with regular projects in Paris, Bordeaux, Nantes or Marseille." },
-      { question: 'How does payment work?', answer: "50% deposit to start, 50% on delivery. Bank transfer or card via a Stripe payment link. Above €2,000, a three-installment plan can be arranged depending on the project." },
+      { question: 'How much does a project with Atlamaz Studio cost?', answer: "An effective showcase site starts at €999. More ambitious projects — e-commerce, web apps or custom SaaS — usually land between €3,000 and €15,000. For complex platforms or mobile apps, some projects go up to €50,000. The first conversation is there to scope your need precisely, with no commitment." },
+      { question: 'Can you build a mobile app?', answer: "Yes. Beyond websites, we also build mobile apps when your project calls for one — from the idea to publishing on the stores." },
+      { question: 'What are the timelines?', answer: "Between 2 and 8 weeks depending on the scope. A clear schedule is set from the first conversation." },
+      { question: 'What happens after launch?', answer: "Every site ships with support included. After that, we stay available to evolve your product at the pace of your business." },
     ],
     allLink: 'See all questions',
+  },
+
+  // ── Work (home preview) ─────────────────────────────────────
+  homeRealisations: {
+    eyebrow: 'A few examples',
+    title:   'Three projects, three different needs.',
+    allLink: 'All case studies',
   },
 
   // ── Final CTA ────────────────────────────────────────────────
@@ -86,11 +91,11 @@ export const en = {
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
-    copy:  'ATLAMAZ STUDIO © 2026',
+    copy:    '© 2026 Atlamaz Studio — All rights reserved.',
+    tagline: 'Sites & applications that inspire trust.',
     email: 'atlamazstudio@gmail.com',
     links: [
       { label: 'Studio',         href: '/studio' },
-      { label: 'Pricing',        href: '/tarifs' },
       { label: 'Legal notice',   href: '/mentions-legales' },
       { label: 'Privacy policy', href: '/politique-confidentialite' },
       { label: 'LinkedIn',       href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },
@@ -128,13 +133,6 @@ export const en = {
       title:    'Case studies, not a showcase',
       subtitle: 'Each project below documents the technical stack, the real constraints, and the metrics achieved — not just screenshots.',
     },
-    filters: {
-      label: 'Filter by type',
-    },
-    card: {
-      cta: 'View case study',
-    },
-    empty: 'No projects in this category yet.',
   },
 
   // ── Page Détail réalisation ───────────────────────────────
@@ -144,23 +142,14 @@ export const en = {
       realisations: 'Portfolio',
     },
     sections: {
-      context:      'Project context',
-      technologies: 'Technical stack',
-      results:      'Measured results',
-      cta:          'A similar project to scope?',
-      defi:         'The technical constraint',
-      approche:     'The architecture chosen',
-      resultat:     'How it performs in production',
-    },
-    resultsLabels: {
-      pageSpeed: 'Lighthouse score',
-      delivery:  'Delivery time',
-      revisions: 'Iterations done',
+      cta:      'A similar project to scope?',
+      defi:     'The technical constraint',
+      approche: 'The architecture chosen',
+      resultat: 'How it performs in production',
     },
     nextLabel: 'Next project',
     ctaText:   "Describe your technical constraint — I'll reply within 48h with a concrete approach.",
     ctaButton: 'Start a project',
-    backBtn:   '← Back to portfolio',
     visitBtn:  'Visit website',
   },
 

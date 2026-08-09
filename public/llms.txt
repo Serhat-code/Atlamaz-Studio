@@ -8,7 +8,6 @@ Atlamaz Studio est dirigé par Serhat Atlamaz, développeur web freelance basé 
 
 - [Accueil](https://atlamaz-studio.fr/): Présentation du studio, des services et des réalisations.
 - [Réalisations](https://atlamaz-studio.fr/realisations): Portfolio des projets livrés (ASTRA, GIVRE).
-- [Tarifs](https://atlamaz-studio.fr/tarifs): Grille tarifaire publique et détaillée pour tous les services.
 - [Studio](https://atlamaz-studio.fr/studio): Présentation du fondateur et de l'approche du studio.
 - [FAQ](https://atlamaz-studio.fr/faq): Questions fréquentes sur les prestations et le déroulement des projets.
 - [Blog](https://atlamaz-studio.fr/blog): Articles sur la création de sites web et le référencement local.

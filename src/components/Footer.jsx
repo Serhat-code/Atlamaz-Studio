@@ -12,9 +12,7 @@ export default function Footer({ t }) {
           {/* Colonne 1 : Studio */}
           <div className={styles.col}>
             <span className={styles.colTitle}>ATLAMAZ STUDIO</span>
-            <p className={styles.colDesc}>
-              Développeur web freelance en Auvergne-Rhône-Alpes. Sites web, applications mobiles et landing pages livrés clé en main.
-            </p>
+            <p className={styles.colDesc}>{footer.tagline}</p>
             <a href={`mailto:${footer.email}`} className={styles.email}>
               {footer.email}
             </a>

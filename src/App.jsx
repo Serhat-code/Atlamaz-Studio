@@ -1,5 +1,5 @@
 import { useState, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { fr } from './i18n/fr';
@@ -22,7 +22,6 @@ const MentionsLegales          = lazy(() => import('./pages/MentionsLegales'));
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'));
 const Merci                    = lazy(() => import('./pages/Merci'));
 const NotFound                 = lazy(() => import('./pages/NotFound'));
-const Tarifs                   = lazy(() => import('./pages/Tarifs'));
 const VillePage                = lazy(() => import('./pages/VillePage'));
 const NosVilles                = lazy(() => import('./pages/NosVilles'));
 const ServicePage              = lazy(() => import('./pages/ServicePage'));
@@ -76,7 +75,11 @@ export default function App() {
               <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
               <Route path="/merci"                          element={<Merci t={t} />} />
               {/* SEO pages */}
-              <Route path="/tarifs"                         element={<Tarifs t={t} />} />
+              {/* La grille tarifaire publique a été retirée : le devis est établi
+                  au cas par cas. /tarifs était indexé — on redirige vers la FAQ,
+                  qui porte désormais la fourchette de prix. Vercel émet en plus
+                  un vrai 301 (cf. vercel.json) pour les moteurs. */}
+              <Route path="/tarifs"                         element={<Navigate to="/faq" replace />} />
               <Route path="/nos-villes"                     element={<NosVilles />} />
               <Route path="/faq"                            element={<FAQ />} />
               <Route path="/blog"                           element={<Blog />} />

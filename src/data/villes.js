@@ -17,7 +17,7 @@ export const villes = [
       { titre: 'Livraison en 5 à 14 jours', texte: "Délai contractuel selon la formule choisie, avec un suivi de brief documenté du premier échange à la mise en ligne." },
     ],
     faq: [
-      { question: "Combien coûte la création d'un site web à Lyon ?", reponse: "490€ pour une landing page, 990€ pour un site vitrine complet. Le devis final dépend du nombre de pages et des fonctionnalités nécessaires — chiffrage gratuit sous 24h." },
+      { question: "Combien coûte la création d'un site web à Lyon ?", reponse: "999€ pour une landing page, à partir de 999€ pour un site vitrine complet. Le devis final dépend du nombre de pages et des fonctionnalités nécessaires — chiffrage gratuit sous 24h." },
       { question: 'Vous déplacez-vous à Lyon pour les réunions ?', reponse: "Le projet se traite à distance par visioconférence, email ou téléphone. Cela réduit les délais de réactivité par rapport à des rendez-vous physiques planifiés à l'avance." },
       { question: 'Pouvez-vous référencer mon site pour les recherches locales à Lyon ?', reponse: "Oui : balises géolocalisées, données structurées LocalBusiness et fiche Google Business Profile structurée sont incluses pour chaque site livré à un client lyonnais." },
     ],
@@ -41,7 +41,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les commerces de Villeurbanne ?', reponse: "Oui, pour tous types de professionnels : commerçants, artisans, consultants, restaurants, professions libérales. Le balisage SEO et la structure de page s'adaptent au secteur d'activité." },
       { question: 'Mon site sera-t-il visible sur Google pour les recherches à Villeurbanne ?', reponse: 'Oui — les pages intègrent un balisage local incluant "Villeurbanne" et les quartiers environnants, avec une fiche Google Business Profile dédiée.' },
-      { question: 'Quel délai pour un site vitrine à Villeurbanne ?', reponse: "10 jours ouvrés à partir de la validation du brief pour un site vitrine, 5 jours pour une landing page." },
+      { question: 'Quel délai pour un site vitrine à Villeurbanne ?', reponse: "2 à 3 semaines à partir de la validation du brief pour un site vitrine, 5 jours pour une landing page." },
     ],
     metaTitle: 'Création site web Villeurbanne — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Villeurbanne. Sites avec balisage SEO local dédié, Google Business Profile structurée. Devis gratuit sous 24h.',
@@ -107,7 +107,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les professions libérales à Caluire ?', reponse: "Oui : médecins, dentistes, kinésithérapeutes, avocats, en respectant les règles déontologiques propres à chaque profession." },
       { question: 'Puis-je avoir un site en anglais pour ma clientèle internationale à Caluire ?', reponse: "Oui, une version bilingue français/anglais peut être intégrée à la demande." },
-      { question: 'Quel est le délai pour un site vitrine à Caluire-et-Cuire ?', reponse: "10 jours ouvrés à partir de la validation du brief et du premier acompte." },
+      { question: 'Quel est le délai pour un site vitrine à Caluire-et-Cuire ?', reponse: "2 à 3 semaines à partir de la validation du brief et du premier acompte." },
     ],
     metaTitle: 'Création site web Caluire-et-Cuire — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Caluire-et-Cuire. Sites pour professions libérales, conformité déontologique. Devis gratuit sous 24h.',
@@ -129,7 +129,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les restaurants et bars de Décines ?', reponse: "Oui, avec le pack restauration : menu en ligne, réservation et intégration Google Maps." },
       { question: 'Mon site sera-t-il optimisé pour les recherches autour de Décines-Charpieu ?', reponse: "Oui, le balisage cible Décines et les communes voisines : Chassieu, Jonage, Meyzieu." },
-      { question: 'Proposez-vous des boutiques en ligne pour les commerçants de Décines ?', reponse: "Oui, à partir de 1 990€, avec paiement Stripe intégré." },
+      { question: 'Proposez-vous des boutiques en ligne pour les commerçants de Décines ?', reponse: "Oui, à partir de 3 000€, avec paiement Stripe intégré." },
     ],
     metaTitle: 'Création site web Décines-Charpieu — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Décines-Charpieu. Sites optimisés pour le secteur OL Valley et le référencement local. Devis gratuit sous 24h.',
@@ -189,12 +189,12 @@ export const villes = [
     intro: "Une startup stéphanoise qui valide un concept n'a pas besoin de la même architecture qu'un commerce du centre-ville établi depuis 20 ans : la première a besoin d'une landing page rapide à itérer, le second d'un site vitrine structuré pour le référencement local long terme. Atlamaz Studio dimensionne chaque projet à Saint-Étienne selon ce besoin réel, avec le même niveau d'exigence technique (Lighthouse, sitemap, balisage local) quelle que soit la taille du projet.",
     arguments: [
       { titre: 'MVP rapide pour startups', texte: "Landing pages et sites MVP adaptés aux startups stéphanoises, notamment celles issues du Pixel ou de l'incubateur Ronalpia, avec un cycle d'itération court." },
-      { titre: 'Tarifs accessibles aux PME locales', texte: "Les packs démarrent à 490€, avec des facilités de paiement en deux fois disponibles sur demande." },
+      { titre: 'Tarifs accessibles aux PME locales', texte: "Les packs démarrent à 999€, avec des facilités de paiement en deux fois disponibles sur demande." },
       { titre: 'SEO Saint-Étienne complet', texte: "Balisage local ciblant Saint-Étienne et ses communes voisines pour maximiser la visibilité sur les requêtes pertinentes." },
     ],
     faq: [
       { question: 'Travaillez-vous avec les startups de Saint-Étienne ?', reponse: "Oui, avec des landing pages et MVP web adaptés aux besoins et aux budgets des startups, notamment celles du Pixel ou de l'incubateur Ronalpia." },
-      { question: 'Proposez-vous des tarifs adaptés aux PME de Saint-Étienne ?', reponse: "Les packs démarrent à 490€, avec des facilités de paiement en deux fois disponibles sur demande." },
+      { question: 'Proposez-vous des tarifs adaptés aux PME de Saint-Étienne ?', reponse: "Les packs démarrent à 999€, avec des facilités de paiement en deux fois disponibles sur demande." },
       { question: 'Comment se déroule le projet si je suis à Saint-Étienne ?', reponse: "Entièrement à distance par visioconférence et email, ce qui ne change ni le délai ni la qualité du suivi." },
     ],
     metaTitle: 'Création site web Saint-Étienne — Atlamaz Studio | Développeur web freelance',
@@ -217,7 +217,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les restaurants gastronomiques de Roanne ?', reponse: "Oui, avec menu en ligne et système de réservation, adaptés aux exigences de la restauration gastronomique." },
       { question: "Puis-je référencer mon gîte ou chambre d'hôtes à Roanne ?", reponse: "Oui, avec galerie photo, calendrier de disponibilités et système de réservation intégré." },
-      { question: 'Quel est le délai de livraison pour un site à Roanne ?', reponse: "5 jours pour une landing page, 10 jours pour un site vitrine, indépendamment de la distance entre Roanne et Lyon." },
+      { question: 'Quel est le délai de livraison pour un site à Roanne ?', reponse: "2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine, indépendamment de la distance entre Roanne et Lyon." },
     ],
     metaTitle: 'Création site web Roanne — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Roanne. Sites pour restaurants et hébergements, menu en ligne et réservation. Devis gratuit sous 24h.',
@@ -256,12 +256,12 @@ export const villes = [
     arguments: [
       { titre: 'Couverture clientèle régionale et locale', texte: "Balisage adapté à la fois aux recherches d'affaires régionales liées à l'aéroport et aux recherches de proximité." },
       { titre: 'Sites multilingues sur demande', texte: "Version anglaise disponible pour les entreprises à dimension internationale liée à la zone aéroportuaire." },
-      { titre: 'Délais standards', texte: "5 jours pour une landing page, 10 jours pour un site vitrine, à partir de la validation du brief." },
+      { titre: 'Délais standards', texte: "2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine, à partir de la validation du brief." },
     ],
     faq: [
       { question: "Créez-vous des sites pour les entreprises de la zone aéroportuaire d'Andrézieux ?", reponse: "Oui, avec un balisage qui cible une clientèle d'affaires régionale en plus des recherches de proximité." },
       { question: "Puis-je avoir un site en plusieurs langues pour mon activité à Andrézieux ?", reponse: "Oui, une version multilingue peut être intégrée pour les entreprises à dimension internationale." },
-      { question: 'Quel délai pour créer mon site web à Andrézieux-Bouthéon ?', reponse: "5 jours pour une landing page, 10 jours pour un site vitrine, à partir de la validation du brief et du paiement de l'acompte." },
+      { question: 'Quel délai pour créer mon site web à Andrézieux-Bouthéon ?', reponse: "2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine, à partir de la validation du brief et du paiement de l'acompte." },
     ],
     metaTitle: 'Création site web Andrézieux-Bouthéon — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Andrézieux-Bouthéon. Sites pour entreprises de la zone aéroportuaire. Devis gratuit sous 24h.',
@@ -300,12 +300,12 @@ export const villes = [
     arguments: [
       { titre: "Couverture de l'agglomération grenobloise", texte: "Balisage ciblant Échirolles ainsi que Grenoble, Saint-Martin-d'Hères et les communes environnantes." },
       { titre: 'Sites adaptés aux commerces de proximité', texte: "Fonctionnalités de géolocalisation et appels à l'action optimisés pour la conversion locale." },
-      { titre: 'Pack maintenance disponible', texte: "49€/mois sans engagement pour les mises à jour, sauvegardes et monitoring 24h/24." },
+      { titre: 'Pack maintenance disponible', texte: "149€/mois sans engagement pour les mises à jour, sauvegardes et monitoring 24h/24." },
     ],
     faq: [
       { question: 'Mon site à Échirolles sera-t-il visible à Grenoble aussi ?', reponse: "Oui, le balisage couvre toute l'agglomération grenobloise, incluant Grenoble et Saint-Martin-d'Hères." },
-      { question: "Proposez-vous des packs de maintenance pour les sites créés à Échirolles ?", reponse: "Oui, à 49€/mois sans engagement : mises à jour, sauvegardes et monitoring 24h/24." },
-      { question: "Créez-vous des boutiques en ligne pour les commerçants d'Échirolles ?", reponse: "Oui, à partir de 1 990€, avec paiement Stripe et gestion des commandes intégrés." },
+      { question: "Proposez-vous des packs de maintenance pour les sites créés à Échirolles ?", reponse: "Oui, à 149€/mois sans engagement : mises à jour, sauvegardes et monitoring 24h/24." },
+      { question: "Créez-vous des boutiques en ligne pour les commerçants d'Échirolles ?", reponse: "Oui, à partir de 3 000€, avec paiement Stripe et gestion des commandes intégrés." },
     ],
     metaTitle: 'Création site web Échirolles — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Échirolles. Sites avec référencement agglomération grenobloise. Devis gratuit sous 24h.',
@@ -327,7 +327,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les PME industrielles de Bourgoin-Jallieu ?', reponse: "Oui, avec une structure B2B adaptée : contenus professionnels et formulaires de demande de devis." },
       { question: 'Mon site à Bourgoin sera-t-il visible à Lyon et Grenoble ?', reponse: "Oui, le balisage couvre Bourgoin-Jallieu et cible également les deux métropoles voisines." },
-      { question: 'Proposez-vous des refontes de site pour les entreprises de Bourgoin ?', reponse: "Oui, à 790€, avec conservation et amélioration du référencement existant via redirections 301." },
+      { question: 'Proposez-vous des refontes de site pour les entreprises de Bourgoin ?', reponse: "Oui, à partir de 1 900€, avec conservation et amélioration du référencement existant via redirections 301." },
     ],
     metaTitle: 'Création site web Bourgoin-Jallieu — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Bourgoin-Jallieu. Sites B2B et commerce, référencement Lyon-Grenoble. Devis gratuit sous 24h.',
@@ -393,7 +393,7 @@ export const villes = [
     faq: [
       { question: 'Créez-vous des sites pour les stations de ski proches de Chambéry ?', reponse: "Oui : hébergements, loueurs de ski et activités montagne dans les Alpes savoisiennes." },
       { question: 'Mon commerce de Chambéry peut-il vendre en ligne ?', reponse: "Oui, avec le pack boutique en ligne et un système de vente complet incluant le paiement Stripe." },
-      { question: 'Quel est le délai pour un site vitrine à Chambéry ?', reponse: "10 jours ouvrés à partir de la validation du brief, suivi entièrement à distance." },
+      { question: 'Quel est le délai pour un site vitrine à Chambéry ?', reponse: "2 à 3 semaines à partir de la validation du brief, suivi entièrement à distance." },
     ],
     metaTitle: 'Création site web Chambéry — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Chambéry. Sites pour commerces et tourisme alpin, référencement régional. Devis gratuit sous 24h.',
@@ -437,7 +437,7 @@ export const villes = [
     faq: [
       { question: "Créez-vous des sites pour les artisans de la Drôme autour de Valence ?", reponse: "Oui : plombiers, électriciens, maçons, peintres, avec des pages optimisées pour générer des demandes de devis." },
       { question: "Puis-je avoir un site qui couvre la Drôme et l'Ardèche pour mon activité à Valence ?", reponse: "Oui, avec des pages locales dédiées à chaque zone géographique." },
-      { question: 'Quel délai pour un site à Valence ?', reponse: "5 jours pour une landing page, 10 jours pour un site vitrine complet." },
+      { question: 'Quel délai pour un site à Valence ?', reponse: "2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine complet." },
     ],
     metaTitle: 'Création site web Valence — Atlamaz Studio | Développeur web freelance',
     metaDescription: 'Atlamaz Studio, développeur web freelance à Valence. Sites avec référencement Drôme-Ardèche. Devis gratuit sous 24h.',

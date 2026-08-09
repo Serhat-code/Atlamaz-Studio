@@ -30,7 +30,7 @@ export const articles = [
 <p>Les agences web établies facturent généralement entre 5 000€ et 30 000€ pour un site vitrine. Ce tarif inclut le travail d'une équipe (chef de projet, designers, développeurs, responsable SEO) et une méthodologie formalisée. La qualité est généralement au rendez-vous, mais les délais sont souvent longs (2 à 6 mois) et les processus peu flexibles pour les petites structures.</p>
 
 <h2>Les développeurs freelance</h2>
-<p>Entre les plateformes en ligne et les grandes agences, les développeurs freelance comme Atlamaz Studio offrent un excellent rapport qualité-prix. Les tarifs varient de 490€ pour une landing page à 1 990€ pour une boutique en ligne complète. Vous bénéficiez d'un interlocuteur unique, d'une grande réactivité et d'une personnalisation totale, sans les frais de structure des agences.</p>
+<p>Entre les plateformes en ligne et les grandes agences, les développeurs freelance comme Atlamaz Studio offrent un excellent rapport qualité-prix. Les tarifs varient de 999€ pour une landing page à 15 000€ pour une plateforme e-commerce ou un SaaS sur mesure. Vous bénéficiez d'un interlocuteur unique, d'une grande réactivité et d'une personnalisation totale, sans les frais de structure des agences.</p>
 
 <h2>Comment choisir la bonne solution ?</h2>
 <p>Pour choisir la solution adaptée à votre situation, posez-vous ces questions : Quel est mon objectif principal (génération de leads, vente en ligne, image de marque) ? Quel est mon budget ? Ai-je besoin d'une solution évolutive ? Est-ce que je veux gérer le contenu moi-même ? En répondant à ces questions, vous pouvez orienter votre choix vers la solution la plus pertinente.</p>
@@ -117,7 +117,7 @@ export const articles = [
 <p>Flutter, le framework de Google, est devenu le principal concurrent de React Native. Les deux technologies sont excellentes. Flutter offre des performances légèrement supérieures et un rendu plus cohérent entre iOS et Android. React Native bénéficie d'une adoption plus large dans les entreprises et d'une meilleure intégration avec l'écosystème JavaScript. Pour un projet typique de PME, les deux technologies sont adaptées.</p>
 
 <h2>Notre choix : React Native + Expo</h2>
-<p>Chez Atlamaz Studio, nous avons choisi React Native + Expo comme stack principale pour le développement mobile. Ce choix nous permet de livrer des applications de qualité en 14 à 30 jours, publiées sur les deux stores, avec des performances excellentes pour les cas d'usage courants des PME et startups.</p>`,
+<p>Chez Atlamaz Studio, nous avons choisi React Native + Expo comme stack principale pour le développement mobile. Ce choix nous permet de livrer des applications de qualité en 6 à 8 semaines, publiées sur les deux stores, avec des performances excellentes pour les cas d'usage courants des PME et startups.</p>`,
     serviceLie: 'creation-application-mobile',
     villeLiee: 'lyon',
     metaTitle: 'React Native en 2026 : le meilleur choix pour votre app mobile ? — Atlamaz Studio',

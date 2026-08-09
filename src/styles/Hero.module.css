@@ -82,11 +82,11 @@
   margin-top: var(--space-2);
 }
 
-/* ── Anneau "3s" ──────────────────────────────────────────── */
+/* ── Anneau "3s" (dimensions de la maquette) ──────────────── */
 .ring3s {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   flex-shrink: 0;
 }
 .ring3s svg { width: 100%; height: 100%; transform: rotate(-90deg); }
@@ -97,7 +97,6 @@
   stroke-linecap: round;
   stroke-dasharray: 150.8;
   stroke-dashoffset: 150.8;
-  animation: ring3s 2.6s cubic-bezier(.3, .9, .4, 1) .4s 1 forwards;
 }
 .ring3s span {
   position: absolute;
@@ -105,9 +104,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 0.72rem;
   font-weight: 800;
   color: var(--accent-soft);
+}
+
+/* Le balayage ne démarre qu'une fois le bloc CTA réellement révélé.
+   Lancé au montage, il se jouait pendant que le Reveal était encore à
+   opacity:0 — l'anneau apparaissait déjà rempli. Le retard de 1.2s couvre
+   le reveal-delay-4 (0.48s) + la transition d'apparition (0.9s). */
+.ctas:global(.is-visible) .fg {
+  animation: ring3s 2.6s cubic-bezier(.3, .9, .4, 1) 1.2s 1 forwards;
 }
 @keyframes ring3s { to { stroke-dashoffset: 0; } }
 
@@ -132,5 +139,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ring3s .fg { animation: none; stroke-dashoffset: 0; }
+  .ctas:global(.is-visible) .fg { animation: none; }
+  .ring3s .fg { stroke-dashoffset: 0; }
 }

@@ -1,0 +1,60 @@
+/* ── Marque en verre ──────────────────────────────────────────
+   La page est blanche : un verre purement transparent n'aurait rien
+   à réfracter et ne se lirait pas. La tuile porte donc son propre
+   dégradé teinté violet + un reflet interne, pour se lire comme du
+   verre même sur fond plat — le backdrop-filter prend le relais quand
+   elle passe au-dessus des halos colorés. */
+.mark {
+  --size: var(--mark-size, 44px);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  width: var(--size);
+  height: var(--size);
+  border-radius: calc(var(--size) * 0.3);
+
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(141, 133, 255, 0.22) 55%,
+    rgba(79, 91, 255, 0.16) 100%
+  );
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 8px 26px rgba(79, 91, 255, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Reflet spéculaire : la bande lumineuse en diagonale qui signe le verre. */
+.mark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 44%);
+  pointer-events: none;
+}
+
+/* Positionné, donc peint au-dessus du reflet (qui est en z-index auto). */
+.glyph {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-family-display);
+  font-size: calc(var(--size) * 0.44);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark { transition: none; }
+}

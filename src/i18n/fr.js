@@ -5,14 +5,12 @@
 export const fr = {
   // ── Navbar ──────────────────────────────────────────────
   navbar: {
-    logo: 'Atlamaz',
     links: [
       { label: 'Réalisations', href: '/realisations' },
-      { label: 'Services',     href: '/tarifs' },
+      { label: 'FAQ',          href: '/faq' },
       { label: 'Studio',       href: '/studio' },
     ],
     cta: 'Contact',
-    langSwitch: 'EN',
   },
 
   // ── Hero ─────────────────────────────────────────────────
@@ -69,12 +67,19 @@ export const fr = {
     eyebrow: 'Questions fréquentes',
     title:   "Tout ce qu'on nous demande avant de se lancer.",
     items: [
-      { question: 'Combien coûte un site web professionnel ?', answer: "490€ pour une landing page (5 jours), 990€ pour un site vitrine jusqu'à 5 pages (10 jours), à partir de 1 990€ pour une boutique en ligne et de 1 200€ pour une application mobile. Chaque devis est calculé sur le périmètre réel du projet — contactez-nous pour un chiffrage sous 24h." },
-      { question: 'Quels sont vos délais de livraison ?', answer: "5 jours pour une landing page, 7 jours pour un site restaurant, 10 jours pour un site vitrine ou une refonte, 14 jours pour une application Mobile Starter, 21 jours pour une boutique en ligne, 30 jours pour une application Mobile Business." },
-      { question: 'Travaillez-vous partout en France ?', answer: "Oui. L'ensemble du projet se traite à distance — visioconférence, email, téléphone. La majorité des clients sont en Auvergne-Rhône-Alpes, avec des projets réguliers à Paris, Bordeaux, Nantes ou Marseille." },
-      { question: 'Comment se passe le paiement ?', answer: "50% d'acompte au démarrage, 50% à la livraison. Virement bancaire ou carte via lien de paiement Stripe. Au-delà de 2 000€, un paiement en trois fois peut être étudié selon le projet." },
+      { question: 'Combien coûte un projet avec Atlamaz Studio ?', answer: "Un site vitrine efficace démarre à 999€. Les projets plus ambitieux — e-commerce, application web ou SaaS sur mesure — se situent le plus souvent entre 3 000€ et 15 000€. Pour les plateformes complexes ou les applications mobiles, certains projets vont jusqu'à 50 000€. Le premier échange sert à cadrer précisément votre besoin, sans engagement." },
+      { question: "Une application mobile, c'est possible ?", answer: "Oui. Au-delà des sites, on conçoit aussi des applications mobiles quand votre projet le demande — de l'idée à la mise en ligne sur les stores." },
+      { question: 'Quels sont les délais ?', answer: "Entre 2 et 8 semaines selon l'ampleur du projet. Un calendrier clair est posé dès le premier échange." },
+      { question: 'Et après la mise en ligne ?', answer: "Chaque site est livré avec un accompagnement inclus. Ensuite, on reste disponible pour faire évoluer votre outil au rythme de votre activité." },
     ],
     allLink: 'Voir toutes les questions',
+  },
+
+  // ── Réalisations (aperçu home) ─────────────────────────────
+  homeRealisations: {
+    eyebrow: 'Quelques exemples',
+    title:   'Trois projets, trois besoins différents.',
+    allLink: 'Toutes les études de cas',
   },
 
   // ── CTA final ──────────────────────────────────────────────
@@ -86,11 +91,11 @@ export const fr = {
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
-    copy:  'ATLAMAZ STUDIO © 2026',
+    copy:    '© 2026 Atlamaz Studio — Tous droits réservés.',
+    tagline: 'Sites & applications qui inspirent confiance.',
     email: 'atlamazstudio@gmail.com',
     links: [
       { label: 'Studio',                     href: '/studio' },
-      { label: 'Tarifs',                     href: '/tarifs' },
       { label: 'Mentions légales',           href: '/mentions-legales' },
       { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
       { label: 'LinkedIn',                   href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },
@@ -128,13 +133,6 @@ export const fr = {
       title:    'Études de cas, pas de vitrine',
       subtitle: 'Chaque projet ci-dessous détaille la stack technique, les contraintes réelles et les métriques obtenues — pas juste des captures d\'écran.',
     },
-    filters: {
-      label: 'Filtrer par type',
-    },
-    card: {
-      cta: 'Voir l\'étude de cas',
-    },
-    empty: 'Aucun projet dans cette catégorie pour l\'instant.',
   },
 
   // ── Page Détail réalisation ───────────────────────────────
@@ -144,23 +142,14 @@ export const fr = {
       realisations: 'Réalisations',
     },
     sections: {
-      context:      'Contexte du projet',
-      technologies: 'Stack technique',
-      results:      'Résultats mesurés',
-      cta:          'Un projet similaire à concevoir ?',
-      defi:         'La contrainte technique',
-      approche:     'L\'architecture retenue',
-      resultat:     'Ce que ça donne en production',
-    },
-    resultsLabels: {
-      pageSpeed: 'Score Lighthouse',
-      delivery:  'Délai de livraison',
-      revisions: 'Itérations effectuées',
+      cta:      'Un projet similaire à concevoir ?',
+      defi:     'La contrainte technique',
+      approche: 'L\'architecture retenue',
+      resultat: 'Ce que ça donne en production',
     },
     nextLabel: 'Projet suivant',
     ctaText:   'Décrivez-moi votre contrainte technique, je vous réponds sous 48h avec une approche concrète.',
     ctaButton: 'Démarrer un projet',
-    backBtn:   '← Retour aux réalisations',
     visitBtn:  'Visiter le site',
   },
 

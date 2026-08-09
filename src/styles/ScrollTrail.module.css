@@ -15,4 +15,18 @@
 
 @media (max-width: 720px) {
   .trail { left: 6px; }
+
+  /* Le flou gaussien SVG oblige le navigateur à re-rastériser le tracé sur
+     toute la hauteur du document à chaque frame de scroll — c'est la source
+     principale des saccades sur mobile. La règle CSS l'emporte sur l'attribut
+     de présentation filter="url(#atlamazTrailGlow)" du <path>.
+     Le trait est légèrement épaissi pour compenser la perte de la lueur. */
+  .path {
+    filter: none;
+    stroke-width: 2.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path { filter: none; }
 }

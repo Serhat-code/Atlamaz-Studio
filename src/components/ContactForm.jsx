@@ -14,11 +14,11 @@ const TYPE_PROJET_OPTIONS = [
 ];
 
 const BUDGET_OPTIONS = [
-  { value: 'moins-500', label: '< 500€' },
-  { value: '500-1000',  label: '500 – 1 000€' },
-  { value: '1000-2000', label: '1 000 – 2 000€' },
-  { value: 'plus-2000', label: '2 000€ +' },
-  { value: 'a-definir', label: 'À définir' },
+  { value: 'moins-3000',   label: '< 3 000€' },
+  { value: '3000-8000',    label: '3 000 – 8 000€' },
+  { value: '8000-15000',   label: '8 000 – 15 000€' },
+  { value: '15000-50000',  label: '15 000 – 50 000€' },
+  { value: 'a-definir',    label: 'À définir' },
 ];
 
 export default function ContactForm({ onClose }) {

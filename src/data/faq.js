@@ -16,14 +16,14 @@ export const faqs = [
     id: 1,
     categorie: 'general',
     question: 'Combien coûte un site web professionnel ?',
-    reponse: "490€ pour une landing page (5 jours), 990€ pour un site vitrine jusqu'à 5 pages (10 jours), à partir de 1 990€ pour une boutique en ligne et de 1 200€ pour une application mobile. Chaque devis est calculé sur le périmètre réel du projet — contactez-nous pour un chiffrage sous 24h.",
+    reponse: "Un site vitrine efficace démarre à 999€. Les projets plus ambitieux — e-commerce, application web ou SaaS sur mesure — se situent le plus souvent entre 3 000€ et 15 000€. Pour les plateformes complexes ou les applications mobiles, certains projets vont jusqu'à 50 000€. Chaque devis est calculé sur le périmètre réel du projet — contactez-nous pour un chiffrage sous 24h.",
     serviceLie: 'creation-site-vitrine',
   },
   {
     id: 2,
     categorie: 'general',
     question: 'Quels sont vos délais de livraison ?',
-    reponse: "5 jours pour une landing page, 7 jours pour un site restaurant, 10 jours pour un site vitrine ou une refonte, 14 jours pour une application Mobile Starter, 21 jours pour une boutique en ligne, 30 jours pour une application Mobile Business. Un pack Urgence (48-72h) existe avec un supplément de 30%.",
+    reponse: "Entre 2 et 8 semaines selon l'ampleur du projet : 2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine ou un site restaurant, 3 semaines pour une refonte, 4 à 6 semaines pour une boutique en ligne, 6 à 8 semaines pour une application mobile. Un calendrier clair est posé dès le premier échange, et un pack Urgence existe avec un supplément de 30%.",
     serviceLie: null,
   },
   {
@@ -37,7 +37,7 @@ export const faqs = [
     id: 4,
     categorie: 'general',
     question: 'Comment se passe le paiement ?',
-    reponse: "50% d'acompte au démarrage, 50% à la livraison. Virement bancaire ou carte via lien de paiement Stripe. Au-delà de 2 000€, un paiement en trois fois peut être étudié selon le projet.",
+    reponse: "50% d'acompte au démarrage, 50% à la livraison. Virement bancaire ou carte via lien de paiement Stripe. Au-delà de 5 000€, un paiement en trois fois peut être étudié selon le projet.",
     serviceLie: null,
   },
   {
@@ -90,7 +90,7 @@ export const faqs = [
     id: 11,
     categorie: 'livraison',
     question: 'Que comprend la maintenance mensuelle ?',
-    reponse: "49€/mois sans engagement : sauvegarde hebdomadaire automatique restaurable, mises à jour de sécurité, monitoring de disponibilité 24h/24, alerte immédiate en cas de panne, 1h de modifications de contenu mensuelle et rapport d'intervention.",
+    reponse: "149€/mois sans engagement : sauvegarde hebdomadaire automatique restaurable, mises à jour de sécurité, monitoring de disponibilité 24h/24, alerte immédiate en cas de panne, 1h de modifications de contenu mensuelle et rapport d'intervention.",
     serviceLie: 'maintenance-site-web',
   },
   {
@@ -134,7 +134,7 @@ export const faqs = [
     id: 17,
     categorie: 'mobile',
     question: 'Combien coûte une application mobile simple ?',
-    reponse: "Le pack Mobile Starter (Android, 3 à 5 écrans, publication Play Store) est à 1 200€, livré en 14 jours. Le pack Mobile Business (iOS + Android, authentification, backend Supabase, notifications push) est à 4 500€, livré en 30 jours. Pour des besoins spécifiques (paiement in-app, temps réel, géolocalisation), un devis est établi sur mesure.",
+    reponse: "Le pack Mobile Starter (Android, 3 à 5 écrans, publication Play Store) démarre à 8 000€, livré en 6 semaines. Le pack Mobile Business (iOS + Android, authentification, backend Supabase, notifications push) démarre à 15 000€, livré en 8 semaines. Pour les plateformes les plus complexes, certains projets vont jusqu'à 50 000€ — un devis est alors établi sur mesure.",
     serviceLie: 'creation-application-mobile',
   },
 ];

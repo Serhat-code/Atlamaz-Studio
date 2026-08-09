@@ -7,30 +7,39 @@ export default function MaskTransition({ t }) {
   const circleRef = useRef(null);
 
   useEffect(() => {
-    let cancelled = false;
-    let scrollTriggerInstance = null;
+    const section = sectionRef.current;
+    const circle = circleRef.current;
+    if (!section || !circle) return;
 
-    import('gsap').then(({ default: gsap }) =>
-      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
-        if (cancelled) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const tween = gsap.to(circleRef.current, {
-          clipPath: 'circle(150% at 50% 50%)',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-          },
-        });
-        scrollTriggerInstance = tween.scrollTrigger;
-      })
-    );
+    let rafId = 0;
+
+    function render() {
+      rafId = 0;
+      // Une seule lecture de layout par frame (jamais par événement de scroll),
+      // puis une seule écriture : pas de thrashing lecture/écriture.
+      const rect = section.getBoundingClientRect();
+      // Équivalent de start:'top top' → end:'bottom bottom' : la progression
+      // court sur la hauteur de section qui dépasse le viewport.
+      const range = Math.max(1, rect.height - window.innerHeight);
+      const p = Math.min(Math.max(-rect.top / range, 0), 1);
+
+      // Le centre "50% 50%" est réécrit tel quel à chaque frame : le cercle
+      // ne peut pas dériver vers un coin, seul le rayon évolue.
+      circle.style.clipPath = `circle(${(1 + p * 149).toFixed(2)}% at 50% 50%)`;
+    }
+
+    function schedule() {
+      if (!rafId) rafId = requestAnimationFrame(render);
+    }
+
+    render();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
 
     return () => {
-      cancelled = true;
-      scrollTriggerInstance?.kill();
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
     };
   }, []);
 

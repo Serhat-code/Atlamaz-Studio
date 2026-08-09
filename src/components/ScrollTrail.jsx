@@ -4,7 +4,6 @@ import styles from '../styles/ScrollTrail.module.css';
 export default function ScrollTrail({ containerRef }) {
   const svgRef = useRef(null);
   const pathRef = useRef(null);
-  const trailLenRef = useRef(0);
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -12,13 +11,27 @@ export default function ScrollTrail({ containerRef }) {
     const container = containerRef.current;
     if (!svg || !path || !container) return;
 
-    function buildTrail() {
-      const h = container.scrollHeight;
-      svg.setAttribute('height', h);
-      svg.setAttribute('viewBox', `0 0 120 ${h}`);
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Métriques mises en cache : elles ne sont relues que dans measure(),
+    // jamais pendant le scroll — sinon chaque événement force un reflow.
+    let trailLen = 0;
+    let containerTop = 0;
+    let scrollRange = 1;
+    let builtHeight = 0;
+    let builtWidth = 0;
+
+    let target = 0;   // progression visée (0 → 1)
+    let current = 0;  // progression affichée, rattrape `target` en douceur
+    let rafId = 0;
+    let measureId = 0;
+
+    // Ondulation tous les `step` px. Pas plus large sur mobile : moins de
+    // segments de courbe à rastériser pour une amplitude visuellement identique.
+    function buildPath(h) {
+      const step = window.innerWidth < 720 ? 420 : 280;
       let d = 'M 60 40 ';
       let y = 40;
-      const step = 280;
       let dir = 1;
       while (y < h - 40) {
         const ny = Math.min(y + step, h - 40);
@@ -26,34 +39,93 @@ export default function ScrollTrail({ containerRef }) {
         y = ny;
         dir *= -1;
       }
-      path.setAttribute('d', d);
-      trailLenRef.current = path.getTotalLength();
-      path.style.strokeDasharray = String(trailLenRef.current);
-      path.style.strokeDashoffset = String(trailLenRef.current);
+      return d;
     }
 
-    function updateTrail() {
-      const containerTop = container.getBoundingClientRect().top + window.scrollY;
-      const max = Math.max(1, container.scrollHeight - window.innerHeight);
-      const p = Math.min(Math.max((window.scrollY - containerTop) / max, 0), 1);
-      path.style.strokeDashoffset = String(trailLenRef.current * (1 - p));
+    function measure() {
+      const h = Math.round(container.scrollHeight);
+      const w = window.innerWidth;
+
+      // getTotalLength() sur un tracé de la hauteur du document coûte cher :
+      // on ne reconstruit que si la géométrie a réellement changé. Sur mobile,
+      // la barre d'URL qui se replie déclenche des resize sans changer la largeur.
+      if (h !== builtHeight || w !== builtWidth) {
+        builtHeight = h;
+        builtWidth = w;
+        svg.setAttribute('height', h);
+        svg.setAttribute('viewBox', `0 0 120 ${h}`);
+        path.setAttribute('d', buildPath(h));
+        trailLen = path.getTotalLength();
+        path.style.strokeDasharray = String(trailLen);
+      }
+
+      containerTop = container.getBoundingClientRect().top + window.scrollY;
+      scrollRange = Math.max(1, h - window.innerHeight);
     }
 
-    buildTrail();
-    updateTrail();
+    function draw(p) {
+      path.style.strokeDashoffset = String(trailLen * (1 - p));
+    }
 
-    const resizeObserver = new ResizeObserver(() => {
-      buildTrail();
-      updateTrail();
-    });
+    function readTarget() {
+      target = Math.min(Math.max((window.scrollY - containerTop) / scrollRange, 0), 1);
+    }
+
+    function tick() {
+      rafId = 0;
+      const delta = target - current;
+      if (Math.abs(delta) < 0.0004) {
+        current = target;
+        draw(current);
+        return;
+      }
+      // Lissage exponentiel : le trait rattrape le scroll au lieu de sauter
+      // d'un événement à l'autre — c'est ce qui donne la sensation de fluidité.
+      current += delta * 0.16;
+      draw(current);
+      schedule();
+    }
+
+    function schedule() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    function onScroll() {
+      readTarget();
+      if (reduceMotion) {
+        current = target;
+        draw(current);
+        return;
+      }
+      schedule();
+    }
+
+    function remeasure() {
+      clearTimeout(measureId);
+      measureId = setTimeout(() => {
+        measure();
+        readTarget();
+        current = target;
+        draw(current);
+      }, 150);
+    }
+
+    measure();
+    readTarget();
+    current = target;
+    draw(current);
+
+    const resizeObserver = new ResizeObserver(remeasure);
     resizeObserver.observe(container);
-    window.addEventListener('scroll', updateTrail, { passive: true });
-    window.addEventListener('resize', updateTrail);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', remeasure, { passive: true });
 
     return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(measureId);
       resizeObserver.disconnect();
-      window.removeEventListener('scroll', updateTrail);
-      window.removeEventListener('resize', updateTrail);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', remeasure);
     };
   }, [containerRef]);
 

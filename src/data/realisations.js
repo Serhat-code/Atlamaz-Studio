@@ -12,12 +12,8 @@ export const realisations = [
     couleur: '#0a0f1a',
     image: '/images/realisations/givre.jpg',
     technologies: ['React', 'WebGL', 'CSS 3D', 'GSAP'],
-    techno: 'React / WebGL',
-    delai: '4 jours',
     delaiLivraison: '4 jours',
     annee: '2026',
-    pageSpeed: 96,
-    revisions: 2,
     defi: "Transmettre l'univers sensoriel d'une parfumerie haut de gamme à travers un écran — sans que le visiteur puisse sentir, toucher ni essayer le produit.",
     approche: "Parti pris radical : tout blanc, tout froid. Typographie premium, animations de gel, effets WebGL qui évoquent la brume et la cristallisation. Chaque micro-interaction renforce l'imaginaire de la marque.",
     resultatNarratif: "Un site qui se visite comme une galerie. Le brief demandait 'luxe' — le résultat inspire 'silence, rareté, désir'.",
@@ -26,7 +22,6 @@ export const realisations = [
       { value: '4j', label: 'Livraison' },
       { value: '0', label: 'Template utilisé' },
     ],
-    resultat: "Design glacé 100% sur mesure. Identité de marque cohérente du logo au curseur.",
   },
   {
   id: 1,
@@ -45,12 +40,8 @@ export const realisations = [
     "Supabase",
     "Stripe"
   ],
-  techno: "React • Supabase • Stripe",
-  delai: "3 semaines",
   delaiLivraison: "3 semaines",
   annee: "2026",
-  pageSpeed: 100,
-  revisions: 8,
   defi:
     "Réduire le temps consacré à la prospection commerciale en automatisant la recherche de prospects, la création des campagnes et le suivi des actions.",
   approche:
@@ -71,9 +62,6 @@ export const realisations = [
       label: "Abonnement"
     }
   ],
-
-  resultat:
-    "Une plateforme web de prospection qui automatise les tâches répétitives des équipes commerciales et accélère l'acquisition de nouveaux clients."
 },
 {
     id: 3,
@@ -87,12 +75,8 @@ export const realisations = [
     couleur: '#050818',
     image: '/images/realisations/astra.jpg',
     technologies: ['React', 'Three.js', 'GSAP', 'WebGL'],
-    techno: 'React / Three.js',
-    delai: '2 jours',
     delaiLivraison: '2 jours',
     annee: '2026',
-    pageSpeed: 98,
-    revisions: 2,
     defi: "Rendre la complexité astronomique accessible à tous — 100 astres, chacun unique, dans un espace interactif explorable sans aucune connaissance préalable.",
     approche: "Three.js pour des rendus 3D temps réel dans le navigateur. Chaque astre possède sa propre géométrie procédurale et ses propriétés physiques calculées à la volée. L'interface guide la découverte progressive : on peut plonger autant ou aussi peu qu'on le souhaite.",
     resultatNarratif: "Une expérience de 2 minutes qui donne le sentiment d'explorer l'univers depuis son canapé. La totalité des testeurs a navigué au-delà de la page d'accueil.",
@@ -101,7 +85,6 @@ export const realisations = [
       { value: '98', label: 'Lighthouse' },
       { value: '2j', label: 'Livraison' },
     ],
-    resultat: "Livré en 2 jours. Expérience 3D temps réel sans compromis sur la performance.",
   },
 ];
 
@@ -110,5 +93,4 @@ export const REALISATION_CATS = [
   { id: 'webgl',   label: 'Expériences WebGL' },
   { id: 'vitrine', label: 'Sites vitrine' },
   { id: 'saas',    label: 'SaaS' },
-  { id: 'mobile',  label: 'Mobile' },
 ];
