@@ -1,14 +1,15 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { fr } from './i18n/fr';
 import { en } from './i18n/en';
 
-import Navbar       from './components/Navbar';
-import Footer       from './components/Footer';
-import CookieBanner from './components/CookieBanner';
-import ScrollToTop  from './components/ScrollToTop';
+import Navbar         from './components/Navbar';
+import Footer         from './components/Footer';
+import CookieBanner   from './components/CookieBanner';
+import ScrollToTop    from './components/ScrollToTop';
+import HomeLangToggle from './components/HomeLangToggle';
 import { services } from './data/services';
 
 // Home reste en import statique : c'est la page d'entrée la plus fréquente,
@@ -38,7 +39,9 @@ function Layout({ t, lang, onLangToggle, children }) {
 
   return (
     <>
-      {!isHome && <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />}
+      {isHome
+        ? <HomeLangToggle lang={lang} onToggle={onLangToggle} />
+        : <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />}
       <main>{children}</main>
       <Footer t={t} />
       <CookieBanner />
@@ -51,6 +54,12 @@ export default function App() {
     () => localStorage.getItem('lang') || 'fr'
   );
   const t = translations[lang];
+
+  // index.html déclare lang="fr" en dur : sans ça, la page reste annoncée
+  // comme française aux lecteurs d'écran et aux moteurs une fois passée en EN.
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const handleLangToggle = () => {
     setLang((prev) => {
