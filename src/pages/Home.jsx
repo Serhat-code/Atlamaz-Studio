@@ -15,6 +15,41 @@ import styles from '../styles/Home.module.css';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
+// Entité du site, déclarée sur la seule page d'accueil : c'est l'URL que
+// Google retient comme identité de l'organisation. Les pages villes portent
+// leur propre LocalBusiness géolocalisé — deux entités concurrentes sur une
+// même page brouilleraient le rattachement.
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${BASE_URL}/#organization`,
+  name: 'Atlamaz Studio',
+  description:
+    'Studio de création web freelance à Lyon — sites vitrines, landing pages, boutiques en ligne, applications mobiles React Native.',
+  url: BASE_URL,
+  email: 'atlamazstudio@gmail.com',
+  image: OG_IMAGE,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lyon',
+    addressRegion: 'Rhône',
+    addressCountry: 'FR',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Lyon' },
+    { '@type': 'Country', name: 'France' },
+  ],
+  knowsAbout: [
+    'Création de site web',
+    'React',
+    'SEO',
+    'Application mobile',
+    'React Native',
+  ],
+  sameAs: ['https://www.linkedin.com/company/atlamaz-studio'],
+};
+
 export default function Home({ t }) {
   const wrapperRef = useRef(null);
 
@@ -30,6 +65,7 @@ export default function Home({ t }) {
         <meta property="og:image"       content={OG_IMAGE} />
         <meta name="twitter:card"       content="summary_large_image" />
         <meta name="twitter:image"      content={OG_IMAGE} />
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       <HomeLogo />

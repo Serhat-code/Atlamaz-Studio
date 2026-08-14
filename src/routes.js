@@ -33,8 +33,22 @@ export const indexableRoutes = [
   ...villeRoutes,
   ...serviceRoutes,
   ...blogRoutes,
+];
+
+/**
+ * Routes pré-rendues mais volontairement hors sitemap.
+ *
+ * Les trois portent une <meta name="robots" content="noindex"> : les lister
+ * dans le sitemap revenait à demander l'indexation de pages qui la refusent,
+ * ce que Search Console signale en « Soumise mais marquée noindex ». Elles
+ * doivent en revanche exister en HTML statique — /merci est atteinte après
+ * l'envoi du formulaire, et les pages légales sont liées depuis le footer :
+ * sans fichier, un accès direct retournerait un 404.
+ */
+export const noindexRoutes = [
   '/mentions-legales',
   '/politique-confidentialite',
+  '/merci',
 ];
 
 const asMap = (routes, config) =>
@@ -49,8 +63,6 @@ const SITEMAP_OVERRIDES = {
   '/studio': { changefreq: 'monthly', priority: '0.6' },
   '/blog': { changefreq: 'weekly', priority: '0.8' },
   '/faq': { changefreq: 'monthly', priority: '0.7' },
-  '/mentions-legales': { changefreq: 'yearly', priority: '0.3' },
-  '/politique-confidentialite': { changefreq: 'yearly', priority: '0.3' },
   ...asMap(villeRoutes, { changefreq: 'monthly', priority: '0.9' }),
   ...asMap(serviceRoutes, { changefreq: 'monthly', priority: '0.9' }),
   ...asMap(blogRoutes, { changefreq: 'monthly', priority: '0.8' }),
@@ -64,10 +76,5 @@ export const sitemapEntries = indexableRoutes.map((route) => ({
   ...SITEMAP_OVERRIDES[route],
 }));
 
-/**
- * Routes à pré-rendre = les indexables + celles volontairement hors sitemap.
- * /merci est exclue du sitemap (robots.txt la bloque) mais reste atteignable
- * après envoi du formulaire : sans HTML statique, un rechargement direct de
- * cette URL retournerait un 404 Vercel une fois le fallback SPA retiré.
- */
-export const prerenderRoutes = [...indexableRoutes, '/merci'];
+/** Toutes les routes à figer en HTML au build. */
+export const prerenderRoutes = [...indexableRoutes, ...noindexRoutes];
