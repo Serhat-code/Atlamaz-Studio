@@ -1,5 +1,34 @@
+# ============================================================
+# ATLAMAZ STUDIO — robots.txt
+# ============================================================
+# Aucun crawler n'est bloqué. Seule /merci est exclue : page de
+# confirmation d'envoi du formulaire, sans valeur d'indexation.
+
 User-agent: *
 Allow: /
 Disallow: /merci
+
+# --- Récupération / citation par les assistants IA ---
+# Ces agents vont chercher la page au moment où un utilisateur pose une
+# question : les autoriser explicitement est l'objectif recherché, le site
+# doit être citable. Les règles sont répétées ici car un groupe nommé
+# remplace le groupe « * » pour l'agent concerné — sans ça, /merci
+# redeviendrait explorable pour eux.
+
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-CloudVertexBot
+Allow: /
+Disallow: /merci
+
+# --- Crawlers d'entraînement ---
+# GPTBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended…
+# Volontairement non listés : ils restent autorisés par le groupe « * ».
+# Les bloquer est un arbitrage business, pas une décision technique — à
+# trancher explicitement avant d'ajouter la moindre règle ici.
 
 Sitemap: https://atlamaz-studio.fr/sitemap.xml

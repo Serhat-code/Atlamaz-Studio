@@ -1,9 +1,9 @@
-import { useState, useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { useEffect, useSyncExternalStore, Suspense, lazy } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import { fr } from './i18n/fr';
 import { en } from './i18n/en';
+import { subscribeLang, getLang, getServerLang, setLang } from './i18n/langStore';
 
 import Navbar         from './components/Navbar';
 import Footer         from './components/Footer';
@@ -50,9 +50,9 @@ function Layout({ t, lang, onLangToggle, children }) {
 }
 
 export default function App() {
-  const [lang, setLang] = useState(
-    () => localStorage.getItem('lang') || 'fr'
-  );
+  // Le HTML statique est produit en français ; un visiteur ayant choisi
+  // l'anglais bascule juste après l'hydratation (cf. langStore).
+  const lang = useSyncExternalStore(subscribeLang, getLang, getServerLang);
   const t = translations[lang];
 
   // index.html déclare lang="fr" en dur : sans ça, la page reste annoncée
@@ -61,50 +61,42 @@ export default function App() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const handleLangToggle = () => {
-    setLang((prev) => {
-      const next = prev === 'fr' ? 'en' : 'fr';
-      localStorage.setItem('lang', next);
-      return next;
-    });
-  };
+  const handleLangToggle = () => setLang(lang === 'fr' ? 'en' : 'fr');
 
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Layout t={t} lang={lang} onLangToggle={handleLangToggle}>
-          <Suspense fallback={null}>
-            <Routes>
-              <Route path="/"                               element={<Home t={t} />} />
-              <Route path="/realisations"                   element={<Realisations t={t} />} />
-              <Route path="/realisations/:slug"             element={<RealisationDetail t={t} />} />
-              <Route path="/studio"                         element={<Studio t={t} />} />
-              <Route path="/mentions-legales"               element={<MentionsLegales />} />
-              <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
-              <Route path="/merci"                          element={<Merci t={t} />} />
-              {/* SEO pages */}
-              {/* La grille tarifaire publique a été retirée : le devis est établi
-                  au cas par cas. /tarifs était indexé — on redirige vers la FAQ,
-                  qui porte désormais la fourchette de prix. Vercel émet en plus
-                  un vrai 301 (cf. vercel.json) pour les moteurs. */}
-              <Route path="/tarifs"                         element={<Navigate to="/faq" replace />} />
-              <Route path="/nos-villes"                     element={<NosVilles />} />
-              <Route path="/faq"                            element={<FAQ />} />
-              <Route path="/blog"                           element={<Blog />} />
-              <Route path="/blog/:slug"                     element={<BlogArticle />} />
-              {services.map((s) => (
-                <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
-              ))}
-              {/* React Router exige que :param soit le segment entier — on capture le slug
-                  complet ("creation-site-web-lyon") et on résout la ville par slug. */}
-              <Route path="/:slug"                          element={<VillePage />} />
-              {/* 404 */}
-              <Route path="*"                               element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Layout>
-      </BrowserRouter>
-    </HelmetProvider>
+    <>
+      <ScrollToTop />
+      <Layout t={t} lang={lang} onLangToggle={handleLangToggle}>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/"                               element={<Home t={t} />} />
+            <Route path="/realisations"                   element={<Realisations t={t} />} />
+            <Route path="/realisations/:slug"             element={<RealisationDetail t={t} />} />
+            <Route path="/studio"                         element={<Studio t={t} />} />
+            <Route path="/mentions-legales"               element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite"      element={<PolitiqueConfidentialite />} />
+            <Route path="/merci"                          element={<Merci t={t} />} />
+            {/* SEO pages */}
+            {/* La grille tarifaire publique a été retirée : le devis est établi
+                au cas par cas. /tarifs était indexé — on redirige vers la FAQ,
+                qui porte désormais la fourchette de prix. Vercel émet en plus
+                un vrai 301 (cf. vercel.json) pour les moteurs. */}
+            <Route path="/tarifs"                         element={<Navigate to="/faq" replace />} />
+            <Route path="/nos-villes"                     element={<NosVilles />} />
+            <Route path="/faq"                            element={<FAQ />} />
+            <Route path="/blog"                           element={<Blog />} />
+            <Route path="/blog/:slug"                     element={<BlogArticle />} />
+            {services.map((s) => (
+              <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
+            ))}
+            {/* React Router exige que :param soit le segment entier — on capture le slug
+                complet ("creation-site-web-lyon") et on résout la ville par slug. */}
+            <Route path="/:slug"                          element={<VillePage />} />
+            {/* 404 */}
+            <Route path="*"                               element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </>
   );
 }

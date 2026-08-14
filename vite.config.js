@@ -1,63 +1,34 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import sitemap from 'vite-plugin-sitemap';
-import { villes } from './src/data/villes.js';
-import { services } from './src/data/services.js';
-import { articles } from './src/data/articles.js';
 
-const BASE_URL = 'https://atlamaz-studio.fr';
+// Le sitemap est écrit par scripts/prerender.js à partir de src/routes.js.
+// vite-plugin-sitemap a été retiré : il scannait dist/, qui contient désormais
+// un fichier HTML par route, et produisait un sitemap incorrect (accueil en
+// double, fichier de vérification Search Console indexé, priorités ignorées).
+// Il réécrivait de surcroît robots.txt en perdant la règle Disallow: /merci.
 
-const villeRoutes   = villes.map((v)   => `/creation-site-web-${v.villeId}`);
-const serviceRoutes = services.map((s) => `/${s.slug}`);
-
-const blogRoutes = articles.map((a) => `/blog/${a.slug}`);
-
-export default defineConfig({
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'vendor';
-            }
-            return 'deps';
-          }
+// Le build SSR ne produit qu'un bundle Node consommé par le pré-rendu :
+// le découpage en chunks n'y a pas de sens.
+export default defineConfig(({ isSsrBuild }) => ({
+  build: isSsrBuild
+    ? {}
+    : {
+        rollupOptions: {
+          output: {
+            manualChunks(id) {
+              if (id.includes('node_modules')) {
+                if (
+                  id.includes('react') ||
+                  id.includes('react-dom') ||
+                  id.includes('react-router-dom')
+                ) {
+                  return 'vendor';
+                }
+                return 'deps';
+              }
+            },
+          },
         },
       },
-    },
-  },
-  plugins: [
-    react(),
-    sitemap({
-      hostname: BASE_URL,
-      dynamicRoutes: [
-        '/',
-        '/nos-villes',
-        ...villeRoutes,
-        ...serviceRoutes,
-        '/blog',
-        ...blogRoutes,
-        '/faq',
-        '/realisations',
-        '/mentions-legales',
-        '/politique-confidentialite',
-      ],
-      exclude: ['/merci', '/404'],
-      changefreq: 'monthly',
-      priority: 0.7,
-      routesConfig: {
-        '/':           { changefreq: 'weekly',  priority: 1.0 },
-        '/nos-villes': { changefreq: 'monthly', priority: 0.9 },
-        '/realisations': { changefreq: 'weekly', priority: 0.7 },
-        '/blog':       { changefreq: 'weekly',  priority: 0.8 },
-        '/faq':        { changefreq: 'monthly', priority: 0.7 },
-        '/mentions-legales':          { changefreq: 'yearly', priority: 0.3 },
-        '/politique-confidentialite': { changefreq: 'yearly', priority: 0.3 },
-        ...Object.fromEntries(villeRoutes.map((r)   => [r, { changefreq: 'monthly', priority: 0.9 }])),
-        ...Object.fromEntries(serviceRoutes.map((r) => [r, { changefreq: 'monthly', priority: 0.9 }])),
-        ...Object.fromEntries(blogRoutes.map((r)    => [r, { changefreq: 'monthly', priority: 0.8 }])),
-      },
-    }),
-  ],
-});
+  plugins: [react()],
+}));

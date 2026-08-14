@@ -7,6 +7,8 @@ import Reveal from '../components/Reveal';
 import ContactModal from '../components/ContactModal';
 import styles from '../styles/RealisationDetail.module.css';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export default function RealisationDetail({ t }) {
   const { slug } = useParams();
   const { realisationDetail: rd } = t;
@@ -22,6 +24,7 @@ export default function RealisationDetail({ t }) {
       <Helmet>
         <title>{projet.nom} — Atlamaz Studio</title>
         <meta name="description" content={projet.description} />
+        <link rel="canonical" href={`${BASE_URL}/realisations/${projet.slug}`} />
       </Helmet>
 
       {/* ── Breadcrumb ─────────────────────────────────────── */}
