@@ -8,10 +8,13 @@
   top: 0;
   height: 100svh;
   overflow: hidden;
+  /* Le disque déborde très largement du viewport : on isole son repeint pour
+     qu'il ne puisse pas invalider le reste de la page pendant le scroll. */
+  contain: paint;
 }
 
 .before,
-.circle {
+.reveal {
   position: absolute;
   inset: 0;
   display: flex;
@@ -41,10 +44,35 @@
   display: block;
 }
 
-.circle {
+/* Le disque ne contient rien : il ne fait que grandir. Un `scale` sur un
+   aplat de couleur se joue au compositeur, là où l'ancien `clip-path` obligeait
+   le navigateur à re-peindre un calque plein écran — texte inclus — à chaque
+   frame de scroll. 100vmax de côté : de quoi dépasser la diagonale du viewport
+   à l'échelle 1, donc jamais d'agrandissement de texture visible. */
+.disc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vmax;
+  height: 100vmax;
+  margin: -50vmax 0 0 -50vmax;
+  border-radius: 50%;
   background: var(--bg);
-  clip-path: circle(1% at 50% 50%);
-  will-change: clip-path;
+  transform: scale(0.015);
+  /* will-change est posé/retiré en JS selon la visibilité de la section. */
+}
+
+.reveal {
+  opacity: 0;
+  /* Texte purement décoratif, et invisible la moitié du temps : on ne veut pas
+     qu'il capte la sélection par-dessus la phrase du dessous. */
+  pointer-events: none;
+}
+
+/* Boîte mesurée en JS : c'est elle qui détermine à partir de quelle taille de
+   disque le titre peut apparaître. */
+.inner {
+  display: block;
 }
 
 .circleTitle {
