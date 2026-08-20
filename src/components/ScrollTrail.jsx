@@ -2,29 +2,32 @@ import { useEffect, useRef } from 'react';
 import styles from '../styles/ScrollTrail.module.css';
 
 export default function ScrollTrail({ containerRef }) {
+  const clipRef = useRef(null);
   const svgRef = useRef(null);
   const pathRef = useRef(null);
 
   useEffect(() => {
+    const clip = clipRef.current;
     const svg = svgRef.current;
     const path = pathRef.current;
     const container = containerRef.current;
-    if (!svg || !path || !container) return;
+    if (!clip || !svg || !path || !container) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Métriques mises en cache : elles ne sont relues que dans measure(),
     // jamais pendant le scroll — sinon chaque événement force un reflow.
-    let trailLen = 0;
+    let height = 0;
+    let builtWidth = 0;
     let containerTop = 0;
     let scrollRange = 1;
-    let builtHeight = 0;
-    let builtWidth = 0;
 
     let target = 0;   // progression visée (0 → 1)
     let current = 0;  // progression affichée, rattrape `target` en douceur
     let rafId = 0;
+    let lastTs = 0;
     let measureId = 0;
+    let lastReveal = -1;
 
     // Ondulation tous les `step` px. Pas plus large sur mobile : moins de
     // segments de courbe à rastériser pour une amplitude visuellement identique.
@@ -46,42 +49,60 @@ export default function ScrollTrail({ containerRef }) {
       const h = Math.round(container.scrollHeight);
       const w = window.innerWidth;
 
-      // getTotalLength() sur un tracé de la hauteur du document coûte cher :
-      // on ne reconstruit que si la géométrie a réellement changé. Sur mobile,
-      // la barre d'URL qui se replie déclenche des resize sans changer la largeur.
-      if (h !== builtHeight || w !== builtWidth) {
-        builtHeight = h;
+      // Reconstruire le tracé coûte cher : on ne le fait que si la géométrie a
+      // réellement changé. Sur mobile, la barre d'URL qui se replie déclenche
+      // des resize sans changer la largeur.
+      if (h !== height || w !== builtWidth) {
+        height = h;
         builtWidth = w;
+        clip.style.height = `${h}px`;
         svg.setAttribute('height', h);
         svg.setAttribute('viewBox', `0 0 120 ${h}`);
         path.setAttribute('d', buildPath(h));
-        trailLen = path.getTotalLength();
-        path.style.strokeDasharray = String(trailLen);
+        lastReveal = -1;
       }
 
       containerTop = container.getBoundingClientRect().top + window.scrollY;
       scrollRange = Math.max(1, h - window.innerHeight);
     }
 
+    // Le tracé n'est peint qu'une seule fois. La progression fait glisser la
+    // fenêtre de découpe (translation du conteneur en overflow:hidden,
+    // compensée à l'identique sur le SVG) : deux transforms composées, zéro
+    // repeint. L'ancien stroke-dashoffset obligeait au contraire le navigateur
+    // à re-rastériser un tracé long comme le document entier à chaque frame —
+    // c'était la source des saccades sur téléphone.
     function draw(p) {
-      path.style.strokeDashoffset = String(trailLen * (1 - p));
+      const reveal = Math.round(p * height);
+      if (reveal === lastReveal) return;
+      lastReveal = reveal;
+      const hidden = height - reveal;
+      clip.style.transform = `translate3d(0, ${-hidden}px, 0)`;
+      svg.style.transform = `translate3d(0, ${hidden}px, 0)`;
     }
 
     function readTarget() {
       target = Math.min(Math.max((window.scrollY - containerTop) / scrollRange, 0), 1);
     }
 
-    function tick() {
+    function tick(ts) {
       rafId = 0;
+      const dt = lastTs ? Math.min((ts - lastTs) / 1000, 0.05) : 1 / 60;
+      lastTs = ts;
+
       const delta = target - current;
-      if (Math.abs(delta) < 0.0004) {
+      // On s'arrête dès qu'il reste moins d'un demi-pixel de trajet.
+      if (Math.abs(delta) * height < 0.5) {
         current = target;
+        lastTs = 0;
         draw(current);
         return;
       }
-      // Lissage exponentiel : le trait rattrape le scroll au lieu de sauter
-      // d'un événement à l'autre — c'est ce qui donne la sensation de fluidité.
-      current += delta * 0.16;
+      // Lissage exponentiel indépendant du framerate : le trait rattrape le
+      // scroll au lieu de sauter d'un événement à l'autre — c'est ce qui donne
+      // la sensation de fluidité, y compris pendant l'inertie mobile où les
+      // événements de scroll arrivent moins souvent que les frames.
+      current += delta * (1 - Math.exp(-10 * dt));
       draw(current);
       schedule();
     }
@@ -130,21 +151,23 @@ export default function ScrollTrail({ containerRef }) {
   }, [containerRef]);
 
   return (
-    <svg ref={svgRef} className={styles.trail} width="120" aria-hidden="true">
-      <defs>
-        <linearGradient id="atlamazTrailGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#4F5BFF" />
-          <stop offset="100%" stopColor="#8D85FF" />
-        </linearGradient>
-        <filter id="atlamazTrailGlow" x="-300%" y="-20%" width="700%" height="140%">
-          <feGaussianBlur stdDeviation="3.2" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <path ref={pathRef} className={styles.path} filter="url(#atlamazTrailGlow)" />
-    </svg>
+    <div ref={clipRef} className={styles.trail} aria-hidden="true">
+      <svg ref={svgRef} className={styles.svg} width="120">
+        <defs>
+          <linearGradient id="atlamazTrailGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#4F5BFF" />
+            <stop offset="100%" stopColor="#8D85FF" />
+          </linearGradient>
+          <filter id="atlamazTrailGlow" x="-300%" y="-20%" width="700%" height="140%">
+            <feGaussianBlur stdDeviation="3.2" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path ref={pathRef} className={styles.path} filter="url(#atlamazTrailGlow)" />
+      </svg>
+    </div>
   );
 }
