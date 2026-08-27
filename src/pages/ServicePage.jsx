@@ -96,10 +96,6 @@ export default function ServicePage({ serviceSlug }) {
           <Reveal delay={2}><p className={styles.heroDesc}>{service.description}</p></Reveal>
           <div className={styles.heroBadges}>
             <span className={styles.heroBadge}>
-              <span className={styles.heroBadgeLabel}>Prix</span>
-              <strong>{service.prix}</strong>
-            </span>
-            <span className={styles.heroBadge}>
               <span className={styles.heroBadgeLabel}>Délai</span>
               <strong>{service.delai}</strong>
             </span>
@@ -246,7 +242,6 @@ export default function ServicePage({ serviceSlug }) {
                   <Link key={s.slug} to={`/${s.slug}`} className={styles.autreCard}>
                     <h3 className={styles.autreNom}>{s.nom}</h3>
                     <p className={styles.autreTagline}>{s.tagline}</p>
-                    <span className={styles.autrePrix}>{s.prix}</span>
                   </Link>
                 ))}
               </div>
@@ -263,7 +258,7 @@ export default function ServicePage({ serviceSlug }) {
               Prêt à lancer votre <strong>{service.nom} ?</strong>
             </h2>
             <p className={styles.ctaSubtitle}>
-              Devis gratuit sous 24h. Premier échange offert. {service.delai} de délai.
+              Réponse sous 48h. Premier échange sans engagement. {service.delai} de délai.
             </p>
             <div className={styles.ctaCtas}>
               <button className="btn btn--primary" onClick={() => setModalOpen(true)}>

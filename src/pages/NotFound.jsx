@@ -8,6 +8,7 @@ export default function NotFound() {
       <Helmet>
         <title>404 — Page introuvable · Atlamaz Studio</title>
         <meta name="robots" content="noindex" />
+        <meta property="og:title" content="404 — Page introuvable · Atlamaz Studio" />
       </Helmet>
 
       <div className={styles.wrapper}>

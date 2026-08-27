@@ -76,7 +76,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 </div>
                 <div>
                   <strong>Envoyer un message</strong>
-                  <span>Réponse sous 24h · À votre rythme</span>
+                  <span>Réponse sous 48h · À votre rythme</span>
                 </div>
               </button>
             </div>
@@ -87,7 +87,7 @@ export default function ContactModal({ isOpen, onClose }) {
               ← Retour
             </button>
             <h2 className={styles.title}>Envoyer un message</h2>
-            <p className={styles.subtitle}>Devis gratuit. Réponse garantie sous 48h.</p>
+            <p className={styles.subtitle}>Premier échange sans engagement. Réponse sous 48h.</p>
             <ContactForm onClose={handleClose} />
           </>
         )}

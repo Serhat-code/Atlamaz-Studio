@@ -7,20 +7,19 @@ export const realisations = [
     secteur: 'Luxe & Parfumerie',
     nom: 'GIVRE',
     type: 'Site vitrine',
-    description: "Identité digitale d'une maison de parfumerie fictive haut de gamme. Design glacé, typographie premium, expérience sensorielle.",
+    description: "Concept d'identité digitale pour une maison de parfumerie haut de gamme. Design glacé, typographie premium, expérience sensorielle.",
     lien: 'https://givre.vercel.app/',
     couleur: '#0a0f1a',
     image: '/images/realisations/givre.jpg',
     technologies: ['React', 'WebGL', 'CSS 3D', 'GSAP'],
     delaiLivraison: '4 jours',
     annee: '2026',
-    defi: "Transmettre l'univers sensoriel d'une parfumerie haut de gamme à travers un écran — sans que le visiteur puisse sentir, toucher ni essayer le produit.",
-    approche: "Parti pris radical : tout blanc, tout froid. Typographie premium, animations de gel, effets WebGL qui évoquent la brume et la cristallisation. Chaque micro-interaction renforce l'imaginaire de la marque.",
-    resultatNarratif: "Un site qui se visite comme une galerie. Le brief demandait 'luxe' — le résultat inspire 'silence, rareté, désir'.",
+    defi: "Nous voulions transmettre l'univers sensoriel d'une parfumerie haut de gamme à travers un écran. Le visiteur ne peut ni sentir, ni toucher, ni essayer le produit. Tout doit passer par le regard.",
+    approche: "Le parti pris : tout blanc, tout froid. Typographie premium, animations de gel, effets WebGL qui évoquent la brume et la cristallisation. Chaque micro-interaction renforce le même imaginaire.",
+    resultatNarratif: "Un site qui se visite comme une galerie. Nous cherchions le luxe. Ce que la page installe, c'est le silence, la rareté et le désir.",
     stats: [
       { value: '96', label: 'Lighthouse' },
       { value: '4j', label: 'Livraison' },
-      { value: '0', label: 'Template utilisé' },
     ],
   },
   {
@@ -54,8 +53,8 @@ export const realisations = [
       label: "Prospection"
     },
     {
-      value: "500",
-      label: "nouveaux clients"
+      value: "3 sem.",
+      label: "Livraison"
     },
     {
       value: "SaaS",
@@ -77,9 +76,9 @@ export const realisations = [
     technologies: ['React', 'Three.js', 'GSAP', 'WebGL'],
     delaiLivraison: '2 jours',
     annee: '2026',
-    defi: "Rendre la complexité astronomique accessible à tous — 100 astres, chacun unique, dans un espace interactif explorable sans aucune connaissance préalable.",
-    approche: "Three.js pour des rendus 3D temps réel dans le navigateur. Chaque astre possède sa propre géométrie procédurale et ses propriétés physiques calculées à la volée. L'interface guide la découverte progressive : on peut plonger autant ou aussi peu qu'on le souhaite.",
-    resultatNarratif: "Une expérience de 2 minutes qui donne le sentiment d'explorer l'univers depuis son canapé. La totalité des testeurs a navigué au-delà de la page d'accueil.",
+    defi: "Nous voulions rendre la complexité astronomique accessible à tous. Cent astres, chacun unique, dans un espace interactif explorable sans aucune connaissance préalable.",
+    approche: "Le parti pris : du rendu 3D temps réel dans le navigateur, en Three.js. Chaque astre possède sa propre géométrie procédurale et ses propriétés physiques calculées à la volée. L'interface guide la découverte progressive, et laisse le visiteur choisir sa profondeur d'exploration.",
+    resultatNarratif: "Une expérience de deux minutes qui donne le sentiment d'explorer l'univers depuis son canapé. La navigation appelle le geste suivant sans jamais l'imposer.",
     stats: [
       { value: '100', label: 'Astres modélisés' },
       { value: '98', label: 'Lighthouse' },

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { getVilleBySlug } from '../data/villes';
+import { getVilleBySlug, getVilleById } from '../data/villes';
 import { services } from '../data/services';
 import SocialProof from '../components/SocialProof';
 import ContactModal from '../components/ContactModal';
@@ -100,7 +100,7 @@ export default function VillePage() {
           <Reveal delay={2}><p className={styles.heroSubtitle}>{ville.description}</p></Reveal>
           <Reveal delay={3} className={styles.heroSocialProof}><SocialProof /></Reveal>
           <Reveal delay={4} className={styles.heroCtas}>
-            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Devis gratuit sous 24h</button>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Discutons de votre projet</button>
             {CALENDLY_URL && (
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
                 Réserver 30 min offertes
@@ -115,13 +115,13 @@ export default function VillePage() {
         <div className="container">
           <div className={styles.introGrid}>
             <div>
-              <h2 className={styles.introTitle}>Développeur web à {ville.nom}</h2>
+              <h2 className={styles.introTitle}>Studio web à {ville.nom}</h2>
               <p className={styles.introText}>{ville.intro}</p>
             </div>
             <div className={styles.introStats}>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>90+</span>
-                <span className={styles.statLabel}>Score Lighthouse cible</span>
+                <span className={styles.statLabel}>Score Lighthouse</span>
               </div>
               <div className={styles.statCard}>
                 <span className={styles.statValue}>5–14j</span>
@@ -132,8 +132,8 @@ export default function VillePage() {
                 <span className={styles.statLabel}>Itérations incluses</span>
               </div>
               <div className={styles.statCard}>
-                <span className={styles.statValue}>24h</span>
-                <span className={styles.statLabel}>Devis gratuit</span>
+                <span className={styles.statValue}>48h</span>
+                <span className={styles.statLabel}>Délai de réponse</span>
               </div>
             </div>
           </div>
@@ -145,14 +145,13 @@ export default function VillePage() {
         <div className="container">
           <span className="section-label">Services</span>
           <h2 className="section-title">Nos services à <strong>{ville.nom}</strong></h2>
-          <p className="section-subtitle">Des solutions web clé en main adaptées aux entreprises de {ville.nom} et de la région {ville.region}.</p>
+          <p className="section-subtitle">Les prestations que nous menons pour les entreprises de {ville.nom} et de la région {ville.region}.</p>
           <div className={styles.servicesGrid}>
             {services.slice(0, 6).map((service, i) => (
               <Reveal key={service.slug} delay={Math.min(i + 1, 5)}>
               <Link to={`/${service.slug}`} className={styles.serviceCard}>
                 <div className={styles.serviceCardHeader}>
                   <h3 className={styles.serviceCardTitle}>{service.nom}</h3>
-                  <span className={styles.serviceCardPrice}>{service.prix}</span>
                 </div>
                 <p className={styles.serviceCardDesc}>{service.tagline}</p>
                 <span className={styles.serviceCardDelai}>Livraison : {service.delai}</span>
@@ -207,11 +206,15 @@ export default function VillePage() {
             <span className="section-label">Proximité</span>
             <h2 className="section-title">Nous intervenons aussi <strong>à proximité</strong></h2>
             <div className={styles.villesPochesGrid}>
-              {ville.villesProches.map((id) => (
-                <Link key={id} to={`/creation-site-web-${id}`} className={styles.villeProcheCard}>
-                  Création site web {id.replace(/-/g, ' ')} →
-                </Link>
-              ))}
+              {ville.villesProches.map((id) => {
+                const proche = getVilleById(id);
+                if (!proche) return null;
+                return (
+                  <Link key={id} to={`/${proche.slug}`} className={styles.villeProcheCard}>
+                    Création site web {proche.nom} →
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -225,7 +228,7 @@ export default function VillePage() {
               Prêt à lancer votre site web à <strong>{ville.nom}</strong> ?
             </h2>
             <p className={styles.ctaSubtitle}>
-              Devis gratuit sous 24h. Premier échange offert. Livraison en 5 à 14 jours.
+              Réponse sous 48h. Premier échange sans engagement. Livraison en 5 à 14 jours.
             </p>
             <div className={styles.ctaCtas}>
               <button className="btn btn--primary" onClick={() => setModalOpen(true)}>

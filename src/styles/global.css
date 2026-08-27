@@ -199,6 +199,17 @@ input, textarea, select {
   padding-bottom: var(--section-padding-v);
 }
 
+/* La chrome du site (marque + sélecteur de langue) est en position fixed.
+   L'accueil ouvre sur un hero plein écran qui l'absorbe ; les autres pages
+   démarrent par un fil d'Ariane et doivent réserver sa hauteur. */
+.main-offset {
+  padding-top: 88px;
+}
+
+@media (max-width: 640px) {
+  .main-offset { padding-top: 68px; }
+}
+
 /* ── Section header commun ────────────────────────────────── */
 .section-label {
   display: inline-block;

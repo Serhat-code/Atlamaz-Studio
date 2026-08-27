@@ -7,6 +7,9 @@ import styles from '../styles/FAQ.module.css';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
+const FAQ_DESCRIPTION =
+  'Toutes les réponses à vos questions sur la création de sites web, les délais, les tarifs, la maintenance et les applications mobiles. FAQ complète Atlamaz Studio.';
+
 function AccordionItem({ faq, isOpen, onToggle }) {
   return (
     <div className={`${styles.accordionItem} ${isOpen ? styles.accordionItemOpen : ''}`}>
@@ -61,11 +64,11 @@ export default function FAQ() {
         <title>FAQ — Questions fréquentes | Atlamaz Studio</title>
         <meta
           name="description"
-          content="Toutes les réponses à vos questions sur la création de sites web, les délais, les tarifs, la maintenance et les applications mobiles. FAQ complète Atlamaz Studio."
+          content={FAQ_DESCRIPTION}
         />
         <link rel="canonical" href={`${BASE_URL}/faq`} />
         <meta property="og:title" content="FAQ — Questions fréquentes | Atlamaz Studio" />
-        <meta property="og:description" content="Réponses à toutes vos questions sur la création de sites web et applications mobiles." />
+        <meta property="og:description" content={FAQ_DESCRIPTION} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={`${BASE_URL}/faq`} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -126,7 +129,7 @@ export default function FAQ() {
               Vous ne trouvez pas <strong>votre réponse ?</strong>
             </h2>
             <p className={styles.ctaSubtitle}>
-              Contactez-nous directement. Nous répondons sous 24h à toutes les demandes.
+              Contactez-nous directement. Nous répondons sous 48h à toutes les demandes.
             </p>
             <div className={styles.ctaCtas}>
               <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Poser une question</button>

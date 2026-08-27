@@ -38,16 +38,16 @@ export const fr = {
     items: [
       { title: 'Les 3 premières secondes', text: "Avant même de lire votre offre, un visiteur a déjà un avis sur vous. Un site daté ou bricolé sème le doute avant le premier mot." },
       { title: 'Les clients qui partent', text: "Un visiteur qui ne comprend pas votre offre en quelques secondes ne cherche pas plus loin — il va voir un concurrent qui, lui, a soigné son site." },
-      { title: "L'image de votre entreprise", text: "Un site lent, confus ou vieillissant laisse penser que le reste de votre activité l'est aussi. Ce n'est pas toujours vrai. Mais c'est ce qu'on retient." },
+      { title: "L'image de votre entreprise", text: "Un site lent, confus ou vieillissant laisse penser que le reste de votre activité l'est aussi. Ce n'est pas toujours vrai. Mais c'est l'impression qui reste." },
     ],
   },
 
-  // ── Comment on travaille ───────────────────────────────────
+  // ── Comment nous travaillons ───────────────────────────────────
   process: {
-    eyebrow: 'Comment on travaille',
+    eyebrow: 'Comment nous travaillons',
     title:   'Trois étapes. Un seul objectif : votre crédibilité en ligne.',
     steps: [
-      { num: '01', title: 'Identité & Design', text: 'On pose une direction visuelle qui vous ressemble, pensée pour donner confiance dès le premier regard.' },
+      { num: '01', title: 'Identité & Design', text: 'Nous posons une direction visuelle qui vous ressemble, pensée pour donner confiance dès le premier regard.' },
       { num: '02', title: 'Développement', text: 'Sites vitrines, e-commerce, applications web et mobiles. Du code propre, rapide, pensé pour durer.' },
       { num: '03', title: 'Croissance', text: 'Référencement, performance, évolutions : votre site continue de travailler pour vous après la mise en ligne.' },
     ],
@@ -65,12 +65,12 @@ export const fr = {
   // ── FAQ (aperçu home) ──────────────────────────────────────
   homeFaq: {
     eyebrow: 'Questions fréquentes',
-    title:   "Tout ce qu'on nous demande avant de se lancer.",
+    title:   "Les questions qui reviennent avant de se lancer.",
     items: [
       { question: 'Combien coûte un projet avec Atlamaz Studio ?', answer: "Un site vitrine efficace démarre à 999€. Les projets plus ambitieux — e-commerce, application web ou SaaS sur mesure — se situent le plus souvent entre 3 000€ et 15 000€. Pour les plateformes complexes ou les applications mobiles, certains projets vont jusqu'à 50 000€. Le premier échange sert à cadrer précisément votre besoin, sans engagement." },
-      { question: "Une application mobile, c'est possible ?", answer: "Oui. Au-delà des sites, on conçoit aussi des applications mobiles quand votre projet le demande — de l'idée à la mise en ligne sur les stores." },
+      { question: "Une application mobile, c'est possible ?", answer: "Oui. Au-delà des sites, nous concevons aussi des applications mobiles quand votre projet le demande — de l'idée à la mise en ligne sur les stores." },
       { question: 'Quels sont les délais ?', answer: "Entre 2 et 8 semaines selon l'ampleur du projet. Un calendrier clair est posé dès le premier échange." },
-      { question: 'Et après la mise en ligne ?', answer: "Chaque site est livré avec un accompagnement inclus. Ensuite, on reste disponible pour faire évoluer votre outil au rythme de votre activité." },
+      { question: 'Et après la mise en ligne ?', answer: "Chaque site est livré avec un accompagnement inclus. Ensuite, nous restons disponibles pour faire évoluer votre outil au rythme de votre activité." },
     ],
     allLink: 'Voir toutes les questions',
   },
@@ -148,7 +148,7 @@ export const fr = {
       resultat: 'Ce que ça donne en production',
     },
     nextLabel: 'Projet suivant',
-    ctaText:   'Décrivez-moi votre contrainte technique, je vous réponds sous 48h avec une approche concrète.',
+    ctaText:   'Décrivez-nous votre contrainte technique. Nous vous répondons sous 48h avec une approche concrète.',
     ctaButton: 'Démarrer un projet',
     visitBtn:  'Visiter le site',
   },
@@ -158,12 +158,12 @@ export const fr = {
     label: 'Le studio',
     meta: {
       title: 'Le studio — Atlamaz Studio',
-      description: "Atlamaz Studio, c'est Serhat Atlamaz, développeur web React/React Native basé à Lyon. Architecture sur mesure, performance mesurée, un seul interlocuteur technique.",
+      description: "Atlamaz Studio, studio web React et React Native basé à Lyon. Architecture sur mesure, performance mesurée, un interlocuteur technique unique.",
     },
     pageEyebrow: 'Studio web · Lyon, France',
-    pageTitle: 'Vous échangez directement avec la personne qui développe votre projet.',
-    pageSubtitle: "Pas d'intermédiaire entre votre besoin et le code qui le résout. Vous échangez directement avec la personne qui architecture, développe et déploie votre site.",
-    quote: 'Un site lent ou mal structuré coûte des clients avant même d\'avoir été lu. Je conçois des architectures qui tiennent dans le temps, pas des maquettes qui font illusion en démo.',
+    pageTitle: 'Vous échangez directement avec l’équipe qui développe votre projet.',
+    pageSubtitle: "Pas d'intermédiaire entre votre besoin et le code qui le résout. Vous échangez directement avec l'équipe qui architecture, développe et déploie votre site.",
+    quote: 'Un site lent ou mal structuré coûte des clients avant même d\'avoir été lu. Nous concevons des architectures qui tiennent dans le temps, pas des maquettes qui font illusion en démo.',
     author: 'Serhat Atlamaz',
     role: 'Fondateur — développeur web React / React Native',
     values: [
@@ -183,7 +183,7 @@ export const fr = {
       title: 'Message envoyé — Atlamaz Studio',
     },
     title:    'Message reçu.',
-    subtitle: 'Je l\'étudie et vous réponds sous 48h avec une première analyse de votre besoin. En attendant, vous pouvez consulter les études de cas.',
+    subtitle: 'Nous l\'étudions et vous répondons sous 48h avec une première analyse de votre besoin. En attendant, vous pouvez consulter les études de cas.',
     backBtn:  'Retour à l\'accueil',
     realisationsBtn: 'Voir les réalisations',
   },

@@ -123,7 +123,7 @@ export default function BlogArticle() {
               {/* CTA contact */}
               <div className={`${styles.sidebarCard} ${styles.sidebarCardCta}`}>
                 <h3 className={styles.sidebarCardTitle}>Un projet web ?</h3>
-                <p className={styles.sidebarCardDesc}>Devis gratuit sous 24h. Premier échange offert.</p>
+                <p className={styles.sidebarCardDesc}>Réponse sous 48h. Premier échange sans engagement.</p>
                 <button className="btn btn--primary btn--sm" onClick={() => setModalOpen(true)}>Démarrer un projet</button>
               </div>
 

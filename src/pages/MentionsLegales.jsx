@@ -2,13 +2,18 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import styles from '../styles/LegalPage.module.css';
 
+const LEGAL_DESCRIPTION =
+  'Mentions légales du site Atlamaz Studio, studio de création web à Lyon.';
+
 export default function MentionsLegales() {
   return (
     <>
       <Helmet>
         <title>Mentions légales — Atlamaz Studio</title>
-        <meta name="description" content="Mentions légales du site Atlamaz Studio, studio de création web à Lyon." />
+        <meta name="description" content={LEGAL_DESCRIPTION} />
         <meta name="robots" content="noindex" />
+        <meta property="og:title" content="Mentions légales — Atlamaz Studio" />
+        <meta property="og:description" content={LEGAL_DESCRIPTION} />
       </Helmet>
 
       <div className="container">
