@@ -5,11 +5,11 @@ import { fr } from './i18n/fr';
 import { en } from './i18n/en';
 import { subscribeLang, getLang, getServerLang, setLang } from './i18n/langStore';
 
-import Navbar         from './components/Navbar';
 import Footer         from './components/Footer';
 import CookieBanner   from './components/CookieBanner';
 import ScrollToTop    from './components/ScrollToTop';
 import HomeLangToggle from './components/HomeLangToggle';
+import HomeLogo       from './components/HomeLogo';
 import { services } from './data/services';
 
 // Home reste en import statique : c'est la page d'entrée la plus fréquente,
@@ -33,16 +33,21 @@ const BlogArticle              = lazy(() => import('./pages/BlogArticle'));
 const translations = { fr, en };
 
 function Layout({ t, lang, onLangToggle, children }) {
-  // La home a sa propre chrome (logo fixe + pill-nav bas, cf. maquette) —
-  // pas de Navbar sticky en haut sur cette page précise.
+  // Chrome unique sur tout le site : la marque et le sélecteur de langue,
+  // tous deux flottants. Les pages internes portaient auparavant une Navbar
+  // sticky avec menu complet et numéro de téléphone — un registre de
+  // prestataire qui contredisait la retenue de l'accueil. Le maillage interne
+  // reste assuré par le fil d'Ariane de chaque page et par le footer, qui
+  // liste villes, services et pages légales.
   const isHome = useLocation().pathname === '/';
 
   return (
     <>
-      {isHome
-        ? <HomeLangToggle lang={lang} onToggle={onLangToggle} />
-        : <Navbar t={t} lang={lang} onLangToggle={onLangToggle} />}
-      <main>{children}</main>
+      <HomeLogo />
+      <HomeLangToggle lang={lang} onToggle={onLangToggle} />
+      {/* La home ouvre sur un hero plein écran ; les autres pages démarrent
+          par un fil d'Ariane qui passerait sous la chrome fixe. */}
+      <main className={isHome ? undefined : 'main-offset'}>{children}</main>
       <Footer t={t} />
       <CookieBanner />
     </>

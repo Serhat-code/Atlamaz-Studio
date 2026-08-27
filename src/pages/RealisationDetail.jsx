@@ -8,6 +8,7 @@ import ContactModal from '../components/ContactModal';
 import styles from '../styles/RealisationDetail.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 export default function RealisationDetail({ t }) {
   const { slug } = useParams();
@@ -19,12 +20,28 @@ export default function RealisationDetail({ t }) {
 
   const nextProjet = realisations[(realisations.indexOf(projet) + 1) % realisations.length];
 
+  // Titre assemblé hors JSX : React 19 hisse <title> nativement et exige un
+  // enfant texte unique. Écrit « {projet.nom} — Atlamaz Studio », le titre
+  // partait en plusieurs enfants et le HTML statique recevait un <title> vide,
+  // les trois études de cas héritant alors des OG de l'accueil.
+  const pageTitle = `${projet.nom} — ${projet.type} | Atlamaz Studio`;
+  const canonicalUrl = `${BASE_URL}/realisations/${projet.slug}`;
+
   return (
     <>
       <Helmet>
-        <title>{projet.nom} — Atlamaz Studio</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={projet.description} />
-        <link rel="canonical" href={`${BASE_URL}/realisations/${projet.slug}`} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={projet.description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={projet.description} />
+        <meta name="twitter:image" content={OG_IMAGE} />
       </Helmet>
 
       {/* ── Breadcrumb ─────────────────────────────────────── */}

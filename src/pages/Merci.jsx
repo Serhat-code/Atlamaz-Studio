@@ -10,6 +10,7 @@ export default function Merci({ t }) {
       <Helmet>
         <title>{merci.meta.title}</title>
         <meta name="robots" content="noindex" />
+        <meta property="og:title" content={merci.meta.title} />
       </Helmet>
 
       <div className={styles.wrapper}>

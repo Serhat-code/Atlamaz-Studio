@@ -20,7 +20,7 @@ import { services } from '../src/data/services.js';
 import { articles } from '../src/data/articles.js';
 import { realisations } from '../src/data/realisations.js';
 
-const SITE_URL = 'https://atlamaz-studio.fr';
+const SITE_URL = 'https://www.atlamaz-studio.fr';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(projectRoot, 'dist');
@@ -143,7 +143,7 @@ function buildLlmsTxt() {
 
 > Studio de création de sites web basé à Lyon (France). Sites vitrines, landing pages, boutiques en ligne et applications mobiles, livrés rapidement avec un code sur mesure.
 
-Atlamaz Studio est dirigé par Serhat Atlamaz, développeur web freelance basé en Auvergne-Rhône-Alpes. Pas d'agence, pas d'intermédiaire : un seul interlocuteur du brief à la mise en ligne. Le devis est établi au cas par cas ; les fourchettes indicatives figurent ci-dessous et dans la FAQ.
+Atlamaz Studio est un studio de création web fondé par Serhat Atlamaz, basé à Lyon et intervenant en Auvergne-Rhône-Alpes. Un seul interlocuteur du brief à la mise en ligne, sans intermédiaire commercial. Le devis est établi au cas par cas ; les fourchettes indicatives figurent ci-dessous et dans la FAQ.
 
 ${section('Pages principales', [
   link('/', 'Accueil', 'Présentation du studio, des services et des réalisations.'),
@@ -230,8 +230,17 @@ async function main() {
       if (!result.html.trim()) {
         throw new Error('rendu vide — route non résolue ?');
       }
-      if (!/<title[\s>]/i.test(result.head)) {
+      // Le <title> doit exister ET porter du texte : React 19 hisse la balise
+      // nativement et exige un enfant texte unique. Un titre composé
+      // (« {projet.nom} — Atlamaz Studio ») produisait un <title> vide que le
+      // simple test de présence laissait passer, et la page héritait alors des
+      // Open Graph par défaut du gabarit.
+      const title = result.head.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];
+      if (title === undefined) {
         throw new Error('aucun <title> — la page ne déclare pas ses métadonnées');
+      }
+      if (!title.trim()) {
+        throw new Error('<title> vide — enfant texte unique attendu (cf. hissage React 19)');
       }
       // Une page indexable doit poser sa propre canonique, et pointer sur
       // elle-même : le gabarit n'en fournit plus par défaut, et une canonique
@@ -245,6 +254,18 @@ async function main() {
         }
         if (declared.replace(/\/$/, '') !== canonical.replace(/\/$/, '')) {
           throw new Error(`canonique ${declared} au lieu de ${canonical}`);
+        }
+        // og:url doit désigner la même page que la canonique. Une page qui
+        // n'émet pas ses Open Graph hérite de ceux du gabarit, ancrés sur
+        // l'accueil : le partage social annonce alors la mauvaise page.
+        const ogUrl = result.head
+          .match(/<meta\b[^>]*property=["']og:url["'][^>]*>/i)?.[0]
+          .match(/content=["']([^"']+)["']/i)?.[1];
+        if (!ogUrl) {
+          throw new Error('aucune <meta property="og:url">');
+        }
+        if (ogUrl.replace(/\/$/, '') !== canonical.replace(/\/$/, '')) {
+          throw new Error(`og:url ${ogUrl} au lieu de ${canonical}`);
         }
       }
       // Filet contre une régression du seuil de flush : si React réintroduisait

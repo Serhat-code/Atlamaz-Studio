@@ -6,7 +6,7 @@ export const CATEGORIES_BLOG = [
   { id: 'tous', label: 'Tous' },
   { id: 'conseils', label: 'Conseils web' },
   { id: 'seo', label: 'SEO' },
-  { id: 'freelance', label: 'Freelance' },
+  { id: 'freelance', label: 'Choisir un prestataire' },
   { id: 'mobile', label: 'Mobile' },
   { id: 'design', label: 'Design' },
 ];
@@ -29,18 +29,18 @@ export const articles = [
 <h2>Les agences web traditionnelles</h2>
 <p>Les agences web établies facturent généralement entre 5 000€ et 30 000€ pour un site vitrine. Ce tarif inclut le travail d'une équipe (chef de projet, designers, développeurs, responsable SEO) et une méthodologie formalisée. La qualité est généralement au rendez-vous, mais les délais sont souvent longs (2 à 6 mois) et les processus peu flexibles pour les petites structures.</p>
 
-<h2>Les développeurs freelance</h2>
-<p>Entre les plateformes en ligne et les grandes agences, les développeurs freelance comme Atlamaz Studio offrent un excellent rapport qualité-prix. Les tarifs varient de 999€ pour une landing page à 15 000€ pour une plateforme e-commerce ou un SaaS sur mesure. Vous bénéficiez d'un interlocuteur unique, d'une grande réactivité et d'une personnalisation totale, sans les frais de structure des agences.</p>
+<h2>Les studios à taille humaine</h2>
+<p>Entre les plateformes en ligne et les grandes agences, un studio à taille humaine comme Atlamaz Studio couvre design, développement et référencement avec un interlocuteur unique. Les tarifs y vont de 999€ pour une landing page à 15 000€ pour une plateforme e-commerce ou un SaaS sur mesure. La contrepartie d'une structure réduite est un nombre de projets menés en parallèle plus limité.</p>
 
 <h2>Comment choisir la bonne solution ?</h2>
 <p>Pour choisir la solution adaptée à votre situation, posez-vous ces questions : Quel est mon objectif principal (génération de leads, vente en ligne, image de marque) ? Quel est mon budget ? Ai-je besoin d'une solution évolutive ? Est-ce que je veux gérer le contenu moi-même ? En répondant à ces questions, vous pouvez orienter votre choix vers la solution la plus pertinente.</p>
 
 <h2>Notre recommandation</h2>
-<p>Pour une PME, un artisan ou un professionnel libéral, un développeur freelance expérimenté représente souvent le meilleur investissement : qualité professionnelle, délais courts et tarifs accessibles. N'hésitez pas à demander plusieurs devis et à vérifier les réalisations passées avant de vous décider.</p>`,
+<p>Pour une PME, un artisan ou un professionnel libéral, un studio expérimenté reste le meilleur compromis : un seul interlocuteur, une exigence technique vérifiable et des délais courts. Demandez plusieurs propositions, et vérifiez surtout les réalisations passées et les scores de performance annoncés.</p>`,
     serviceLie: 'creation-site-vitrine',
     villeLiee: 'lyon',
     metaTitle: 'Combien coûte un site web professionnel en 2026 ? — Atlamaz Studio',
-    metaDescription: "Découvrez les prix d'un site web professionnel en 2026 : agences, freelances, plateformes. Guide complet pour choisir la solution adaptée à votre budget.",
+    metaDescription: "Les prix d'un site web professionnel en 2026 : plateformes en ligne, studios, agences. Guide complet pour choisir la solution adaptée à votre budget.",
   },
   {
     slug: 'seo-local-comment-apparaitre-google-maps',
@@ -72,11 +72,11 @@ export const articles = [
   {
     slug: 'freelance-vs-agence-qui-choisir',
     titre: 'Freelance vs agence web : qui choisir pour votre site ?',
-    categorie: 'Freelance',
+    categorie: 'Choisir un prestataire',
     categorieId: 'freelance',
     date: '2026-02-20',
     tempsLecture: '6 min',
-    extrait: 'Agence web ou développeur freelance : ce choix peut avoir des conséquences importantes sur la qualité, le délai et le coût de votre projet web. Voici notre comparatif objectif pour vous aider à décider.',
+    extrait: 'Agence web ou freelance : ce choix engage la qualité, le délai et le coût de votre projet. Voici notre comparatif, et où se situe un studio entre les deux.',
     contenu: `<h2>Le débat freelance vs agence : une question de contexte</h2>
 <p>Il n'existe pas de réponse universelle à la question "freelance ou agence ?". Le bon choix dépend de votre projet, de votre budget, de vos délais et de vos besoins spécifiques. Cependant, il existe des critères clairs qui peuvent orienter votre décision. Dans cet article, nous examinons objectivement les avantages et les inconvénients de chaque option.</p>
 
@@ -84,13 +84,13 @@ export const articles = [
 <p>Une agence web offre une équipe pluridisciplinaire (designers, développeurs, experts SEO, chefs de projet), une capacité à gérer des projets complexes en parallèle, une certaine continuité même en cas de départ d'un collaborateur et une structure contractuelle formalisée. Les agences sont particulièrement adaptées aux grands projets (e-commerce complexe, application web sur mesure) nécessitant plusieurs compétences simultanément.</p>
 
 <h2>Les avantages d'un freelance</h2>
-<p>Un développeur freelance comme Atlamaz Studio offre un interlocuteur unique qui connaît votre projet de bout en bout, une grande réactivité et flexibilité, des délais souvent plus courts (pas de processus interne complexe) et des tarifs significativement inférieurs aux agences pour une qualité équivalente ou supérieure. La relation directe avec le créateur de votre site est un atout majeur pour la communication et la personnalisation.</p>
+<p>Un freelance offre un interlocuteur unique qui connaît le projet de bout en bout, une forte réactivité et des délais souvent plus courts, sans processus interne à traverser. La relation directe avec la personne qui écrit le code facilite la communication et la personnalisation. La limite tient à la couverture : un seul profil réunit rarement le design, le développement et le référencement au même niveau d'exigence.</p>
 
 <h2>Les mythes à déconstruire</h2>
-<p>Mythe 1 : "Un freelance est moins fiable qu'une agence." Faux. Un freelance établi avec un portfolio solide est tout aussi fiable qu'une agence. Mythe 2 : "Une agence produit de meilleure qualité." Pas nécessairement. La qualité dépend des individus, pas de la structure. Mythe 3 : "Un freelance ne peut pas gérer les gros projets." Un freelance expérimenté peut gérer des projets complexes, souvent en faisant appel à un réseau de collaborateurs selon les besoins.</p>
+<p>Mythe 1 : "Une petite structure est moins fiable qu'une agence." Faux. Ce qui se vérifie, c'est un portfolio et des scores de performance, pas une taille d'effectif. Mythe 2 : "Une agence produit systématiquement mieux." Pas nécessairement : la qualité dépend des personnes affectées au projet, pas de l'organigramme. Mythe 3 : "Une petite structure ne peut pas gérer les gros projets." Elle le peut, à condition que l'architecture technique et le cadrage soient posés avant le développement.</p>
 
 <h2>Notre recommandation</h2>
-<p>Pour la grande majorité des PME, artisans et professions libérales, un développeur freelance expérimenté est la solution idéale : interlocuteur unique, qualité professionnelle, délais courts et tarifs accessibles. Pour les projets avec des équipes de 20+ personnes, des besoins en contenu massifs ou des développements très complexes, une agence peut être plus adaptée.</p>`,
+<p>Entre les deux modèles, un studio à taille humaine en réunit l'essentiel : un interlocuteur unique du brief à la mise en ligne, et une équipe qui couvre design, développement et référencement. C'est le format d'Atlamaz Studio. Pour des besoins éditoriaux massifs, plusieurs chantiers simultanés ou des développements très complexes, une agence structurée reste plus adaptée.</p>`,
     serviceLie: 'creation-site-vitrine',
     villeLiee: 'saint-etienne',
     metaTitle: 'Freelance vs agence web : qui choisir pour votre site en 2026 ? — Atlamaz Studio',

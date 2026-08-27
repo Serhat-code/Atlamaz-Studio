@@ -8,20 +8,25 @@ import styles from '../styles/NosVilles.module.css';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
+const VILLES_TITLE = "Nos villes d'intervention — Atlamaz Studio | Agence web";
+
+const VILLES_DESCRIPTION =
+  "Atlamaz Studio intervient dans toute la région Auvergne-Rhône-Alpes pour la création de sites web professionnels. Lyon, Grenoble, Saint-Étienne, Annecy et plus encore.";
+
 export default function NosVilles() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
       <Helmet>
-        <title>Nos villes d'intervention — Atlamaz Studio | Développeur web freelance</title>
+        <title>{VILLES_TITLE}</title>
         <meta
           name="description"
-          content="Atlamaz Studio intervient dans toute la région Auvergne-Rhône-Alpes pour la création de sites web professionnels. Lyon, Grenoble, Saint-Étienne, Annecy et plus encore."
+          content={VILLES_DESCRIPTION}
         />
         <link rel="canonical" href={`${BASE_URL}/nos-villes`} />
-        <meta property="og:title" content="Nos villes d'intervention — Atlamaz Studio" />
-        <meta property="og:description" content="Création de sites web professionnels dans toute la région Auvergne-Rhône-Alpes." />
+        <meta property="og:title" content={VILLES_TITLE} />
+        <meta property="og:description" content={VILLES_DESCRIPTION} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={`${BASE_URL}/nos-villes`} />
         <meta property="og:type" content="website" />
@@ -73,7 +78,7 @@ export default function NosVilles() {
             <p className={styles.ctaSubtitle}>
               Nous travaillons avec des clients dans toute la France. Contactez-nous pour discuter de votre projet.
             </p>
-            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Demander un devis gratuit</button>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Discutons de votre projet</button>
           </div>
         </div>
       </section>

@@ -31,4 +31,4 @@ Disallow: /merci
 # Les bloquer est un arbitrage business, pas une décision technique — à
 # trancher explicitement avant d'ajouter la moindre règle ici.
 
-Sitemap: https://atlamaz-studio.fr/sitemap.xml
+Sitemap: https://www.atlamaz-studio.fr/sitemap.xml

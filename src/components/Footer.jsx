@@ -77,7 +77,7 @@ export default function Footer({ t }) {
         {/* Barre de bas de footer */}
         <div className={styles.bottom}>
           <span className={styles.copy}>{footer.copy}</span>
-          <span className={styles.copyRight}>Fait avec ♥ à Lyon</span>
+          <span className={styles.copyRight}>Studio basé à Lyon</span>
         </div>
       </div>
     </footer>

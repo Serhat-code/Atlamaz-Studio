@@ -7,6 +7,9 @@ import styles from '../styles/Blog.module.css';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
+const BLOG_DESCRIPTION =
+  "Conseils pratiques sur la création de sites web, le SEO local, la performance et les applications mobiles. Le blog d'Atlamaz Studio, studio web à Lyon.";
+
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -23,14 +26,14 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Blog — Conseils web, SEO et freelance | Atlamaz Studio</title>
+        <title>Blog — Conseils web, SEO et performance | Atlamaz Studio</title>
         <meta
           name="description"
-          content="Conseils pratiques sur la création de sites web, le SEO local, les applications mobiles et le freelance. Blog d'Atlamaz Studio, développeur web freelance."
+          content={BLOG_DESCRIPTION}
         />
         <link rel="canonical" href={`${BASE_URL}/blog`} />
-        <meta property="og:title" content="Blog — Conseils web, SEO et freelance | Atlamaz Studio" />
-        <meta property="og:description" content="Conseils pratiques sur la création de sites web, le SEO et le freelance." />
+        <meta property="og:title" content="Blog — Conseils web, SEO et performance | Atlamaz Studio" />
+        <meta property="og:description" content={BLOG_DESCRIPTION} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={`${BASE_URL}/blog`} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +44,7 @@ export default function Blog() {
         <div className="container">
           <span className="section-label">Articles & Ressources</span>
           <h1 className={styles.heroTitle}>
-            Blog — <strong>Conseils web, SEO et freelance</strong>
+            Blog — <strong>Conseils web, SEO et performance</strong>
           </h1>
           <p className={styles.heroSubtitle}>
             Conseils pratiques, guides et actualités pour les entrepreneurs qui veulent développer leur présence en ligne.

@@ -2,13 +2,18 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import styles from '../styles/LegalPage.module.css';
 
+const PRIVACY_DESCRIPTION =
+  'Politique de confidentialité et protection des données personnelles — Atlamaz Studio.';
+
 export default function PolitiqueConfidentialite() {
   return (
     <>
       <Helmet>
         <title>Politique de confidentialité — Atlamaz Studio</title>
-        <meta name="description" content="Politique de confidentialité et protection des données personnelles — Atlamaz Studio." />
+        <meta name="description" content={PRIVACY_DESCRIPTION} />
         <meta name="robots" content="noindex" />
+        <meta property="og:title" content="Politique de confidentialité — Atlamaz Studio" />
+        <meta property="og:description" content={PRIVACY_DESCRIPTION} />
       </Helmet>
 
       <div className="container">
