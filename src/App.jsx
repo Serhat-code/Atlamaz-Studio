@@ -26,6 +26,7 @@ const NotFound                 = lazy(() => import('./pages/NotFound'));
 const VillePage                = lazy(() => import('./pages/VillePage'));
 const NosVilles                = lazy(() => import('./pages/NosVilles'));
 const ServicePage              = lazy(() => import('./pages/ServicePage'));
+const Services                 = lazy(() => import('./pages/Services'));
 const FAQ                      = lazy(() => import('./pages/FAQ'));
 const Blog                     = lazy(() => import('./pages/Blog'));
 const BlogArticle              = lazy(() => import('./pages/BlogArticle'));
@@ -88,6 +89,7 @@ export default function App() {
                 un vrai 301 (cf. vercel.json) pour les moteurs. */}
             <Route path="/tarifs"                         element={<Navigate to="/faq" replace />} />
             <Route path="/nos-villes"                     element={<NosVilles />} />
+            <Route path="/services"                       element={<Services />} />
             <Route path="/faq"                            element={<FAQ />} />
             <Route path="/blog"                           element={<Blog />} />
             <Route path="/blog/:slug"                     element={<BlogArticle />} />

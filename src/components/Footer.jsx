@@ -7,7 +7,7 @@ export default function Footer({ t }) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
-        {/* Grille principale : 4 colonnes */}
+        {/* Grille principale : 2 colonnes */}
         <div className={styles.grid}>
           {/* Colonne 1 : Studio */}
           <div className={styles.col}>
@@ -18,31 +18,7 @@ export default function Footer({ t }) {
             </a>
           </div>
 
-          {/* Colonne 2 : Liens légaux */}
-          <div className={styles.col}>
-            <span className={styles.colTitle}>Liens</span>
-            <nav className={styles.colLinks} aria-label="Liens footer">
-              {footer.links.map((link) =>
-                link.external ? (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className={styles.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link key={link.label} to={link.href} className={styles.link}>
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </nav>
-          </div>
-
-          {/* Colonne 3 : Nos villes */}
+          {/* Colonne 2 : Nos villes */}
           {footer.nosVilles && (
             <div className={styles.col}>
               <span className={styles.colTitle}>{footer.nosVilles.title}</span>
@@ -55,20 +31,6 @@ export default function Footer({ t }) {
                 <Link to="/nos-villes" className={`${styles.link} ${styles.linkAll}`}>
                   Voir toutes →
                 </Link>
-              </nav>
-            </div>
-          )}
-
-          {/* Colonne 4 : Services */}
-          {footer.services && (
-            <div className={styles.col}>
-              <span className={styles.colTitle}>{footer.services.title}</span>
-              <nav className={styles.colLinks} aria-label="Services">
-                {footer.services.links.map((link) => (
-                  <Link key={link.href} to={link.href} className={styles.link}>
-                    {link.label}
-                  </Link>
-                ))}
               </nav>
             </div>
           )}

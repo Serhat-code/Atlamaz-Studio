@@ -28,6 +28,7 @@ export const indexableRoutes = [
   '/realisations',
   ...realisationRoutes,
   '/nos-villes',
+  '/services',
   '/blog',
   '/faq',
   ...villeRoutes,
@@ -59,6 +60,7 @@ const SITEMAP_DEFAULT = { changefreq: 'monthly', priority: '0.7' };
 const SITEMAP_OVERRIDES = {
   '/': { changefreq: 'weekly', priority: '1.0' },
   '/nos-villes': { changefreq: 'monthly', priority: '0.9' },
+  '/services': { changefreq: 'monthly', priority: '0.9' },
   '/realisations': { changefreq: 'weekly', priority: '0.7' },
   '/studio': { changefreq: 'monthly', priority: '0.6' },
   '/blog': { changefreq: 'weekly', priority: '0.8' },

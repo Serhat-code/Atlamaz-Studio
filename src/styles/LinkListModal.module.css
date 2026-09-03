@@ -1,0 +1,132 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 15, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-base) var(--ease-out-expo),
+              visibility 0s linear var(--transition-base);
+}
+
+.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--transition-base) var(--ease-out-expo),
+              visibility 0s linear;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 80px rgba(11, 11, 15, 0.28);
+  border-radius: var(--radius-xl);
+  padding: 26px;
+  max-width: 360px;
+  width: 100%;
+  position: relative;
+  transform: translateY(18px) scale(0.96);
+  opacity: 0;
+  transition: transform var(--transition-base) var(--ease-out-expo),
+              opacity var(--transition-base) var(--ease-out-expo);
+}
+
+.cardVisible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  line-height: 1;
+  padding: 6px;
+  transition: color var(--transition-fast);
+  font-family: var(--font-family);
+}
+
+.close:hover {
+  color: var(--color-text);
+}
+
+.title {
+  font-size: 17px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 18px;
+  padding-right: 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 12px;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  transition: background var(--transition-fast);
+}
+
+.row:hover,
+.row:focus-visible {
+  background: rgba(11, 11, 15, 0.05);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.badge {
+  flex-shrink: 0;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .card {
+    max-width: 100%;
+    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+  }
+  .row {
+    padding: 12px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .card {
+    transition: none;
+  }
+}

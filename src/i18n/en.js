@@ -26,9 +26,13 @@ export const en = {
 
   // ── Quick nav (floating pill, home only) ──────────────────
   homeNav: {
-    services:     'Services',
-    realisations: 'Work',
-    faq:          'FAQ',
+    reseauxSociaux:      'Social Media',
+    services:            'Services',
+    legal:               'Legal',
+    reseauxSociauxTitle: 'Follow us',
+    legalTitle:          'Legal information',
+    privacyPolicy:       'Privacy policy',
+    legalNotice:         'Legal notice',
   },
 
   // ── What a bad website costs ──────────────────────────────
@@ -94,12 +98,6 @@ export const en = {
     copy:    '© 2026 Atlamaz Studio — All rights reserved.',
     tagline: 'Sites & applications that inspire trust.',
     email: 'atlamazstudio@gmail.com',
-    links: [
-      { label: 'Studio',         href: '/studio' },
-      { label: 'Legal notice',   href: '/mentions-legales' },
-      { label: 'Privacy policy', href: '/politique-confidentialite' },
-      { label: 'LinkedIn',       href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },
-    ],
     nosVilles: {
       title: 'Our cities',
       links: [
@@ -108,16 +106,6 @@ export const en = {
         { label: 'Grenoble',          href: '/creation-site-web-grenoble' },
         { label: 'Annecy',            href: '/creation-site-web-annecy' },
         { label: 'Clermont-Ferrand',  href: '/creation-site-web-clermont-ferrand' },
-      ],
-    },
-    services: {
-      title: 'Services',
-      links: [
-        { label: 'Landing page',     href: '/creation-landing-page' },
-        { label: 'Showcase website', href: '/creation-site-vitrine' },
-        { label: 'Online store',     href: '/creation-boutique-en-ligne' },
-        { label: 'Mobile app',       href: '/creation-application-mobile' },
-        { label: 'Website redesign', href: '/refonte-site-web' },
       ],
     },
   },
