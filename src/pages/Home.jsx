@@ -7,7 +7,6 @@ import MaskTransition    from '../components/MaskTransition';
 import HomeRealisations  from '../components/HomeRealisations';
 import HomeFAQ           from '../components/HomeFAQ';
 import FinalCTA          from '../components/FinalCTA';
-import HomeBottomNav     from '../components/HomeBottomNav';
 import ScrollTrail       from '../components/ScrollTrail';
 import styles from '../styles/Home.module.css';
 
@@ -82,8 +81,6 @@ export default function Home({ t }) {
         <HomeFAQ         t={t} />
         <FinalCTA        t={t} />
       </div>
-
-      <HomeBottomNav t={t} />
     </>
   );
 }
