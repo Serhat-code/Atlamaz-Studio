@@ -10,10 +10,10 @@
   gap: var(--space-10);
 }
 
-/* ── Grille 4 colonnes ────────────────────────────────────── */
+/* ── Grille 2 colonnes ────────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
 }
 
@@ -101,17 +101,11 @@
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
     gap: var(--space-8) var(--space-12);
   }
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-  }
-
   .bottom {
     flex-direction: column;
     align-items: center;

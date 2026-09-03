@@ -150,6 +150,7 @@ ${section('Pages principales', [
   link('/studio', 'Studio', "Présentation du fondateur et de l'approche du studio."),
   link('/realisations', 'Réalisations', 'Portfolio des projets livrés.'),
   link('/nos-villes', "Nos villes d'intervention", 'Zones desservies en Auvergne-Rhône-Alpes.'),
+  link('/services', 'Nos services', 'Liste de toutes les prestations, avec prix et délais.'),
   link('/blog', 'Blog', 'Articles sur la création de sites web et le référencement local.'),
   link('/faq', 'FAQ', 'Questions fréquentes sur les prestations, les tarifs et le déroulement des projets.'),
 ])}

@@ -1,0 +1,143 @@
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--space-20);
+}
+
+.heroTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-5);
+  max-width: 700px;
+}
+
+.heroTitle strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Grille des services ─────────────────────────────────── */
+.servicesSection {
+  border-top: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.serviceCard {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-base) var(--ease-out-expo);
+  min-height: 170px;
+}
+
+.serviceCard:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.serviceCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.serviceCardNom {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.serviceCardTagline {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.serviceCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.serviceCardPrix {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent-soft);
+}
+
+.serviceCardCta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.serviceCard:hover .serviceCardCta {
+  color: var(--color-text);
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cta {
+  background-color: var(--color-bg-alt);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-4);
+}
+
+.ctaTitle strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.ctaSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}

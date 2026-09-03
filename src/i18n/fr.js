@@ -26,9 +26,13 @@ export const fr = {
 
   // ── Nav rapide (pill flottante, home uniquement) ──────────
   homeNav: {
-    services:     'Services',
-    realisations: 'Réalisations',
-    faq:          'FAQ',
+    reseauxSociaux:      'Réseaux Sociaux',
+    services:            'Services',
+    legal:               'Légal',
+    reseauxSociauxTitle: 'Suivez-nous',
+    legalTitle:          'Informations légales',
+    privacyPolicy:       'Politique de confidentialité',
+    legalNotice:         'Mentions légales',
   },
 
   // ── Ce que coûte un site raté ─────────────────────────────
@@ -94,12 +98,6 @@ export const fr = {
     copy:    '© 2026 Atlamaz Studio — Tous droits réservés.',
     tagline: 'Sites & applications qui inspirent confiance.',
     email: 'atlamazstudio@gmail.com',
-    links: [
-      { label: 'Studio',                     href: '/studio' },
-      { label: 'Mentions légales',           href: '/mentions-legales' },
-      { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
-      { label: 'LinkedIn',                   href: 'https://www.linkedin.com/company/atlamaz-studio', external: true },
-    ],
     nosVilles: {
       title: 'Nos villes',
       links: [
@@ -108,16 +106,6 @@ export const fr = {
         { label: 'Grenoble',          href: '/creation-site-web-grenoble' },
         { label: 'Annecy',            href: '/creation-site-web-annecy' },
         { label: 'Clermont-Ferrand',  href: '/creation-site-web-clermont-ferrand' },
-      ],
-    },
-    services: {
-      title: 'Services',
-      links: [
-        { label: 'Landing page',      href: '/creation-landing-page' },
-        { label: 'Site vitrine',      href: '/creation-site-vitrine' },
-        { label: 'Boutique en ligne', href: '/creation-boutique-en-ligne' },
-        { label: 'Application mobile', href: '/creation-application-mobile' },
-        { label: 'Refonte site web',  href: '/refonte-site-web' },
       ],
     },
   },
