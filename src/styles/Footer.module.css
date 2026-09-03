@@ -1,6 +1,8 @@
 .footer {
   border-top: 0.5px solid var(--color-border);
-  padding: var(--space-12) 0 var(--space-6);
+  /* La pill de navigation flotte en bas de toutes les pages : on réserve sa
+     hauteur pour qu'elle ne recouvre jamais la barre de copyright. */
+  padding: var(--space-12) 0 calc(var(--space-20) + env(safe-area-inset-bottom, 0px));
   background-color: var(--color-bg-surface);
 }
 
@@ -111,13 +113,6 @@
     align-items: center;
     text-align: center;
     gap: var(--space-2);
-  }
-
-  /* Dégage la hauteur des éléments flottants en bas d'écran (pill de
-     navigation sur la home, bouton d'appel ailleurs) qui recouvraient
-     sinon la barre de copyright. */
-  .footer {
-    padding-bottom: calc(var(--space-20) + env(safe-area-inset-bottom, 0px));
   }
 }
 

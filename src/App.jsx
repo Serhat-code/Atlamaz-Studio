@@ -10,6 +10,7 @@ import CookieBanner   from './components/CookieBanner';
 import ScrollToTop    from './components/ScrollToTop';
 import HomeLangToggle from './components/HomeLangToggle';
 import HomeLogo       from './components/HomeLogo';
+import HomeBottomNav  from './components/HomeBottomNav';
 import { services } from './data/services';
 
 // Home reste en import statique : c'est la page d'entrée la plus fréquente,
@@ -34,12 +35,11 @@ const BlogArticle              = lazy(() => import('./pages/BlogArticle'));
 const translations = { fr, en };
 
 function Layout({ t, lang, onLangToggle, children }) {
-  // Chrome unique sur tout le site : la marque et le sélecteur de langue,
-  // tous deux flottants. Les pages internes portaient auparavant une Navbar
-  // sticky avec menu complet et numéro de téléphone — un registre de
-  // prestataire qui contredisait la retenue de l'accueil. Le maillage interne
-  // reste assuré par le fil d'Ariane de chaque page et par le footer, qui
-  // liste villes, services et pages légales.
+  // Chrome unique sur tout le site : la marque, le sélecteur de langue et la
+  // pill de navigation rapide, tous flottants. Les pages internes portaient
+  // auparavant une Navbar sticky avec menu complet et numéro de téléphone —
+  // un registre de prestataire qui contredisait la retenue de l'accueil ;
+  // la pill reprend ce rôle de navigation sans ce ton commercial.
   const isHome = useLocation().pathname === '/';
 
   return (
@@ -50,6 +50,7 @@ function Layout({ t, lang, onLangToggle, children }) {
           par un fil d'Ariane qui passerait sous la chrome fixe. */}
       <main className={isHome ? undefined : 'main-offset'}>{children}</main>
       <Footer t={t} />
+      <HomeBottomNav t={t} />
       <CookieBanner />
     </>
   );
