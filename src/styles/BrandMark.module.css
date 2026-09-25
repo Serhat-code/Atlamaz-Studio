@@ -25,9 +25,13 @@
   );
   backdrop-filter: blur(22px) saturate(190%);
   -webkit-backdrop-filter: blur(22px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  /* Liseré en ombre interne plutôt qu'en `border` : en border-box une bordure
+     rétrécit la boîte de contenu d'1px de chaque côté, et la barre du
+     monogramme s'arrêterait avant le bord de la tuile. L'ombre interne occupe
+     zéro place et le SVG se peint par-dessus. */
   box-shadow:
     0 8px 26px rgba(79, 91, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.85),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     inset 0 -1px 0 rgba(255, 255, 255, 0.4);
 
@@ -43,15 +47,16 @@
   pointer-events: none;
 }
 
-/* Positionné, donc peint au-dessus du reflet (qui est en z-index auto). */
+/* Positionné, donc peint au-dessus du reflet (qui est en z-index auto).
+   Pleine tuile : la marque est composée dans un carré dont la barre touche
+   déjà les bords du viewBox, c'est donc le SVG entier qui doit couvrir la
+   tuile — toute marge ici décollerait la barre du bord. */
 .glyph {
   position: relative;
   z-index: 1;
-  font-family: var(--font-family-display);
-  font-size: calc(var(--size) * 0.44);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  display: block;
+  width: 100%;
+  height: 100%;
   color: var(--text);
 }
 

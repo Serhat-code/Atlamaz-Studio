@@ -1,13 +1,16 @@
+import { AtlamazTileMark } from './icons/BrandLogos';
 import styles from '../styles/BrandMark.module.css';
 
-// Marque Atlamaz en verre. Le "A" est rendu en texte plutôt qu'en image :
-// un PNG opaque ne peut pas être translucide, le verre ne se voyait alors
-// qu'en liseré autour du carré noir.
+// Marque Atlamaz en verre. Le monogramme est un SVG inline plutôt qu'une
+// image : il hérite ainsi de `currentColor` et se peint au-dessus du reflet
+// spéculaire, ce qu'un PNG opaque ne permettrait pas.
+// Composition carrée (celle du favicon) : la barre doit toucher les bords
+// de la tuile, elle occupe donc toute la largeur plutôt qu'une fraction.
 // Taille pilotée par --mark-size sur le parent.
 export default function BrandMark() {
   return (
     <span className={styles.mark} aria-hidden="true">
-      <span className={styles.glyph}>A</span>
+      <AtlamazTileMark className={styles.glyph} />
     </span>
   );
 }

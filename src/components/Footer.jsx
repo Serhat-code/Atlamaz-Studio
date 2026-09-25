@@ -11,7 +11,15 @@ export default function Footer({ t }) {
         <div className={styles.grid}>
           {/* Colonne 1 : Studio */}
           <div className={styles.col}>
-            <span className={styles.colTitle}>ATLAMAZ STUDIO</span>
+            <img
+              src="/brand/atlamaz-studio-logo-noir.svg"
+              alt="Atlamaz Studio"
+              className={styles.brand}
+              width="140"
+              height="29"
+              loading="lazy"
+              decoding="async"
+            />
             <p className={styles.colDesc}>{footer.tagline}</p>
             <a href={`mailto:${footer.email}`} className={styles.email}>
               {footer.email}

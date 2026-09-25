@@ -26,6 +26,15 @@
   gap: var(--space-4);
 }
 
+/* Logotype de marque : remplace le libellé texte de la colonne Studio.
+   Largeur fixe + hauteur auto pour que le ratio du SVG tienne le layout
+   et n'introduise aucun décalage au chargement. */
+.brand {
+  display: block;
+  width: 140px;
+  height: auto;
+}
+
 .colTitle {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);

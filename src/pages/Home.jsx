@@ -32,6 +32,9 @@ const organizationSchema = {
   url: BASE_URL,
   email: 'atlamazstudio@gmail.com',
   image: OG_IMAGE,
+  // Logo de marque : Google le lit pour le panneau de connaissance, et
+  // attend un visuel carré distinct de l'image Open Graph.
+  logo: `${BASE_URL}/web-app-manifest-512x512.png`,
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
