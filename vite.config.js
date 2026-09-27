@@ -13,6 +13,12 @@ export default defineConfig(({ isSsrBuild }) => ({
   build: isSsrBuild
     ? {}
     : {
+        // Une seule feuille, liée dans le <head> de chaque page pré-rendue.
+        // Découpée par page, la CSS des routes en React.lazy n'arrivait
+        // qu'avec leur chunk JS : le HTML statique s'affichait d'abord sans
+        // styles (hero sombre des pages services peint en blanc). Coût :
+        // ~14 ko gzip au total contre ~8 ko pour la seule feuille commune.
+        cssCodeSplit: false,
         rollupOptions: {
           output: {
             manualChunks(id) {

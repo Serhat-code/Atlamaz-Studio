@@ -15,10 +15,10 @@ export const en = {
 
   // ── Hero ─────────────────────────────────────────────────
   hero: {
-    eyebrow:      'Web studio — custom sites & applications',
-    titleStrong:  'Every detail matters.',
-    titleLight:   'Every site has a purpose.',
-    subtitle:     "We design custom websites and applications that make your business clearer, more credible and easier to choose.",
+    title:        'Custom websites, apps, SaaS and AI,',
+    titleMuted:   'without skipping a single detail.',
+    // Shape labels, in particle engine order.
+    shapes:       ['Atlamaz', 'Websites', 'Mobile apps', 'SaaS', 'AI automation'],
     ctaPrimary:   "Let's talk about your project",
     ctaSecondary: 'See our work',
     ctaSecondaryHref: '/realisations',
@@ -52,10 +52,10 @@ export const en = {
     title:   'Three steps. One goal: your credibility online.',
     steps: [
       { num: '01', title: 'Identity & Design', text: 'We set a visual direction that looks like you, built to inspire trust from the first glance.' },
-      { num: '02', title: 'Development', text: 'Showcase sites, e-commerce, web and mobile apps. Clean, fast code, built to last.' },
+      { num: '02', title: 'Development', text: 'Websites, SaaS, mobile apps and AI automation. Clean, fast code, built to last.' },
       { num: '03', title: 'Growth', text: 'SEO, performance, evolutions: your site keeps working for you after launch.' },
     ],
-    tags: ['Showcase sites', 'E-commerce', 'Web apps', 'Mobile apps', 'Custom SaaS'],
+    tags: ['Websites', 'Custom SaaS', 'Mobile apps', 'AI automation', 'Maintenance'],
   },
 
   // ── Mask transition ─────────────────────────────────────────
@@ -71,7 +71,7 @@ export const en = {
     eyebrow: 'FAQ',
     title:   "Everything we get asked before getting started.",
     items: [
-      { question: 'How much does a project with Atlamaz Studio cost?', answer: "An effective showcase site starts at €999. More ambitious projects — e-commerce, web apps or custom SaaS — usually land between €3,000 and €15,000. For complex platforms or mobile apps, some projects go up to €50,000. The first conversation is there to scope your need precisely, with no commitment." },
+      { question: 'How much does a project with Atlamaz Studio cost?', answer: "A website starts at €999. A custom SaaS usually lands between €3,000 and €15,000, an AI automation between €1,500 and €15,000. A mobile app starts at €8,000, and some complex platforms go up to €50,000. The first conversation is there to scope your need precisely, with no commitment." },
       { question: 'Can you build a mobile app?', answer: "Yes. Beyond websites, we also build mobile apps when your project calls for one — from the idea to publishing on the stores." },
       { question: 'What are the timelines?', answer: "Between 2 and 8 weeks depending on the scope. A clear schedule is set from the first conversation." },
       { question: 'What happens after launch?', answer: "Every site ships with support included. After that, we stay available to evolve your product at the pace of your business." },
@@ -163,6 +163,47 @@ export const en = {
     ctaSubtitle: "Reply within 48h. First chat is free.",
     ctaButton: 'Start a project',
     ctaButtonSecondary: 'Book 30 free minutes',
+  },
+
+  // ── Service pages ─────────────────────────────────────────
+  servicePage: {
+    breadcrumbAria:  'Breadcrumb',
+    home:            'Home',
+    label:           'Service',
+    delai:           'Timeline',
+    start:           'Start this project',
+    book:            'Book 30 free minutes',
+    socialProof:     'Reply within 48h · First call with no commitment · Delivery in 1 to 12 weeks',
+    whyTitle:        'Why choose this service?',
+    inclusLabel:     'Included',
+    inclusTitle:     ['Everything ', 'included'],
+    processLabel:    'Process',
+    processTitle:    ['How does it ', 'work?'],
+    delivery:        'Delivery:',
+    faqLabel:        'FAQ',
+    faqTitle:        'FAQ —',
+    villesLabel:     'Available in your city',
+    villesTitle:     ['Cities ', 'we serve'],
+    allCities:       'All cities →',
+    moreLabel:       'Go further',
+    moreTitle:       ['Our other ', 'services'],
+    ctaTitle:        'Ready to start your',
+    questionMark:    '?',
+    ctaSubtitle:     (delai) => `Reply within 48h. First call with no commitment. Timeline: ${delai}.`,
+    ctaStart:        'Start my project',
+  },
+
+  // ── /services page ────────────────────────────────────────
+  servicesPage: {
+    title:       'Our services — Atlamaz Studio | Web agency',
+    description: 'Websites, custom SaaS, mobile apps, AI automation and maintenance: explore the services offered by Atlamaz Studio.',
+    label:       'What we do',
+    heroTitle:   ['Websites and apps ', 'built to convert'],
+    heroSubtitle: 'Each service below details the price, the timeline and what is included — no drawn-out quote before you know what to expect.',
+    cardCta:     'View page →',
+    ctaTitle:    ['Your project ', "doesn't fit in a box?"],
+    ctaSubtitle: "Let's talk directly — the first call is there to scope your need precisely, with no commitment.",
+    ctaButton:   "Let's talk about your project",
   },
 
   // ── Page Merci ────────────────────────────────────────────

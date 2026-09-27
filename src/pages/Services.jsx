@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { services } from '../data/services';
+import { services, localizeService } from '../data/services';
 import ContactModal from '../components/ContactModal';
 import styles from '../styles/Services.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
-const SERVICES_TITLE = 'Nos services — Atlamaz Studio | Agence web';
-
-const SERVICES_DESCRIPTION =
-  'Sites vitrines, landing pages, boutiques en ligne, applications mobiles, refonte et maintenance : découvrez tous les services web proposés par Atlamaz Studio.';
-
-export default function Services() {
+export default function Services({ t, lang }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const p = t.servicesPage;
 
   return (
     <>
       <Helmet>
-        <title>{SERVICES_TITLE}</title>
-        <meta name="description" content={SERVICES_DESCRIPTION} />
+        <title>{p.title}</title>
+        <meta name="description" content={p.description} />
         <link rel="canonical" href={`${BASE_URL}/services`} />
-        <meta property="og:title" content={SERVICES_TITLE} />
-        <meta property="og:description" content={SERVICES_DESCRIPTION} />
+        <meta property="og:title" content={p.title} />
+        <meta property="og:description" content={p.description} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:url" content={`${BASE_URL}/services`} />
         <meta property="og:type" content="website" />
@@ -33,12 +29,12 @@ export default function Services() {
       {/* Hero */}
       <section className={`section ${styles.hero}`}>
         <div className="container">
-          <span className="section-label">Nos prestations</span>
+          <span className="section-label">{p.label}</span>
           <h1 className={styles.heroTitle}>
-            Des sites et applications <strong>conçus pour convertir</strong>
+            {p.heroTitle[0]}<strong>{p.heroTitle[1]}</strong>
           </h1>
           <p className={styles.heroSubtitle}>
-            Chaque service ci-dessous détaille le prix, le délai et ce qui est inclus — pas de devis à rallonge avant de savoir à quoi s'attendre.
+            {p.heroSubtitle}
           </p>
         </div>
       </section>
@@ -47,7 +43,7 @@ export default function Services() {
       <section className={`section ${styles.servicesSection}`}>
         <div className="container">
           <div className={styles.servicesGrid}>
-            {services.map((service) => (
+            {services.map((s) => localizeService(s, lang)).map((service) => (
               <Link
                 key={service.slug}
                 to={`/${service.slug}`}
@@ -59,7 +55,7 @@ export default function Services() {
                 </div>
                 <div className={styles.serviceCardFooter}>
                   <span className={styles.serviceCardPrix}>{service.prix}</span>
-                  <span className={styles.serviceCardCta}>Voir la page →</span>
+                  <span className={styles.serviceCardCta}>{p.cardCta}</span>
                 </div>
               </Link>
             ))}
@@ -72,12 +68,12 @@ export default function Services() {
         <div className="container">
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>
-              Votre projet <strong>ne rentre pas dans une case ?</strong>
+              {p.ctaTitle[0]}<strong>{p.ctaTitle[1]}</strong>
             </h2>
             <p className={styles.ctaSubtitle}>
-              Parlons-en directement — le premier échange sert à cadrer précisément votre besoin, sans engagement.
+              {p.ctaSubtitle}
             </p>
-            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>Discutons de votre projet</button>
+            <button className="btn btn--primary" onClick={() => setModalOpen(true)}>{p.ctaButton}</button>
           </div>
         </div>
       </section>

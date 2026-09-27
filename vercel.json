@@ -4,6 +4,31 @@
       "source": "/tarifs",
       "destination": "/faq",
       "permanent": true
+    },
+    {
+      "source": "/creation-site-vitrine",
+      "destination": "/creation-site-web",
+      "permanent": true
+    },
+    {
+      "source": "/creation-landing-page",
+      "destination": "/creation-site-web",
+      "permanent": true
+    },
+    {
+      "source": "/creation-boutique-en-ligne",
+      "destination": "/creation-site-web",
+      "permanent": true
+    },
+    {
+      "source": "/refonte-site-web",
+      "destination": "/creation-site-web",
+      "permanent": true
+    },
+    {
+      "source": "/creation-site-restaurant",
+      "destination": "/creation-site-web",
+      "permanent": true
     }
   ],
   "headers": [

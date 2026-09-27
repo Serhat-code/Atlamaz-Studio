@@ -8,7 +8,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 
 const FAQ_DESCRIPTION =
-  'Toutes les réponses à vos questions sur la création de sites web, les délais, les tarifs, la maintenance et les applications mobiles. FAQ complète Atlamaz Studio.';
+  'Toutes les réponses à vos questions sur la création de sites web, les délais, les tarifs, les SaaS, les applications mobiles et les automatisations IA. FAQ complète Atlamaz Studio.';
 
 function AccordionItem({ faq, isOpen, onToggle }) {
   return (

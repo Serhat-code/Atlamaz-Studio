@@ -37,7 +37,7 @@ export const articles = [
 
 <h2>Notre recommandation</h2>
 <p>Pour une PME, un artisan ou un professionnel libéral, un studio expérimenté reste le meilleur compromis : un seul interlocuteur, une exigence technique vérifiable et des délais courts. Demandez plusieurs propositions, et vérifiez surtout les réalisations passées et les scores de performance annoncés.</p>`,
-    serviceLie: 'creation-site-vitrine',
+    serviceLie: 'creation-site-web',
     villeLiee: 'lyon',
     metaTitle: 'Combien coûte un site web professionnel en 2026 ? — Atlamaz Studio',
     metaDescription: "Les prix d'un site web professionnel en 2026 : plateformes en ligne, studios, agences. Guide complet pour choisir la solution adaptée à votre budget.",
@@ -64,7 +64,7 @@ export const articles = [
 
 <h2>Les avis clients : le facteur numéro 1</h2>
 <p>Les avis Google sont le facteur de classement local le plus puissant. Plus vous avez d'avis positifs, plus Google vous positionne haut dans le pack local. Mettez en place un système simple pour demander des avis à vos clients satisfaits : email automatique après chaque prestation, QR code en caisse, lien direct dans votre email de signature. Répondez à tous les avis pour montrer votre engagement.</p>`,
-    serviceLie: 'creation-site-vitrine',
+    serviceLie: 'creation-site-web',
     villeLiee: 'grenoble',
     metaTitle: 'SEO local : comment apparaître en premier sur Google Maps en 2026 — Atlamaz Studio',
     metaDescription: 'Guide complet pour optimiser votre référencement local et apparaître en premier sur Google Maps. Techniques SEO local qui fonctionnent vraiment en 2026.',
@@ -91,7 +91,7 @@ export const articles = [
 
 <h2>Notre recommandation</h2>
 <p>Entre les deux modèles, un studio à taille humaine en réunit l'essentiel : un interlocuteur unique du brief à la mise en ligne, et une équipe qui couvre design, développement et référencement. C'est le format d'Atlamaz Studio. Pour des besoins éditoriaux massifs, plusieurs chantiers simultanés ou des développements très complexes, une agence structurée reste plus adaptée.</p>`,
-    serviceLie: 'creation-site-vitrine',
+    serviceLie: 'creation-site-web',
     villeLiee: 'saint-etienne',
     metaTitle: 'Freelance vs agence web : qui choisir pour votre site en 2026 ? — Atlamaz Studio',
     metaDescription: 'Comparatif complet freelance vs agence web pour votre projet digital. Avantages, inconvénients et recommandations pour faire le bon choix en 2026.',
@@ -148,7 +148,7 @@ export const articles = [
 
 <h2>Performance = design</h2>
 <p>Un site qui charge en 3 secondes a un design médiocre, quels que soient ses atouts visuels. En 2026, la performance est une composante du design. Les Core Web Vitals de Google pénalisent les sites lents dans les résultats de recherche. Chaque décision de design doit prendre en compte son impact sur la vitesse de chargement.</p>`,
-    serviceLie: 'creation-landing-page',
+    serviceLie: 'creation-site-web',
     villeLiee: 'lyon',
     metaTitle: 'Tendances design web 2026 : ce qui marche vraiment — Atlamaz Studio',
     metaDescription: 'Découvrez les tendances design web qui dominent en 2026 : minimalisme, dark mode, micro-interactions et accessibilité. Guide pratique pour votre prochain site.',
@@ -175,7 +175,7 @@ export const articles = [
 
 <h2>Ce que nous faisons pour la performance</h2>
 <p>Chez Atlamaz Studio, chaque site est audité au Lighthouse avant livraison, avec un score cible supérieur à 90 sur mobile — pas seulement sur desktop en fibre. Les leviers techniques utilisés sont concrets : images AVIF/WebP avec chargement différé, code JavaScript scindé par route pour ne charger que le nécessaire, mise en cache HTTP correctement configurée, et une stack Vite + React qui produit un bundle plus léger qu'un CMS générique équivalent.</p>`,
-    serviceLie: 'creation-site-vitrine',
+    serviceLie: 'creation-site-web',
     villeLiee: 'grenoble',
     metaTitle: 'Vitesse de chargement site web et SEO en 2026 — Atlamaz Studio',
     metaDescription: 'Pourquoi la vitesse de votre site est critique pour le SEO et la conversion en 2026. Core Web Vitals, optimisation et outils de mesure. Guide complet.',

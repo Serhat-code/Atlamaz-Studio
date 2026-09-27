@@ -15,10 +15,10 @@ export const fr = {
 
   // ── Hero ─────────────────────────────────────────────────
   hero: {
-    eyebrow:      'Studio web — sites & applications sur mesure',
-    titleStrong:  'Chaque détail compte.',
-    titleLight:   'Chaque site a un rôle.',
-    subtitle:     "Nous concevons des sites et applications sur mesure qui rendent votre activité plus claire, plus crédible et plus facile à choisir.",
+    title:        'Sites, applications, SaaS et IA sur mesure,',
+    titleMuted:   'sans un seul détail sauté.',
+    // Étiquettes des formes, dans l'ordre du moteur de particules.
+    shapes:       ['Atlamaz', 'Sites web', 'Applications mobiles', 'SaaS', 'Automatisations IA'],
     ctaPrimary:   'Discutons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
     ctaSecondaryHref: '/realisations',
@@ -52,10 +52,10 @@ export const fr = {
     title:   'Trois étapes. Un seul objectif : votre crédibilité en ligne.',
     steps: [
       { num: '01', title: 'Identité & Design', text: 'Nous posons une direction visuelle qui vous ressemble, pensée pour donner confiance dès le premier regard.' },
-      { num: '02', title: 'Développement', text: 'Sites vitrines, e-commerce, applications web et mobiles. Du code propre, rapide, pensé pour durer.' },
+      { num: '02', title: 'Développement', text: 'Sites web, SaaS, applications mobiles et automatisations IA. Du code propre, rapide, pensé pour durer.' },
       { num: '03', title: 'Croissance', text: 'Référencement, performance, évolutions : votre site continue de travailler pour vous après la mise en ligne.' },
     ],
-    tags: ['Sites vitrines', 'E-commerce', 'Applications web', 'Applications mobiles', 'SaaS sur mesure'],
+    tags: ['Sites web', 'SaaS sur mesure', 'Applications mobiles', 'Automatisations IA', 'Maintenance'],
   },
 
   // ── Transition à masque ────────────────────────────────────
@@ -71,7 +71,7 @@ export const fr = {
     eyebrow: 'Questions fréquentes',
     title:   "Les questions qui reviennent avant de se lancer.",
     items: [
-      { question: 'Combien coûte un projet avec Atlamaz Studio ?', answer: "Un site vitrine efficace démarre à 999€. Les projets plus ambitieux — e-commerce, application web ou SaaS sur mesure — se situent le plus souvent entre 3 000€ et 15 000€. Pour les plateformes complexes ou les applications mobiles, certains projets vont jusqu'à 50 000€. Le premier échange sert à cadrer précisément votre besoin, sans engagement." },
+      { question: 'Combien coûte un projet avec Atlamaz Studio ?', answer: "Un site web démarre à 999€. Un SaaS sur mesure se situe le plus souvent entre 3 000€ et 15 000€, une automatisation IA entre 1 500€ et 15 000€. Une application mobile démarre à 8 000€, et certaines plateformes complexes vont jusqu'à 50 000€. Le premier échange sert à cadrer précisément votre besoin, sans engagement." },
       { question: "Une application mobile, c'est possible ?", answer: "Oui. Au-delà des sites, nous concevons aussi des applications mobiles quand votre projet le demande — de l'idée à la mise en ligne sur les stores." },
       { question: 'Quels sont les délais ?', answer: "Entre 2 et 8 semaines selon l'ampleur du projet. Un calendrier clair est posé dès le premier échange." },
       { question: 'Et après la mise en ligne ?', answer: "Chaque site est livré avec un accompagnement inclus. Ensuite, nous restons disponibles pour faire évoluer votre outil au rythme de votre activité." },
@@ -163,6 +163,47 @@ export const fr = {
     ctaSubtitle: 'Réponse sous 48h. Premier échange offert.',
     ctaButton: 'Démarrer un projet',
     ctaButtonSecondary: 'Réserver 30 min offertes',
+  },
+
+  // ── Pages services ────────────────────────────────────────
+  servicePage: {
+    breadcrumbAria:  "Fil d'Ariane",
+    home:            'Accueil',
+    label:           'Service',
+    delai:           'Délai',
+    start:           'Démarrer ce projet',
+    book:            'Réserver 30 min offertes',
+    socialProof:     'Réponse sous 48h · Premier échange sans engagement · Livraison en 1 à 12 semaines',
+    whyTitle:        'Pourquoi choisir ce service ?',
+    inclusLabel:     'Inclus',
+    inclusTitle:     ['Tout ce qui est ', 'inclus'],
+    processLabel:    'Process',
+    processTitle:    ['Comment ça ', 'fonctionne ?'],
+    delivery:        'Livraison :',
+    faqLabel:        'Questions fréquentes',
+    faqTitle:        'FAQ —',
+    villesLabel:     'Disponible dans votre ville',
+    villesTitle:     ["Villes d'", 'intervention'],
+    allCities:       'Toutes les villes →',
+    moreLabel:       'Aller plus loin',
+    moreTitle:       ['Nos autres ', 'services'],
+    ctaTitle:        'Prêt à lancer votre',
+    questionMark:    ' ?',
+    ctaSubtitle:     (delai) => `Réponse sous 48h. Premier échange sans engagement. ${delai} de délai.`,
+    ctaStart:        'Démarrer mon projet',
+  },
+
+  // ── Page /services ────────────────────────────────────────
+  servicesPage: {
+    title:       'Nos services — Atlamaz Studio | Agence web',
+    description: 'Sites web, SaaS sur mesure, applications mobiles, automatisations IA et maintenance : découvrez les services proposés par Atlamaz Studio.',
+    label:       'Nos prestations',
+    heroTitle:   ['Des sites et applications ', 'conçus pour convertir'],
+    heroSubtitle: "Chaque service ci-dessous détaille le prix, le délai et ce qui est inclus — pas de devis à rallonge avant de savoir à quoi s'attendre.",
+    cardCta:     'Voir la page →',
+    ctaTitle:    ['Votre projet ', 'ne rentre pas dans une case ?'],
+    ctaSubtitle: 'Parlons-en directement — le premier échange sert à cadrer précisément votre besoin, sans engagement.',
+    ctaButton:   'Discutons de votre projet',
   },
 
   // ── Page Merci ────────────────────────────────────────────
