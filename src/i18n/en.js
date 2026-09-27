@@ -16,9 +16,9 @@ export const en = {
   // ── Hero ─────────────────────────────────────────────────
   hero: {
     eyebrow:      'Web studio — custom sites & applications',
-    titleStrong:  'A visitor judges your site in three seconds.',
-    titleLight:   'We make sure that judgement is the right one.',
-    subtitle:     "A bad website doesn't just lose visitors. It makes people doubt how serious you are. Atlamaz Studio builds sites and applications that inspire trust from the very first second.",
+    titleStrong:  'Every detail matters.',
+    titleLight:   'Every site has a purpose.',
+    subtitle:     "We design custom websites and applications that make your business clearer, more credible and easier to choose.",
     ctaPrimary:   "Let's talk about your project",
     ctaSecondary: 'See our work',
     ctaSecondaryHref: '/realisations',

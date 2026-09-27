@@ -16,9 +16,9 @@ export const fr = {
   // ── Hero ─────────────────────────────────────────────────
   hero: {
     eyebrow:      'Studio web — sites & applications sur mesure',
-    titleStrong:  'Un visiteur juge votre site en trois secondes.',
-    titleLight:   'Nous faisons en sorte que ce jugement soit le bon.',
-    subtitle:     "Un mauvais site ne perd pas que des visiteurs. Il fait douter de votre sérieux. Atlamaz Studio conçoit des sites et applications qui inspirent confiance dès la première seconde.",
+    titleStrong:  'Chaque détail compte.',
+    titleLight:   'Chaque site a un rôle.',
+    subtitle:     "Nous concevons des sites et applications sur mesure qui rendent votre activité plus claire, plus crédible et plus facile à choisir.",
     ctaPrimary:   'Discutons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
     ctaSecondaryHref: '/realisations',
