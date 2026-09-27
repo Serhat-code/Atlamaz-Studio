@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import Hero             from '../components/Hero';
+import Hero             from '../components/Hero/Hero';
 import PainPoints        from '../components/PainPoints';
 import Process           from '../components/Process';
 import MaskTransition    from '../components/MaskTransition';
@@ -16,7 +16,7 @@ const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
 // Une seule constante : meta description et og:description décrivaient la page
 // en deux formulations héritées de gabarits différents.
 const HOME_DESCRIPTION =
-  'Studio de création web à Lyon. Sites vitrines, landing pages, boutiques en ligne et applications mobiles. Architecture sur mesure, performance mesurée.';
+  'Studio de création web à Lyon. Sites web, SaaS sur mesure, applications mobiles, automatisations IA et maintenance. Architecture sur mesure, performance mesurée.';
 
 // Entité du site, déclarée sur la seule page d'accueil : c'est l'URL que
 // Google retient comme identité de l'organisation. Les pages villes portent
@@ -28,7 +28,7 @@ const organizationSchema = {
   '@id': `${BASE_URL}/#organization`,
   name: 'Atlamaz Studio',
   description:
-    'Studio de création web à Lyon — sites vitrines, landing pages, boutiques en ligne et applications mobiles React Native.',
+    'Studio de création web à Lyon — sites web, SaaS sur mesure, applications mobiles React Native et automatisations IA.',
   url: BASE_URL,
   email: 'atlamazstudio@gmail.com',
   image: OG_IMAGE,
@@ -52,6 +52,8 @@ const organizationSchema = {
     'SEO',
     'Application mobile',
     'React Native',
+    'SaaS',
+    'Automatisation IA',
   ],
   sameAs: ['https://www.linkedin.com/company/atlamaz-studio'],
 };

@@ -147,7 +147,7 @@ export default function VillePage() {
           <h2 className="section-title">Nos services à <strong>{ville.nom}</strong></h2>
           <p className="section-subtitle">Les prestations que nous menons pour les entreprises de {ville.nom} et de la région {ville.region}.</p>
           <div className={styles.servicesGrid}>
-            {services.slice(0, 6).map((service, i) => (
+            {services.map((service, i) => (
               <Reveal key={service.slug} delay={Math.min(i + 1, 5)}>
               <Link to={`/${service.slug}`} className={styles.serviceCard}>
                 <div className={styles.serviceCardHeader}>
@@ -228,7 +228,7 @@ export default function VillePage() {
               Prêt à lancer votre site web à <strong>{ville.nom}</strong> ?
             </h2>
             <p className={styles.ctaSubtitle}>
-              Réponse sous 48h. Premier échange sans engagement. Livraison en 5 à 14 jours.
+              Réponse sous 48h. Premier échange sans engagement. Livraison en 2 à 6 semaines.
             </p>
             <div className={styles.ctaCtas}>
               <button className="btn btn--primary" onClick={() => setModalOpen(true)}>

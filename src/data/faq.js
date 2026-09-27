@@ -16,14 +16,14 @@ export const faqs = [
     id: 1,
     categorie: 'general',
     question: 'Combien coûte un site web professionnel ?',
-    reponse: "Un site vitrine efficace démarre à 999€. Les projets plus ambitieux — e-commerce, application web ou SaaS sur mesure — se situent le plus souvent entre 3 000€ et 15 000€. Pour les plateformes complexes ou les applications mobiles, certains projets vont jusqu'à 50 000€. Chaque devis est calculé sur le périmètre réel du projet. Contactez-nous : nous répondons sous 48h.",
-    serviceLie: 'creation-site-vitrine',
+    reponse: "Un site web démarre à 999€. Un SaaS sur mesure se situe le plus souvent entre 3 000€ et 15 000€, une automatisation IA entre 1 500€ et 15 000€. Une application mobile démarre à 8 000€, et certaines plateformes complexes vont jusqu'à 50 000€. Chaque devis est calculé sur le périmètre réel du projet. Contactez-nous : nous répondons sous 48h.",
+    serviceLie: 'creation-site-web',
   },
   {
     id: 2,
     categorie: 'general',
     question: 'Quels sont vos délais de livraison ?',
-    reponse: "Entre 2 et 8 semaines selon l'ampleur du projet : 2 semaines pour une landing page, 2 à 3 semaines pour un site vitrine ou un site restaurant, 3 semaines pour une refonte, 4 à 6 semaines pour une boutique en ligne, 6 à 8 semaines pour une application mobile. Un calendrier clair est posé dès le premier échange. Une mise en ligne accélérée reste possible selon le planning en cours.",
+    reponse: "Selon l'ampleur du projet : 2 à 6 semaines pour un site web (2 semaines pour une landing page, 4 à 6 pour une boutique en ligne), 1 à 6 semaines pour une automatisation IA, 6 à 8 semaines pour une application mobile, 6 à 12 semaines pour un SaaS sur mesure. Un calendrier clair est posé dès le premier échange. Une mise en ligne accélérée reste possible selon le planning en cours.",
     serviceLie: null,
   },
   {
@@ -75,7 +75,7 @@ export const faqs = [
     categorie: 'technique',
     question: 'Mon site sera-t-il bien référencé sur Google ?',
     reponse: "Chaque site intègre un balisage SEO technique complet : title et meta description par page, structure de titres hiérarchique (un seul H1), sitemap XML soumis à Search Console, données structurées schema.org, et un score de performance qui pèse directement dans le classement. Pour le référencement local, la fiche Google Business Profile est également structurée.",
-    serviceLie: 'creation-site-vitrine',
+    serviceLie: 'creation-site-web',
   },
   {
     id: 10,

@@ -11,7 +11,7 @@ import ScrollToTop    from './components/ScrollToTop';
 import HomeLangToggle from './components/HomeLangToggle';
 import HomeLogo       from './components/HomeLogo';
 import HomeBottomNav  from './components/HomeBottomNav';
-import { services } from './data/services';
+import { services, legacyServiceRedirects } from './data/services';
 
 // Home reste en import statique : c'est la page d'entrée la plus fréquente,
 // inutile de la faire transiter par un chunk séparé + un aller-retour réseau.
@@ -90,12 +90,17 @@ export default function App() {
                 un vrai 301 (cf. vercel.json) pour les moteurs. */}
             <Route path="/tarifs"                         element={<Navigate to="/faq" replace />} />
             <Route path="/nos-villes"                     element={<NosVilles />} />
-            <Route path="/services"                       element={<Services />} />
+            <Route path="/services"                       element={<Services t={t} lang={lang} />} />
             <Route path="/faq"                            element={<FAQ />} />
             <Route path="/blog"                           element={<Blog />} />
             <Route path="/blog/:slug"                     element={<BlogArticle />} />
             {services.map((s) => (
-              <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} />} />
+              <Route key={s.slug} path={`/${s.slug}`} element={<ServicePage serviceSlug={s.slug} t={t} lang={lang} />} />
+            ))}
+            {/* Anciennes pages services fusionnées dans /creation-site-web :
+                301 côté Vercel (vercel.json), redirection ici côté client. */}
+            {Object.entries(legacyServiceRedirects).map(([from, to]) => (
+              <Route key={from} path={`/${from}`} element={<Navigate to={`/${to}`} replace />} />
             ))}
             {/* React Router exige que :param soit le segment entier — on capture le slug
                 complet ("creation-site-web-lyon") et on résout la ville par slug. */}

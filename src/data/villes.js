@@ -14,7 +14,7 @@ export const villes = [
     arguments: [
       { titre: 'Schema.org LocalBusiness par quartier', texte: "Chaque page intègre des données structurées qui précisent votre zone d'intervention exacte, Presqu'île ou arrondissement périphérique, pour que Google associe correctement votre activité à la bonne zone." },
       { titre: 'SEO Lyon mesuré, pas promis', texte: 'Positionnement suivi sur les requêtes "création site web Lyon" ou "développeur web Lyon" via Search Console, avec ajustement du balisage si le classement stagne.' },
-      { titre: 'Livraison en 5 à 14 jours', texte: "Délai contractuel arrêté au cadrage, avec un suivi de brief documenté du premier échange à la mise en ligne." },
+      { titre: 'Livraison en 2 à 6 semaines', texte: "Délai contractuel arrêté au cadrage, avec un suivi de brief documenté du premier échange à la mise en ligne." },
     ],
     faq: [
       { question: "Combien coûte la création d'un site web à Lyon ?", reponse: "Le chiffrage dépend du nombre de pages et des fonctionnalités attendues. Nous cadrons votre besoin lors du premier échange et vous adressons une proposition sous 48h. Les fourchettes indicatives figurent dans notre FAQ." },
@@ -124,7 +124,7 @@ export const villes = [
     arguments: [
       { titre: 'Couverture géographique élargie', texte: "Le balisage local cible Décines et les communes en croissance autour du secteur OL Valley : Chassieu, Jonage, Meyzieu." },
       { titre: 'Restauration : menu et réservation', texte: "Menu en ligne, réservation et intégration Google Maps pour les établissements de restauration de Décines." },
-      { titre: 'Livraison en 5 à 14 jours', texte: "Délai contractuel selon le périmètre retenu, suivi de bout en bout sans intervention technique de votre part." },
+      { titre: 'Livraison en 2 à 6 semaines', texte: "Délai contractuel selon le périmètre retenu, suivi de bout en bout sans intervention technique de votre part." },
     ],
     faq: [
       { question: 'Créez-vous des sites pour les restaurants et bars de Décines ?', reponse: "Oui : menu en ligne, réservation et intégration Google Maps." },

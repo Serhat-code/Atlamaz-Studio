@@ -141,7 +141,7 @@ function buildLlmsTxt() {
 
   return `# Atlamaz Studio
 
-> Studio de création de sites web basé à Lyon (France). Sites vitrines, landing pages, boutiques en ligne et applications mobiles, livrés rapidement avec un code sur mesure.
+> Studio de création de sites web basé à Lyon (France). Sites web, SaaS sur mesure, applications mobiles, automatisations IA et maintenance, avec un code sur mesure.
 
 Atlamaz Studio est un studio de création web fondé par Serhat Atlamaz, basé à Lyon et intervenant en Auvergne-Rhône-Alpes. Un seul interlocuteur du brief à la mise en ligne, sans intermédiaire commercial. Le devis est établi au cas par cas ; les fourchettes indicatives figurent ci-dessous et dans la FAQ.
 

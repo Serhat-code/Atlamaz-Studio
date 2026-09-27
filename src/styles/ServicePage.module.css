@@ -1,7 +1,42 @@
+/* ── Hero sombre ─────────────────────────────────────────────
+   Bandeau #0B0B0F qui remonte sous la chrome fixe (annule le
+   .main-offset du layout) : fil d'Ariane, texte et forme en
+   particules du métier, dans le registre du hero de l'accueil. */
+.hero {
+  --hero-ink: #F2F2F0;
+  --hero-dim: rgba(242, 242, 240, 0.66);
+  --hero-faint: rgba(242, 242, 240, 0.42);
+  --hero-line: rgba(242, 242, 240, 0.14);
+  --hero-offset: 88px;
+  /* Les règles globales (titres, fondu .reveal) peignent en var(--text) :
+     on inverse les jetons de texte dans le bandeau sombre. */
+  --text: var(--hero-ink);
+  --text-dim: var(--hero-dim);
+  --color-text: var(--hero-ink);
+  --color-text-secondary: var(--hero-dim);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: calc(-1 * var(--hero-offset));
+  padding: calc(var(--hero-offset) + var(--space-4)) 0 var(--space-16);
+  background: #0B0B0F;
+  color: var(--hero-ink);
+}
+
+/* Halo indigo derrière la forme */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse 45% 60% at 76% 58%, rgba(79, 91, 255, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
 /* ── Breadcrumb ──────────────────────────────────────────── */
 .breadcrumb {
-  padding: var(--space-4) 0;
-  border-bottom: 0.5px solid var(--color-border);
+  margin-bottom: var(--space-10);
 }
 
 .breadcrumbList {
@@ -10,25 +45,42 @@
   gap: var(--space-2);
   flex-wrap: wrap;
   font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  color: var(--hero-faint);
 }
 
 .breadcrumbList li:last-child {
-  color: var(--color-text-secondary);
+  color: var(--hero-dim);
 }
 
 .breadcrumbList a {
-  color: var(--color-text-tertiary);
+  color: var(--hero-faint);
   transition: color var(--transition-fast);
 }
 
 .breadcrumbList a:hover {
-  color: var(--color-text);
+  color: var(--hero-ink);
 }
 
-/* ── Hero ────────────────────────────────────────────────── */
-.hero {
-  padding-top: var(--space-20);
+/* ── Hero : texte + forme ────────────────────────────────── */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroShape {
+  height: clamp(280px, 45vh, 520px);
+}
+
+.heroLabel {
+  color: var(--accent-light);
 }
 
 .heroTitle {
@@ -37,19 +89,20 @@
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-4);
   max-width: 760px;
+  color: var(--hero-ink);
 }
 
 .heroTagline {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-light);
-  color: var(--color-text-secondary);
+  color: var(--hero-dim);
   margin-bottom: var(--space-5);
   font-style: italic;
 }
 
 .heroDesc {
   font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
+  color: var(--hero-dim);
   max-width: 620px;
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-6);
@@ -66,15 +119,15 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  background-color: var(--color-bg-surface);
-  border: 0.5px solid var(--color-border);
+  background-color: rgba(242, 242, 240, 0.05);
+  border: 1px solid var(--hero-line);
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-5);
 }
 
 .heroBadgeLabel {
   font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
+  color: var(--hero-faint);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -84,10 +137,76 @@
   font-weight: var(--font-weight-semibold);
 }
 
+.heroSocialProof {
+  margin-bottom: var(--space-6);
+}
+
+.heroSocialProof p {
+  color: var(--hero-faint);
+}
+
 .heroCtas {
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
+}
+
+.heroCtas :global(.btn--secondary) {
+  color: var(--hero-ink);
+  border-color: rgba(242, 242, 240, 0.22);
+}
+
+.heroCtas :global(.btn--secondary:hover) {
+  color: var(--hero-ink);
+  border-color: var(--accent);
+  background-color: rgba(79, 91, 255, 0.14);
+}
+
+/* Téléphone : forme pleine largeur au-dessus du texte ; le H1, la
+   tagline et le bouton principal remontent avant la description pour
+   rester visibles sans défiler. */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(var(--hero-offset) + var(--space-2));
+    padding-bottom: var(--space-12);
+  }
+
+  .breadcrumb { margin-bottom: 0; }
+
+  .heroGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .heroShape {
+    order: -1;
+    height: min(40svh, 340px);
+    margin: 0 calc(-1 * var(--space-5));
+  }
+
+  .heroLabel { order: 1; margin-bottom: var(--space-2); }
+  .heroTitleWrap { order: 2; }
+  .heroTaglineWrap { order: 3; }
+  .heroCtas { order: 4; margin-bottom: var(--space-8); }
+  .heroDescWrap { order: 5; }
+  .heroBadges { order: 6; }
+  .heroSocialProof { order: 7; margin-bottom: 0; }
+
+  .heroTitle { margin-bottom: var(--space-2); }
+  .heroTagline { font-size: var(--font-size-lg); margin-bottom: var(--space-5); }
+}
+
+/* Même seuil que .main-offset (global.css) : le décalage annulé doit
+   toujours égaler celui que le layout réserve, sinon une bande blanche
+   apparaît au-dessus du bandeau entre 641 et 768 px. */
+@media (max-width: 640px) {
+  .hero { --hero-offset: 68px; }
+}
+
+@media (max-width: 768px) and (max-height: 700px) {
+  .heroShape { height: 30svh; }
 }
 
 /* ── Intro ───────────────────────────────────────────────── */
@@ -373,11 +492,6 @@
   }
 }
 
-/* ── Social proof hero ────────────────────────────────────── */
-.heroSocialProof {
-  margin-bottom: var(--space-6);
-}
-
 /* ── Autres services ──────────────────────────────────────── */
 .autresServices {
   border-top: 0.5px solid var(--color-border);
@@ -385,7 +499,7 @@
 
 .autresGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-4);
   margin-top: var(--space-8);
 }

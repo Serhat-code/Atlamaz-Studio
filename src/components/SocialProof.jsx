@@ -1,9 +1,11 @@
 import styles from '../styles/SocialProof.module.css';
 
-export default function SocialProof({ variant = 'default' }) {
+const DEFAULT_TEXT = 'Réponse sous 48h · Premier échange sans engagement · Livraison en 1 à 12 semaines';
+
+export default function SocialProof({ variant = 'default', text = DEFAULT_TEXT }) {
   return (
-    <p className={`${styles.wrapper} ${styles[variant]}`} aria-label="Preuves sociales">
-      Réponse sous 48h · Premier échange sans engagement · Livraison en 5–14 jours
+    <p className={`${styles.wrapper} ${styles[variant]}`}>
+      {text}
     </p>
   );
 }
