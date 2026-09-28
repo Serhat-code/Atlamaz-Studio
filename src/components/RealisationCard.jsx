@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { buildSrcSet } from '../utils/images';
 import styles from '../styles/RealisationCard.module.css';
 
 export default function RealisationCard({ realisation: r, featured = false }) {
@@ -19,21 +18,18 @@ export default function RealisationCard({ realisation: r, featured = false }) {
       to={`/realisations/${r.slug}`}
       ref={cardRef}
       className={`${styles.card} ${featured ? styles.featured : ''}`}
-      style={!r.image ? { background: r.couleur } : undefined}
       onMouseMove={handleMouseMove}
       aria-label={`Voir le projet ${r.nom}`}
     >
-      {r.image && (
-        <img
-          src={r.image}
-          srcSet={buildSrcSet(r.image)}
-          sizes="(max-width: 640px) 100vw, 50vw"
-          alt={`Aperçu du site ${r.nom}`}
-          className={styles.bg}
-          loading="lazy"
-          decoding="async"
-        />
-      )}
+      <img
+        src={r.cover.image}
+        alt={r.cover.alt}
+        width={r.cover.width}
+        height={r.cover.height}
+        className={styles.bg}
+        loading="lazy"
+        decoding="async"
+      />
       <div className={styles.overlay} />
       <div className={styles.halo} />
 

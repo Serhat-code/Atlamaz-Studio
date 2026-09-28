@@ -82,7 +82,7 @@ export const fr = {
   // ── Réalisations (aperçu home) ─────────────────────────────
   homeRealisations: {
     eyebrow: 'Quelques exemples',
-    title:   'Trois projets, trois besoins différents.',
+    title:   'Nos derniers projets',
     allLink: 'Toutes les études de cas',
   },
 
@@ -131,9 +131,12 @@ export const fr = {
     },
     sections: {
       cta:      'Un projet similaire à concevoir ?',
-      defi:     'La contrainte technique',
-      approche: 'L\'architecture retenue',
-      resultat: 'Ce que ça donne en production',
+      fiche:     'Fiche technique',
+      contexte:  'Contexte',
+      defi:      'Défi',
+      reponse:   'Réponse',
+      construit: 'Ce qui a été construit',
+      capot:     'Sous le capot',
     },
     nextLabel: 'Projet suivant',
     ctaText:   'Décrivez-nous votre contrainte technique. Nous vous répondons sous 48h avec une approche concrète.',
