@@ -172,7 +172,7 @@ ${section(
 )}
 ${section(
   'Projets',
-  realisations.map((r) => link(`/realisations/${r.slug}`, r.nom, firstSentence(r.description))),
+  realisations.map((r) => link(`/realisations/${r.slug}`, r.nom, firstSentence(r.accroche))),
 )}
 ${section('Optional', [
   link('/mentions-legales', 'Mentions légales', "Informations légales sur l'éditeur du site."),

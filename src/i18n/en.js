@@ -82,7 +82,7 @@ export const en = {
   // ── Work (home preview) ─────────────────────────────────────
   homeRealisations: {
     eyebrow: 'A few examples',
-    title:   'Three projects, three different needs.',
+    title:   'Our latest projects',
     allLink: 'All case studies',
   },
 
@@ -131,9 +131,12 @@ export const en = {
     },
     sections: {
       cta:      'A similar project to scope?',
-      defi:     'The technical constraint',
-      approche: 'The architecture chosen',
-      resultat: 'How it performs in production',
+      fiche:     'Project sheet',
+      contexte:  'Context',
+      defi:      'Challenge',
+      reponse:   'Solution',
+      construit: 'What was built',
+      capot:     'Under the hood',
     },
     nextLabel: 'Next project',
     ctaText:   "Describe your technical constraint. We reply within 48h with a concrete approach.",

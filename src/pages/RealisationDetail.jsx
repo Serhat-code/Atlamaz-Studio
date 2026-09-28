@@ -2,46 +2,84 @@ import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { realisations } from '../data/realisations';
-import { buildSrcSet } from '../utils/images';
 import Reveal from '../components/Reveal';
 import ContactModal from '../components/ContactModal';
+import ImageLightbox from '../components/ImageLightbox';
 import styles from '../styles/RealisationDetail.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
-const OG_IMAGE = import.meta.env.VITE_OG_IMAGE;
+
+/**
+ * Liste ordonnée de toutes les captures de la page (cover, fonctionnalités,
+ * mobiles) : la visionneuse navigue dans cet ordre.
+ */
+function buildGallery(projet) {
+  return [
+    { src: projet.cover.image, alt: projet.cover.alt },
+    ...projet.fonctionnalites.map((f) => ({ src: f.image, alt: `${projet.nom} — ${f.titre}` })),
+    ...projet.mobiles.map((m) => ({ src: m.image, alt: `${projet.nom} sur mobile — ${m.legende}` })),
+  ];
+}
+
+function Shot({ src, alt, width, height, index, onOpen, className = '', eager = false }) {
+  return (
+    <button
+      type="button"
+      className={`${styles.shot} ${className}`.trim()}
+      onClick={() => onOpen(index)}
+      aria-label={`Agrandir : ${alt}`}
+    >
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={eager ? undefined : 'lazy'}
+        fetchPriority={eager ? 'high' : undefined}
+        decoding="async"
+      />
+    </button>
+  );
+}
 
 export default function RealisationDetail({ t }) {
   const { slug } = useParams();
   const { realisationDetail: rd } = t;
   const projet = realisations.find((p) => p.slug === slug);
   const [modalOpen, setModalOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const closeLightbox = () => setLightboxIndex(null);
 
   if (!projet) return <Navigate to="/realisations" replace />;
 
   const nextProjet = realisations[(realisations.indexOf(projet) + 1) % realisations.length];
+  const gallery = buildGallery(projet);
+  const featureOffset = 1;
+  const mobileOffset = featureOffset + projet.fonctionnalites.length;
 
   // Titre assemblé hors JSX : React 19 hisse <title> nativement et exige un
   // enfant texte unique. Écrit « {projet.nom} — Atlamaz Studio », le titre
   // partait en plusieurs enfants et le HTML statique recevait un <title> vide,
-  // les trois études de cas héritant alors des OG de l'accueil.
+  // les études de cas héritant alors des OG de l'accueil.
   const pageTitle = `${projet.nom} — ${projet.type} | Atlamaz Studio`;
   const canonicalUrl = `${BASE_URL}/realisations/${projet.slug}`;
+  const ogImage = `${BASE_URL}${projet.cover.image}`;
 
   return (
     <>
       <Helmet>
         <title>{pageTitle}</title>
-        <meta name="description" content={projet.description} />
+        <meta name="description" content={projet.accroche} />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={projet.description} />
+        <meta property="og:description" content={projet.accroche} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image" content={ogImage} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={projet.description} />
-        <meta name="twitter:image" content={OG_IMAGE} />
+        <meta name="twitter:description" content={projet.accroche} />
+        <meta name="twitter:image" content={ogImage} />
       </Helmet>
 
       {/* ── Breadcrumb ─────────────────────────────────────── */}
@@ -67,19 +105,20 @@ export default function RealisationDetail({ t }) {
           <Reveal delay={2}>
             <p className={styles.heroType}>{projet.type}</p>
           </Reveal>
+          <Reveal delay={2}>
+            <p className={styles.heroLead}>{projet.accroche}</p>
+          </Reveal>
 
           <Reveal delay={3} className={styles.heroMeta}>
-            {projet.technologies?.map((tech) => (
+            {projet.technologies.map((tech) => (
               <span key={tech} className={styles.tag}>{tech}</span>
             ))}
             <span className={styles.metaSep} aria-hidden="true" />
             <span className={styles.metaItem}>{projet.annee}</span>
-            <span className={styles.metaItem}>·</span>
-            <span className={styles.metaItem}>{projet.delaiLivraison}</span>
           </Reveal>
 
-          {projet.lien && projet.lien !== '#' && (
-            <Reveal delay={4}>
+          <Reveal delay={4}>
+            {projet.lien ? (
               <a
                 href={projet.lien}
                 target="_blank"
@@ -88,36 +127,46 @@ export default function RealisationDetail({ t }) {
               >
                 {rd.visitBtn} ↗
               </a>
-            </Reveal>
-          )}
+            ) : (
+              <span className={styles.liveOff}>{projet.lienLabel}</span>
+            )}
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Image principale ───────────────────────────────── */}
+      {/* ── Cover ──────────────────────────────────────────── */}
       <div className="container">
         <div className={styles.imageWrapper}>
-          {projet.image ? (
-            <img
-              src={projet.image}
-              srcSet={buildSrcSet(projet.image)}
-              sizes="(max-width: 1100px) 100vw, 1100px"
-              alt={`Aperçu du site ${projet.nom}`}
-              className={styles.image}
-              width="1100"
-              height="619"
-            />
-          ) : (
-            <div className={styles.imagePlaceholder} style={{ background: projet.couleur }} aria-hidden="true">
-              <span className={styles.placeholderText}>{projet.nom}</span>
-            </div>
-          )}
+          <Shot
+            src={projet.cover.image}
+            alt={projet.cover.alt}
+            width={projet.cover.width}
+            height={projet.cover.height}
+            index={0}
+            onOpen={setLightboxIndex}
+            className={styles.coverShot}
+            eager
+          />
         </div>
       </div>
 
-      {/* ── Stats inline ───────────────────────────────────── */}
+      {/* ── Fiche technique ────────────────────────────────── */}
+      <div className="container">
+        <h2 className={styles.srOnly}>{rd.sections.fiche}</h2>
+        <dl className={styles.fiche}>
+          {projet.fiche.map((f) => (
+            <div key={f.label} className={styles.ficheItem}>
+              <dt className={styles.ficheLabel}>{f.label}</dt>
+              <dd className={styles.ficheValue}>{f.valeur}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* ── Chiffres clés ──────────────────────────────────── */}
       <div className="container">
         <div className={styles.statsRow}>
-          {projet.stats?.map((s) => (
+          {projet.chiffres.map((s) => (
             <div key={s.label} className={styles.statItem}>
               <span className={styles.statValue}>{s.value}</span>
               <span className={styles.statLabel}>{s.label}</span>
@@ -126,33 +175,85 @@ export default function RealisationDetail({ t }) {
         </div>
       </div>
 
-      {/* ── Blocs narratifs ────────────────────────────────── */}
+      {/* ── Contexte / Défi / Réponse ──────────────────────── */}
       <div className="container">
         <div className={styles.narrative}>
-
-          {projet.defi && (
-            <Reveal className={styles.block}>
-              <div className={styles.blockLabel}>01 — {rd.sections?.defi || 'Le défi'}</div>
-              <p className={styles.blockText}>{projet.defi}</p>
+          {[
+            ['01', rd.sections.contexte, projet.contexte],
+            ['02', rd.sections.defi, projet.defi],
+            ['03', rd.sections.reponse, projet.reponse],
+          ].map(([num, label, text]) => (
+            <Reveal key={num} className={styles.block}>
+              <h2 className={styles.blockLabel}>{num} — {label}</h2>
+              <p className={styles.blockText}>{text}</p>
             </Reveal>
-          )}
-
-          {projet.approche && (
-            <Reveal className={styles.block}>
-              <div className={styles.blockLabel}>02 — {rd.sections?.approche || 'Notre approche'}</div>
-              <p className={styles.blockText}>{projet.approche}</p>
-            </Reveal>
-          )}
-
-          {projet.resultatNarratif && (
-            <Reveal className={styles.block}>
-              <div className={styles.blockLabel}>03 — {rd.sections?.resultat || 'Le résultat'}</div>
-              <p className={styles.blockText}>{projet.resultatNarratif}</p>
-            </Reveal>
-          )}
-
+          ))}
         </div>
       </div>
+
+      {/* ── Fonctionnalités ────────────────────────────────── */}
+      <section className={styles.featuresSection}>
+        <div className="container">
+          <Reveal>
+            <h2 className={styles.sectionTitle}>{rd.sections.construit}</h2>
+          </Reveal>
+          <div className={`${styles.features} ${projet.featuresPortrait ? styles.featuresPortrait : ''}`}>
+            {projet.fonctionnalites.map((f, i) => (
+              <figure key={f.image} className={styles.feature}>
+                <Shot
+                  src={f.image}
+                  alt={gallery[featureOffset + i].alt}
+                  width={f.width}
+                  height={f.height}
+                  index={featureOffset + i}
+                  onOpen={setLightboxIndex}
+                  className={projet.featuresPortrait ? styles.phoneShot : ''}
+                />
+                <figcaption>
+                  <h3 className={styles.featureTitle}>{f.titre}</h3>
+                  <p className={styles.featureText}>{f.texte}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          {projet.mobiles.length > 0 && (
+            <>
+              <div className={styles.phones}>
+                {projet.mobiles.map((m, i) => (
+                  <figure key={m.image} className={styles.phone}>
+                    <Shot
+                      src={m.image}
+                      alt={gallery[mobileOffset + i].alt}
+                      width={m.width}
+                      height={m.height}
+                      index={mobileOffset + i}
+                      onOpen={setLightboxIndex}
+                      className={styles.phoneShot}
+                    />
+                    <figcaption className={styles.phoneCaption}>{m.legende}</figcaption>
+                  </figure>
+                ))}
+              </div>
+              {projet.noteMobile && <p className={styles.phonesNote}>{projet.noteMobile}</p>}
+            </>
+          )}
+        </div>
+      </section>
+
+      {/* ── Sous le capot ──────────────────────────────────── */}
+      <section className={styles.underSection}>
+        <div className="container">
+          <Reveal>
+            <h2 className={styles.sectionTitle}>{rd.sections.capot}</h2>
+          </Reveal>
+          <ul className={styles.underList}>
+            {projet.sousLeCapot.map((item) => (
+              <li key={item} className={styles.underItem}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* ── Projet suivant ─────────────────────────────────── */}
       {nextProjet && nextProjet.slug !== projet.slug && (
@@ -165,9 +266,7 @@ export default function RealisationDetail({ t }) {
               <Link to={`/realisations/${nextProjet.slug}`} className={styles.nextCard}>
                 <div
                   className={styles.nextBg}
-                  style={nextProjet.image
-                    ? { backgroundImage: `url(${nextProjet.image})` }
-                    : { background: nextProjet.couleur }}
+                  style={{ backgroundImage: `url(${nextProjet.cover.image})` }}
                 />
                 <div className={styles.nextOverlay} />
                 <div className={styles.nextContent}>
@@ -196,6 +295,12 @@ export default function RealisationDetail({ t }) {
         </div>
       </section>
 
+      <ImageLightbox
+        images={gallery}
+        index={lightboxIndex}
+        onChange={setLightboxIndex}
+        onClose={closeLightbox}
+      />
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
