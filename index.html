@@ -43,8 +43,19 @@
 
     <!-- Umami Analytics — chargé dynamiquement par CookieBanner.jsx après consentement -->
 
+
+
     <!--app-head-->
   </head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVGGX37JB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PYVGGX37JB');
+</script>
   <body>
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/entry-client.jsx"></script>
