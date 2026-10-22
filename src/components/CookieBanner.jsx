@@ -1,38 +1,13 @@
 import { useEffect, useSyncExternalStore } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/CookieBanner.module.css';
-
-const UMAMI_SCRIPT = 'https://cloud.umami.is/script.js';
-const UMAMI_ID     = '6f36d276-5504-4d54-8365-80b3a7a22b8d';
-const CONSENT_KEY  = 'cookie_consent';
-
-// Le consentement vit dans le localStorage, inaccessible au moment du pré-rendu.
-// On l'expose en « external store » pour que le HTML statique soit produit comme
-// si la réponse était déjà donnée — la bannière n'y figure donc pas — puis que
-// le vrai état prenne le relais à l'hydratation, sans divergence.
-const listeners = new Set();
-
-function subscribeConsent(onChange) {
-  listeners.add(onChange);
-  return () => listeners.delete(onChange);
-}
-
-const readConsent = () => localStorage.getItem(CONSENT_KEY);
-const readConsentOnServer = () => 'accepted';
-
-function writeConsent(value) {
-  localStorage.setItem(CONSENT_KEY, value);
-  listeners.forEach((notify) => notify());
-}
-
-function loadUmami() {
-  if (document.querySelector(`script[data-website-id="${UMAMI_ID}"]`)) return;
-  const script = document.createElement('script');
-  script.defer = true;
-  script.src   = UMAMI_SCRIPT;
-  script.setAttribute('data-website-id', UMAMI_ID);
-  document.head.appendChild(script);
-}
+import {
+  readConsent,
+  readConsentOnServer,
+  subscribeConsent,
+  writeConsent,
+} from '../lib/consent';
+import { clearAnalyticsCookies, loadTrackers, trackersLoaded } from '../lib/trackers';
 
 export default function CookieBanner() {
   const consent = useSyncExternalStore(
@@ -42,13 +17,22 @@ export default function CookieBanner() {
   );
 
   useEffect(() => {
-    if (consent === 'accepted') loadUmami();
+    if (consent === 'accepted') loadTrackers();
   }, [consent]);
 
-  // Umami est chargé par l'effet ci-dessus dès que le consentement passe à
-  // « accepted » — inutile de l'appeler ici en plus.
+  // Les traceurs sont chargés par l'effet ci-dessus dès que le consentement
+  // passe à « accepted » — inutile de les appeler ici en plus.
   const handleAccept = () => writeConsent('accepted');
-  const handleRefuse = () => writeConsent('refused');
+
+  // Retrait d'un consentement donné plus tôt (via « Gérer mes cookies ») :
+  // un script déjà exécuté ne se décharge pas, on efface les cookies GA puis
+  // on recharge la page pour repartir sans aucun traceur.
+  const handleRefuse = () => {
+    const hadTrackers = trackersLoaded();
+    writeConsent('refused');
+    clearAnalyticsCookies();
+    if (hadTrackers) window.location.reload();
+  };
 
   // Seul un visiteur n'ayant jamais répondu voit la bannière.
   if (consent) return null;
@@ -57,7 +41,7 @@ export default function CookieBanner() {
     <div className={styles.banner} role="dialog" aria-label="Gestion des cookies">
       <div className={styles.inner}>
         <p className={styles.text}>
-          Nous utilisons Umami Analytics pour mesurer l'audience du site, sans cookies ni données personnelles.{' '}
+          Avec votre accord, nous mesurons l'audience du site avec Google Analytics (cookies) et Umami (sans cookie). Aucune publicité, aucun suivi publicitaire.{' '}
           <Link to="/politique-confidentialite" className={styles.policyLink}>
             Politique de confidentialité
           </Link>

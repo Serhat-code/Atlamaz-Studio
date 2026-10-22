@@ -41,21 +41,11 @@
 
     <!-- Schema.org : l'entité LocalBusiness est déclarée par Home.jsx (cf. prerender.js) -->
 
-    <!-- Umami Analytics — chargé dynamiquement par CookieBanner.jsx après consentement -->
-
-
+    <!-- Umami + Google Tag Manager (→ Google Analytics) : chargés par src/lib/trackers.js
+         après consentement uniquement — ne pas coller de gtag.js ici (double comptage) -->
 
     <!--app-head-->
   </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVGGX37JB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PYVGGX37JB');
-</script>
   <body>
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/entry-client.jsx"></script>

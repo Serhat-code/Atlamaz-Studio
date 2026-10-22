@@ -85,9 +85,9 @@ export default function MentionsLegales() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>6. Cookies</h2>
             <p>
-              Ce site utilise Umami Analytics, un outil de mesure d'audience sans cookies et sans
-              collecte de données personnelles. Un bandeau de consentement (Klaro) vous permet de
-              gérer vos préférences. Pour plus d'informations, voir notre{' '}
+              Avec votre accord, ce site mesure son audience avec Google Analytics (cookies) et
+              Umami (sans cookie). Un bandeau de consentement vous permet d'accepter ou de refuser,
+              puis de changer d'avis à tout moment via « Gérer mes cookies » en pied de page. Pour plus d'informations, voir notre{' '}
               <Link to="/politique-confidentialite" className={styles.link}>Politique de confidentialité</Link>.
             </p>
           </section>

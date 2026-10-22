@@ -104,30 +104,39 @@ export default function PolitiqueConfidentialite() {
 
           {/* ── Analytics ───────────────────────────────────────── */}
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>8. Analytics — Umami</h2>
+            <h2 className={styles.sectionTitle}>8. Mesure d'audience</h2>
             <p>
-              Ce site utilise <strong>Umami Analytics</strong>, un outil de mesure d'audience open source
-              qui <strong>ne dépose aucun cookie</strong> et ne collecte <strong>aucune donnée personnelle</strong>.
-              Les statistiques sont anonymisées et ne permettent pas d'identifier les visiteurs.
-              Umami est conforme au RGPD sans nécessiter de consentement.
+              Si vous l'acceptez via le bandeau de consentement, ce site utilise deux outils de mesure d'audience :
             </p>
+            <ul className={styles.list}>
+              <li>
+                <strong>Google Analytics 4</strong> (Google Ireland Ltd), chargé via Google Tag Manager.
+                Il dépose des cookies (<code>_ga</code>, <code>_ga_*</code>, durée maximale 13 mois) et collecte
+                des données de navigation pseudonymisées (pages vues, durée, appareil, provenance approximative).
+                Les signaux publicitaires sont désactivés. Des données peuvent être transférées aux États-Unis,
+                dans le cadre du Data Privacy Framework UE–États-Unis.
+              </li>
+              <li>
+                <strong>Umami Analytics</strong>, outil open source qui ne dépose aucun cookie et ne collecte
+                aucune donnée personnelle.
+              </li>
+            </ul>
             <p>
-              Vous pouvez néanmoins refuser la collecte analytics via le bandeau de consentement affiché
-              à votre première visite.
+              Aucun de ces outils n'est chargé avant votre accord. Si vous refusez, aucune mesure n'est effectuée.
             </p>
           </section>
 
           {/* ── Cookies ─────────────────────────────────────────── */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>9. Cookies et traceurs</h2>
-            <p>Ce site utilise un gestionnaire de consentement (<strong>Klaro</strong>) conforme aux recommandations de la CNIL.</p>
+            <p>Votre choix est mémorisé dans le stockage local de votre navigateur (clé <code>cookie_consent</code>), sans cookie.</p>
             <ul className={styles.list}>
-              <li><strong>Cookies strictement nécessaires :</strong> gestion de votre consentement (Klaro) — pas de consentement requis</li>
-              <li><strong>Cookies analytics :</strong> Umami (anonyme, sans cookie) — soumis à votre consentement</li>
+              <li><strong>Strictement nécessaire :</strong> mémorisation de votre choix de consentement — pas de consentement requis</li>
+              <li><strong>Mesure d'audience :</strong> cookies Google Analytics et Umami (sans cookie) — soumis à votre consentement</li>
             </ul>
             <p>
-              Vous pouvez modifier vos préférences à tout moment en cliquant sur "Gérer mes cookies"
-              (lien en pied de page).
+              Vous pouvez modifier ou retirer votre consentement à tout moment en cliquant sur « Gérer mes cookies »
+              (lien en pied de page). En cas de retrait, les cookies Google Analytics sont supprimés.
             </p>
           </section>
 
