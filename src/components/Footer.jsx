@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Footer.module.css';
+import { resetConsent } from '../lib/consent';
 
 export default function Footer({ t }) {
   const { footer } = t;
@@ -47,7 +48,13 @@ export default function Footer({ t }) {
         {/* Barre de bas de footer */}
         <div className={styles.bottom}>
           <span className={styles.copy}>{footer.copy}</span>
-          <span className={styles.copyRight}>Studio basé à Lyon</span>
+          <span className={styles.copyRight}>
+            Studio basé à Lyon
+            {' · '}
+            <button type="button" className={styles.cookieLink} onClick={resetConsent}>
+              Gérer mes cookies
+            </button>
+          </span>
         </div>
       </div>
     </footer>

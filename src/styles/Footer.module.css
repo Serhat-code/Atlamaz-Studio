@@ -109,6 +109,23 @@
   color: var(--color-text-secondary);
 }
 
+/* Bouton stylé en lien : rouvre la bannière de consentement */
+.cookieLink {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.cookieLink:hover {
+  color: var(--color-text);
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .grid {
